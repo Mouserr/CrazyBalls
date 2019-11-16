@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5639106621075957983}
   - component: {fileID: 1985258245712301035}
+  - component: {fileID: 1754402067761481460}
+  - component: {fileID: 3881208702855707988}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -80,6 +82,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1754402067761481460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267396512334768161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deeca36d2e3c11a4c94ce7d8f3f90a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurveType: 1
+  segmentsCount: 50
+  globalSpace: 0
+  ControlPoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: -0.02396524, y: -0.003331264, z: 15.753899}
+  - {x: 0.0320338, y: 0.030855417, z: 11.607424}
+  - {x: -0.019029021, y: 0.019248566, z: 5.351557}
+  - {x: 0.013032794, y: -0.021484455, z: -4.296877}
+  - {x: 0.026177606, y: 0.0068945885, z: -1.5234394}
+  - {x: -0.0066609383, y: -0.021457832, z: 1.8906231}
+  - {x: 0, y: 0, z: 0}
+--- !u!114 &3881208702855707988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267396512334768161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a702e210ad9943e40a4c057269e33843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curveVisualizer: {fileID: 1754402067761481460}
+  time: 0.5
 --- !u!1 &1632638550964922690
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HPBarOffset: -0.35
   HealthPoints: 2
+  DamageEffect: {fileID: 3881208702855707988}
 --- !u!50 &-5221261083590762559
 Rigidbody2D:
   serializedVersion: 4

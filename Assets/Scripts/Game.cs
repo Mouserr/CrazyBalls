@@ -42,7 +42,7 @@ namespace Assets.Scripts
             {
                 var enemy = _enemiesPool.GetObject();
                 enemy.transform.SetParent(transform);
-                enemy.transform.position = new Vector3(Random.Range(-2,2), Random.Range(-2, 3));
+                enemy.transform.position = new Vector3(Random.Range(-2f,2f), Random.Range(-2f, 3f));
                 enemy.gameObject.SetActive(true);
                 _enemies.Add(enemy);
                 var hpBar = _enemiesHPPool.GetObject();
@@ -50,7 +50,7 @@ namespace Assets.Scripts
                 hpBar.transform.localScale = Vector3.one;
                 hpBar.transform.position = DragController.Instance.GetCanvasPosition(enemy.transform.position + new Vector3(0, enemy.HPBarOffset));
                 hpBar.gameObject.SetActive(true);
-                hpBar.SetValue(1);
+                hpBar.SetValue(1, true);
 
                 void OnHealthOnChanged(Stat s) => hpBar.SetValue(s.Progress);
 

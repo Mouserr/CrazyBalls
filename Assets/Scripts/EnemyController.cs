@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections;
-using Assets.Scripts.Core.Scenarios;
-using Assets.Scripts.UI;
+using System.Collections.Generic;
+using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
+using Assets.Scripts.Core.Tween;
+using Assets.Scripts.Core.Tween.TweenObjects;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class EnemyController : MonoBehaviour, IBall
     {
+        private bool _active;
+        private ISyncScenarioItem _collisionReaction;
+
         public float HPBarOffset = -0.35f;
         public int HealthPoints = 10;
         public event Action Death;
+        public DamageEffect DamageEffect;
 
         public int Damage { get; }
         public Stat Health { get; set; }
@@ -18,6 +25,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             Health = new Stat { MaxValue = HealthPoints, CurrentValue = HealthPoints };
+            _active = true;
         }
 
         public void Die()
@@ -27,21 +35,40 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            StartCoroutine(PerformHit(collision));
-        }
-
-        private IEnumerator PerformHit(Collision2D collision)
-        {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
-            TimeController.StartSlowMo();
-            yield return new WaitForSecondsRealtime(0.1f);
-            TimeController.StopSlowMo();
-            
-            if (DamageSystem.ApplyDamage(collision.transform.GetComponent<IBall>(), this))
+            if (!_active)
             {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
-                Game.Instance.Destroy(this);
+                return;
             }
+
+            _collisionReaction?.Stop();
+            _collisionReaction = new SyncScenario(new List<ISyncScenarioItem>
+                {
+                    new ActionScenarioItem(() =>
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
+                        if (DamageSystem.ApplyDamage(collision.transform.GetComponent<IBall>(), this))
+                        {
+                            _active = false;
+                        }
+                    }),
+                    DamageEffect.GetExplosionItem(0.3f),
+                    new ActionScenarioItem(() =>
+                    {
+                        if (!_active)
+                        {
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
+                            Game.Instance.Destroy(this);
+                        }
+                    }),
+                    new ScaleTween(gameObject, Vector3.one, 1f, EaseType.Linear)
+                        { TimeManager = GameSettings.AnimaitonTimeManager },
+
+                }, (scenario, force) =>
+                {
+                    transform.localScale = Vector3.one;
+                })
+                { TimeManager = GameSettings.AnimaitonTimeManager };
+            _collisionReaction.Play();
         }
     }
 }

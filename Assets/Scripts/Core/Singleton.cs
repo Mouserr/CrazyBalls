@@ -39,7 +39,7 @@ namespace Assets.Scripts.Core
                             DontDestroyOnLoad(singleton);
 
                             instance = singleton.AddComponent<T>();
-                            instance.init();
+                            instance.Init();
 
 
                             Debug.Log("An instance of " + typeof(T) + " is needed in the scene, so '" + singleton + "' was created with DontDestroyOnLoad.");
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Core
             }
         }
 
-        protected virtual void init() { }
+        protected virtual void Init() { }
 
         protected virtual void OnDestroy()
         {

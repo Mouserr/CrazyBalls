@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.Tween;
+using Assets.Scripts.Core.Tween.TweenObjects;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.UI
@@ -7,6 +10,7 @@ namespace Assets.Scripts.UI
     {
         private Vector2 _backgroundSize;
         private float _currentValue;
+        private ISyncScenarioItem _scenario;
 
         [SerializeField]
         private Image _foreground;
@@ -19,15 +23,29 @@ namespace Assets.Scripts.UI
             UpdateView();
         }
 
-        public void SetValue(float value)
+        public void SetValue(float value, bool instant = false)
         {
             _currentValue = Mathf.Clamp01(value);
-            UpdateView();
+            if (instant)
+            {
+                UpdateView();
+            }
+            else
+            {
+                _scenario?.Stop();
+                _scenario = new SizeTween(_foreground.rectTransform, GetEndSize(), 0.3f, EaseType.Linear);
+                _scenario.Play();
+            }
         }
 
         private void UpdateView()
         {
-            _foreground.rectTransform.sizeDelta = new Vector2(_backgroundSize.x * _currentValue, _foreground.rectTransform.sizeDelta.y);
+            _foreground.rectTransform.sizeDelta = GetEndSize();
+        }
+
+        private Vector2 GetEndSize()
+        {
+            return new Vector2(_backgroundSize.x * _currentValue, _foreground.rectTransform.sizeDelta.y);
         }
     }
 }
