@@ -23,6 +23,12 @@ ExportedObj/
 *.pdb
 *.opendb
 
+################################################################################
+# FMOD Integration
+################################################################################
+fmod.log
+fmod_editor.log
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
