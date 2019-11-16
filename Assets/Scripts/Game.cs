@@ -33,7 +33,15 @@ namespace Assets.Scripts
 
         private void Start()
         {
+            SpawnBall();
             SpawnEnemies();
+        }
+
+        private void SpawnBall()
+        {
+            var gokiObj = GameObject.Find("Ball");
+            var model = AlliesCharacterFactory.Create(AllyCharacterType.AllyType0, 1);
+            gokiObj.GetComponent<AllyController>().SetCharacter(model);
         }
 
         private void SpawnEnemies()
@@ -43,6 +51,8 @@ namespace Assets.Scripts
                 var enemy = _enemiesPool.GetObject();
                 enemy.transform.SetParent(transform);
                 enemy.transform.position = new Vector3(Random.Range(-2,2), Random.Range(-2, 3));
+                var model = EnemiesCharacterFactory.Create(EnemyCharacterType.EnemyType0, 1);
+                enemy.SetCharacter(model);
                 enemy.gameObject.SetActive(true);
                 _enemies.Add(enemy);
                 var hpBar = _enemiesHPPool.GetObject();
@@ -52,7 +62,7 @@ namespace Assets.Scripts
                 hpBar.gameObject.SetActive(true);
                 hpBar.SetValue(1);
 
-                void OnHealthOnChanged(Stat s) => hpBar.SetValue(s.Progress);
+                void OnHealthOnChanged(CharacterStat s) => hpBar.SetValue(s.Progress);
 
                 enemy.Health.Changed += OnHealthOnChanged;
 

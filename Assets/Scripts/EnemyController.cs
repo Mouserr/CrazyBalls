@@ -6,18 +6,27 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class EnemyController : MonoBehaviour, ICharacter
+    public class EnemyController : MonoBehaviour
     {
+        private Character _character;
+
         public float HPBarOffset = -0.35f;
         public int HealthPoints = 10;
         public event Action Death;
 
-        public int Damage { get; }
-        public Stat Health { get; set; }
+        public CharacterStat Energy => _character.Stats[CharacterStatType.Energy];
+        public CharacterStat Damage => _character.Stats[CharacterStatType.PassiveDamage];
+        public CharacterStat Health => _character.Stats[CharacterStatType.Health];
+        public Character Character => _character;
+
+        public void SetCharacter(Character character)
+        {
+            _character = _character??character;
+        }
 
         private void Awake()
         {
-            Health = new Stat { MaxValue = HealthPoints, CurrentValue = HealthPoints };
+         
         }
 
         public void Die()
@@ -36,8 +45,10 @@ namespace Assets.Scripts
             TimeController.StartSlowMo();
             yield return new WaitForSecondsRealtime(0.1f);
             TimeController.StopSlowMo();
-            
-            if (DamageSystem.ApplyDamage(collision.transform.GetComponent<ICharacter>(), this))
+
+            var attacker = collision.transform.GetComponent<AllyController>().Character;
+
+            if (DamageSystem.ApplyDamage(attacker, _character))
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
                 Game.Instance.Destroy(this);

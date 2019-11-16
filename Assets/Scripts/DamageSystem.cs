@@ -4,8 +4,8 @@
     {
         public static bool ApplyDamage(ICharacter attacker, ICharacter defender)
         {
-            defender.Health.CurrentValue -= attacker.Damage;
-            return defender.Health.CurrentValue <= 0;
+            defender.Stats[CharacterStatType.Health].AddValue( - attacker.Stats[CharacterStatType.PassiveDamage].CurrentValue);
+            return defender.Stats[CharacterStatType.Health].CurrentValue <= 0;
         }
     }
 }
