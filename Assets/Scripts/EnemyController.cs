@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using Assets.Scripts.Core.Scenarios;
 using Assets.Scripts.UI;
 using UnityEngine;
 
@@ -25,8 +27,19 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            StartCoroutine(PerformHit(collision));
+        }
+
+        private IEnumerator PerformHit(Collision2D collision)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
+            TimeController.StartSlowMo();
+            yield return new WaitForSecondsRealtime(0.1f);
+            TimeController.StopSlowMo();
+            
             if (DamageSystem.ApplyDamage(collision.transform.GetComponent<IBall>(), this))
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
                 Game.Instance.Destroy(this);
             }
         }
