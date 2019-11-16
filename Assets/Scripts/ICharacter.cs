@@ -1,6 +1,6 @@
 ﻿namespace Assets.Scripts
 {
-    public interface IBall
+    public interface ICharacter
     {
         Stat Health { get; set; }
         int Damage { get; }

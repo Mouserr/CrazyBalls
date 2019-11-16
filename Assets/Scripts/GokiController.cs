@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts
 {
-    public class GokiController : MonoBehaviour, IBall
+    public class GokiController : MonoBehaviour, ICharacter
     {
         [SerializeField]
         private int _damage;

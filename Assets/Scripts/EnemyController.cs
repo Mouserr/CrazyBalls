@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class EnemyController : MonoBehaviour, IBall
+    public class EnemyController : MonoBehaviour, ICharacter
     {
         public float HPBarOffset = -0.35f;
         public int HealthPoints = 10;
@@ -37,7 +37,7 @@ namespace Assets.Scripts
             yield return new WaitForSecondsRealtime(0.1f);
             TimeController.StopSlowMo();
             
-            if (DamageSystem.ApplyDamage(collision.transform.GetComponent<IBall>(), this))
+            if (DamageSystem.ApplyDamage(collision.transform.GetComponent<ICharacter>(), this))
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
                 Game.Instance.Destroy(this);
