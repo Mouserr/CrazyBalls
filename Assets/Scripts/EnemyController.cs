@@ -9,8 +9,9 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class EnemyController : MonoBehaviour, IBall
+    public class EnemyController : MonoBehaviour
     {
+        private Character _character;
         private bool _active;
         private ISyncScenarioItem _collisionReaction;
 
@@ -19,12 +20,14 @@ namespace Assets.Scripts
         public event Action Death;
         public DamageEffect DamageEffect;
 
-        public int Damage { get; }
-        public Stat Health { get; set; }
+        public CharacterStat Energy => _character.Stats[CharacterStatType.Energy];
+        public CharacterStat Damage => _character.Stats[CharacterStatType.PassiveDamage];
+        public CharacterStat Health => _character.Stats[CharacterStatType.Health];
+        public Character Character => _character;
 
-        private void Awake()
+        public void SetCharacter(Character character)
         {
-            Health = new Stat { MaxValue = HealthPoints, CurrentValue = HealthPoints };
+            _character = _character??character;
             _active = true;
         }
 
@@ -35,10 +38,7 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (!_active)
-            {
-                return;
-            }
+            var attacker = collision.transform.GetComponent<AllyController>().Character;
 
             _collisionReaction?.Stop();
             _collisionReaction = new SyncScenario(new List<ISyncScenarioItem>
@@ -46,7 +46,7 @@ namespace Assets.Scripts
                     new ActionScenarioItem(() =>
                     {
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
-                        if (DamageSystem.ApplyDamage(collision.transform.GetComponent<IBall>(), this))
+                        if (DamageSystem.ApplyDamage(attacker, _character))
                         {
                             _active = false;
                         }

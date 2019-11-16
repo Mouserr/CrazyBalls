@@ -304,12 +304,6 @@ Transform:
   m_Father: {fileID: 182619837}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &291399773 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6692883943463304648, guid: 15991be97cd47ef4fa0609de12e6be1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6692883943182947733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!50 &291399774 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6692883943463304651, guid: 15991be97cd47ef4fa0609de12e6be1e,
@@ -322,42 +316,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6692883943182947733}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &291399779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291399773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a5acf3d462a93648a140e4d74219640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
---- !u!114 &291399780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291399773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/WallHit
-  PlayEvent: 9
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &467313400
 GameObject:
   m_ObjectHideFlags: 0
