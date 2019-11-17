@@ -31,7 +31,7 @@ namespace Assets.Scripts
             _enemiesHPPool = new GameObjectPool<ProgressBar>(_container, _enemyHPPrefab, 5);
         }
 
-        private void Start()
+        public void StartGame()
         {
             SpawnBall();
             SpawnEnemies();
@@ -81,6 +81,14 @@ namespace Assets.Scripts
         {
             enemy.Die();
             _enemiesPool.ReleaseObject(enemy);
+        }
+
+        public void Clear()
+        {
+            foreach (var enemy in _enemies)
+            {
+                Destroy(enemy);
+            }
         }
     }
 }
