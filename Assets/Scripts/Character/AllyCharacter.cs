@@ -3,28 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.ScriptableObjects;
 
 namespace Assets.Scripts
 {
+
     public class AllyCharacter : Character
     {
-        public AllyCharacterType CharacterType { get; private set; }
-
-        public AllyCharacter(AllyCharacterType characterType, int level)
+        public AllyCharacter(AllyCharacterData characterData)
         {
-            CharacterType = characterType;
-            Level = level;
-            LoadStats();
-        }
+            Id = characterData.Id;
+            Name = characterData.Name;
+            Description = characterData.Description;
+            Icon = characterData.Icon;
 
-        private void LoadStats()
-        {
-            //todo: load from somewhere
-
-            var health = new CharacterStat(CharacterStatType.Health, 10, 10);
+            var health = new CharacterStat(CharacterStatType.Health, characterData.Health, characterData.Health);
             this.RegisterStat(health);
 
-            var passiveDamage = new CharacterStat(CharacterStatType.PassiveDamage, 5, 5);
+            var energy = new CharacterStat(CharacterStatType.Energy, characterData.Energy, characterData.Energy);
+            this.RegisterStat(energy);
+
+            var passiveDamage = new CharacterStat(CharacterStatType.PassiveDamage, characterData.PassiveDamage, characterData.PassiveDamage);
             this.RegisterStat(passiveDamage);
         }
     }

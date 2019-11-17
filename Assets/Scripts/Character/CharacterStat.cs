@@ -2,6 +2,7 @@
 
 namespace Assets.Scripts
 {
+    [Serializable]
     public class CharacterStat
     {
         private CharacterStatType _type;

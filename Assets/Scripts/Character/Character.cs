@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
     public abstract class Character: ICharacter
     {
-        public string Name { get; }
-        public string Description { get; }
+        public string Id { get; protected set; }
+        public string Name { get; protected set; }
+        public string Description { get; protected set; }
+        public string Icon { get; protected set; }
         public int Level { get; set; }
+
         public Dictionary<CharacterStatType, CharacterStat> Stats { get; }
         public Dictionary<CharacterAbilityType, CharacterAbility> Abilities { get; }
+       
         public void RegisterStat(CharacterStat stat)
         {
             if (Stats.ContainsKey(stat.Type)) return;

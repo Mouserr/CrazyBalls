@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9f55c6952f4c247b8009314403df68, type: 3}
+  m_Name: Tipsy
+  m_EditorClassIdentifier: 
+  id: f81a0605-3ced-497c-af83-8231c2ff3728
+  name: Tipsy
+  description: Just a little bit Tipsy
+  icon: 
+  image: 
+  health: 100
+  energy: 100
+  passiveDamage: 10

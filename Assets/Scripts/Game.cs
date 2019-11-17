@@ -1,7 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Core;
 using Assets.Scripts.Core.Pools;
 using Assets.Scripts.UI;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts
 {
@@ -33,6 +38,7 @@ namespace Assets.Scripts
 
         public void StartGame()
         {
+            GameDictionary.Load();
             SpawnBall();
             SpawnEnemies();
         }
@@ -40,7 +46,13 @@ namespace Assets.Scripts
         private void SpawnBall()
         {
             var gokiObj = GameObject.Find("Ball");
-            var model = AlliesCharacterFactory.Create(AllyCharacterType.AllyType0, 1);
+
+            var data = GameDictionary.AllyCharactersDictionary.FirstOrDefault();
+            if (data == null)
+            {
+                throw new ArgumentNullException("data cannot be null");
+            }
+            var model = new AllyCharacter(data);
             gokiObj.GetComponent<AllyController>().SetCharacter(model);
         }
 
@@ -51,7 +63,14 @@ namespace Assets.Scripts
                 var enemy = _enemiesPool.GetObject();
                 enemy.transform.SetParent(transform);
                 enemy.transform.position = new Vector3(Random.Range(-2f,2f), Random.Range(-2f, 3f));
-                var model = EnemiesCharacterFactory.Create(EnemyCharacterType.EnemyType0, 1);
+
+                var data = GameDictionary.EnemyCharactersDictionary.FirstOrDefault();
+                if (data == null)
+                {
+                    throw new ArgumentNullException("data cannot be null");
+                }
+                var model = new EnemyCharacter(data);
+
                 enemy.SetCharacter(model);
                 enemy.gameObject.SetActive(true);
                 _enemies.Add(enemy);
