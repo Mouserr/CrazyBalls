@@ -1,17 +1,16 @@
 ﻿using System;
-using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptableObjects
+namespace Assets.Scripts.Configs
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "NewAllyCharacter", menuName = "Ally Character")]
-    public class AllyCharacterData:ScriptableObject
+    [CreateAssetMenu(fileName = "CharacterData", menuName = "Character Data")]
+    public class CharacterData : ScriptableObject
     {
         [SerializeField]
         private string id;
         [SerializeField]
-        private string name;
+        private string displayName;
         [SerializeField]
         private string description;
         [SerializeField]
@@ -24,8 +23,16 @@ namespace Assets.Scripts.ScriptableObjects
         private int energy;
         [SerializeField]
         private int passiveDamage;
+        [SerializeField]
+        private int maxSpeed;
+        [SerializeField]
+        [Tooltip("When ally hits this character")]
+        private AbilityConfig passiveAbility;
+        [SerializeField]
+        [Tooltip("Manually casting")]
+        private ActiveAbilityConfig activeAbility;
 
-        public AllyCharacterData()
+        public CharacterData()
         {
             id = Guid.NewGuid().ToString();
         }
@@ -38,5 +45,9 @@ namespace Assets.Scripts.ScriptableObjects
         public int Health => health;
         public int Energy => energy;
         public int PassiveDamage => passiveDamage;
+        public int MaxSpeed => maxSpeed;
+
+        public AbilityConfig PassiveAbility => passiveAbility;
+        public ActiveAbilityConfig ActiveAbility => activeAbility;
     }
 }

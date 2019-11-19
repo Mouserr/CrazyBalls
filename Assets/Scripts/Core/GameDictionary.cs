@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assets.Scripts.ScriptableObjects;
+using Assets.Scripts.Configs;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,8 +13,8 @@ namespace Assets.Scripts.Core
  
     public static class GameDictionary
     {
-        public static List<AllyCharacterData> AllyCharactersDictionary = new List<AllyCharacterData>();
-        public static List<EnemyCharacterData>EnemyCharactersDictionary = new List<EnemyCharacterData>();
+        public static List<ActiveCharacterData> AllyCharactersDictionary = new List<ActiveCharacterData>();
+        public static List<CharacterData>EnemyCharactersDictionary = new List<CharacterData>();
         public static void Load()
         {
             LoadAllies();
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Core
 
         private  static void LoadAllies()
         {
-            AllyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<AllyCharacterData>().ToList();
+            AllyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<ActiveCharacterData>().ToList();
             //foreach (var characterData in charactersData)
             //{
             //    var character = new AllyCharacter(characterData);
@@ -34,7 +34,7 @@ namespace Assets.Scripts.Core
 
         private static void LoadEnemies()
         {
-            EnemyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<EnemyCharacterData>().ToList();
+            EnemyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<CharacterData>().ToList();
             //foreach (var characterData in charactersData)
             //{
             //    var character = new EnemyCharacter(characterData);

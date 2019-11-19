@@ -1,36 +1,51 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Assets.Scripts
 {
+    // TODO: вынести отрисовку стрелки для реализации сетевого режима
     public class DragController : MonoBehaviour
     {
         private static DragController _instance;
         private bool _isPressed;
         private Vector2 _mouseInitialPosition;
         private Vector2 _prevPosition;
-        private Vector3 _canvasBallPosition;
+        private Vector3 _casterPosition;
+        private bool _isActive;
 
         public Camera Camera;
-        public Rigidbody2D Ball;
         public Canvas Canvas;
         public Image Arrow;
-        public float MaxSpeed = 1;
+        
+        public event Action<Vector2, float> Swipe; 
 
         public static DragController Instance
         {
             get { return _instance ?? (_instance = Object.FindObjectOfType<DragController>()); }
         }
 
+        public void Activate(Vector2 position)
+        {
+            _casterPosition = position;
+            _isActive = true;
+        }
+
         void Update()
         {
+            if (!_isActive)
+            {
+                return;
+            }
+
             if (!_isPressed && Input.GetMouseButtonDown(0))
             {
                 _isPressed = true;
                 _mouseInitialPosition = Input.mousePosition;
                 Arrow.enabled = true;
             
-                Arrow.transform.position = GetCanvasPosition(Ball.transform.position);
+                Arrow.transform.position = GetCanvasPosition(_casterPosition);
                 Arrow.fillAmount = 0;
                 return;
             }
@@ -67,7 +82,8 @@ namespace Assets.Scripts
         private void ProceedDrag()
         {
             var delta = _mouseInitialPosition - _prevPosition;
-            Ball.velocity = delta.normalized * (MaxSpeed * Arrow.fillAmount);
+            _isActive = false;
+            Swipe?.Invoke(delta.normalized, Arrow.fillAmount);
         }
     }
 }

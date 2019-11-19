@@ -1,19 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Configs;
+using Assets.Scripts.Core.SyncCodes.SyncScenario;
 
 namespace Assets.Scripts
 {
-   public abstract class CharacterAbility
+    public class CharacterAbility
    {
-       private readonly CharacterAbilityType _type;
-       public CharacterAbilityType Type => _type;
+       protected readonly ICharacter caster;
+       protected ISyncScenarioItem castScenario;
 
-       public CharacterAbility(CharacterAbilityType type)
+       public float CurrentCooldown { get; protected set; }
+       public int Level { get; private set; }
+       public AbilityConfig Config { get; private set; }
+
+        public bool CouldCast
        {
-           _type = type;
+           get { return CurrentCooldown <= 0; }
        }
-   }
+
+       public CharacterAbility(AbilityConfig config, ICharacter caster)
+       {
+           Config = config;
+           this.caster = caster;
+           Level = 0;
+           Config.Register();
+       }
+
+       public virtual void Apply(CastContext castContext)
+       {
+           castScenario = Config.Apply(castContext, Level, caster);
+       }
+    }
 }

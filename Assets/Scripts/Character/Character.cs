@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Configs;
 
 namespace Assets.Scripts
 {
-    public abstract class Character: ICharacter
+    public class Character: ICharacter
     {
         public string Id { get; protected set; }
         public string Name { get; protected set; }
@@ -12,7 +13,10 @@ namespace Assets.Scripts
         public int Level { get; set; }
 
         public Dictionary<CharacterStatType, CharacterStat> Stats { get; }
-        public Dictionary<CharacterAbilityType, CharacterAbility> Abilities { get; }
+        public List<CharacterAbility> Abilities { get; }
+
+        public CharacterActiveAbility ActiveAbility { get; }
+        public CharacterAbility PassiveAbility { get; }
        
         public void RegisterStat(CharacterStat stat)
         {
@@ -20,16 +24,29 @@ namespace Assets.Scripts
             Stats.Add(stat.Type, stat);
         }
 
-        public void RegisterAbility(CharacterAbility ability)
-        {
-            if (Abilities.ContainsKey(ability.Type)) return;
-            Abilities.Add(ability.Type, ability);
-        }
-
-        public Character()
+        public Character(CharacterData characterData)
         {
             Stats = new Dictionary<CharacterStatType, CharacterStat>();
-            Abilities = new Dictionary<CharacterAbilityType, CharacterAbility>();
+            Abilities = new List<CharacterAbility>();
+            Id = characterData.Id;
+            Name = characterData.Name;
+            Description = characterData.Description;
+            Icon = characterData.Icon;
+
+            var health = new CharacterStat(CharacterStatType.Health, characterData.Health, characterData.Health);
+            this.RegisterStat(health);
+
+            var energy = new CharacterStat(CharacterStatType.Energy, characterData.Energy, characterData.Energy);
+            this.RegisterStat(energy);
+
+            var passiveDamage = new CharacterStat(CharacterStatType.PassiveDamage, characterData.PassiveDamage, characterData.PassiveDamage);
+            this.RegisterStat(passiveDamage);
+
+            var maxSpeed = new CharacterStat(CharacterStatType.MaxSpeed, characterData.MaxSpeed, characterData.MaxSpeed);
+            this.RegisterStat(maxSpeed);
+
+            ActiveAbility = new CharacterActiveAbility(characterData.ActiveAbility, this);
+            PassiveAbility = new CharacterAbility(characterData.PassiveAbility, this);
         }
     }
 }

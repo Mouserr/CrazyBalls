@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Core;
 using Assets.Scripts.Core.Pools;
+using Assets.Scripts.TeamControllers;
 using Assets.Scripts.UI;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -25,6 +26,8 @@ namespace Assets.Scripts
         [SerializeField]
         private ProgressBar _enemyHPPrefab;
 
+        private Dictionary<int, TeamController> _controllers = new Dictionary<int, TeamController>();
+
         public static Game Instance
         {
             get { return _instance ?? (_instance = Object.FindObjectOfType<Game>()); }
@@ -36,11 +39,15 @@ namespace Assets.Scripts
             _enemiesHPPool = new GameObjectPool<ProgressBar>(_container, _enemyHPPrefab, 5);
         }
 
-        public void StartGame()
+        public void PrepareGame(TeamController firstController, TeamController secondController)
         {
-            GameDictionary.Load();
-            SpawnBall();
-            SpawnEnemies();
+            _controllers[firstController.PlayerId] = firstController;
+            _controllers[secondController.PlayerId] = secondController;
+        }
+
+        public void SetupUpTeam(List<ICharacter> characters, int playerId)
+        {
+
         }
 
         private void SpawnBall()
@@ -53,7 +60,7 @@ namespace Assets.Scripts
                 throw new ArgumentNullException("data cannot be null");
             }
             var model = new AllyCharacter(data);
-            gokiObj.GetComponent<AllyController>().SetCharacter(model);
+            gokiObj.GetComponent<UnitController>().SetCharacter(model);
         }
 
         private void SpawnEnemies()
@@ -96,10 +103,10 @@ namespace Assets.Scripts
             }
         }
 
-        public void Destroy(EnemyController enemy)
+        public void Destroy(UnitController unit)
         {
-            enemy.Die();
-            _enemiesPool.ReleaseObject(enemy);
+            unit.Die();
+            _enemiesPool.ReleaseObject(unit);
         }
 
         public void Clear()

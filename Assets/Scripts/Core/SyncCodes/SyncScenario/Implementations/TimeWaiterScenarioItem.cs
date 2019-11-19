@@ -78,22 +78,22 @@ namespace Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations
 
 		private IEnumerator timerCoroutine()
         {
-            float localTimeout = timeout;
+            float timeLeft = timeout;
 
-            while (localTimeout > 0)
+            while (timeLeft > 0)
             {
                 yield return null;
 
 	            if (state == State.Processing)
 	            {
-		            localTimeout -= timeManager.GetDeltaTime();
-		            process(localTimeout);
+		            timeLeft -= timeManager.GetDeltaTime();
+		            process(timeLeft);
 	            }
             }
             this.Stop();
         }
 
-	    protected virtual void process(float localTimeout)
+	    protected virtual void process(float timeLeft)
 	    {
 	    }
 

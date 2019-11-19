@@ -18,10 +18,10 @@ namespace Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations
 			this.action = action;
 		}
 
-		protected override void process(float localTimeout)
+		protected override void process(float timeLeft)
 		{
-			base.process(localTimeout);
-			action.Invoke(localTimeout);
+			base.process(timeLeft);
+			action.Invoke(timeLeft);
 		}
 	}
 }

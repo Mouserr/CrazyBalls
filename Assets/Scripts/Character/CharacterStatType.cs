@@ -8,6 +8,7 @@ namespace Assets.Scripts
         Undefined = 0,
         Health,
         Energy,
-        PassiveDamage
+        PassiveDamage,
+        MaxSpeed
     }
 }

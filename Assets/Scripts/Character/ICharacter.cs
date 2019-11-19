@@ -7,8 +7,7 @@ namespace Assets.Scripts
         string Name { get; }
         string Description { get; }
         Dictionary<CharacterStatType, CharacterStat> Stats { get; }
-        Dictionary<CharacterAbilityType, CharacterAbility> Abilities { get; }
+        List<CharacterAbility> Abilities { get; }
         void RegisterStat(CharacterStat stat);
-        void RegisterAbility(CharacterAbility ability);
     }
 }
