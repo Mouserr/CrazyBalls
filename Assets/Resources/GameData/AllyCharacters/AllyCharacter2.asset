@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7526636678d1f242b659e5fccc39339, type: 3}
-  m_Name: NewEnemyCharacter
+  m_Script: {fileID: 11500000, guid: 3b6399b2bb72a2a418e152635a667deb, type: 3}
+  m_Name: AllyCharacter2
   m_EditorClassIdentifier: 
-  id: bff6e1d3-cf60-4088-bb83-8910391275e1
-  name: ZiL
-  description: Very old soviet frige
+  id: d9ea3268-1093-4912-9aa9-895172c0d77d
+  name: AllyCharacter2
+  description: 
   icon: 
   image: 
-  health: 100
-  energy: 100
-  passiveDamage: 10
+  health: 0
+  energy: 0
+  passiveDamage: 0

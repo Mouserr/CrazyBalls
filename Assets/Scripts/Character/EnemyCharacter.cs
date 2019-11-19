@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.ScriptableObjects;
-
+﻿
 namespace Assets.Scripts
 {
     public class EnemyCharacter: Character

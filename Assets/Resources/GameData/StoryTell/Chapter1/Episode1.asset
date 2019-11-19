@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a833a352fc6bd0438adb54b72823a1f, type: 3}
+  m_Name: Episode1
+  m_EditorClassIdentifier: 
+  name: Episode1
+  description: Episode1 descr
+  mapPointPosition: {x: 0, y: 0}
+  enemies:
+  - {fileID: 11400000, guid: 5158ea51eabe5cf48bb5987cc348b11c, type: 2}
+  bonusesWin:
+  - {fileID: 11400000, guid: 26ecdb7aaca2ea747ae6816b1d364734, type: 2}
+  - {fileID: 11400000, guid: b4948c5a690b27f4198734fc4b3e63e9, type: 2}
+  bonusesLoose:
+  - {fileID: 11400000, guid: e2be5e6631aaa1c469fd919ec36b8393, type: 2}

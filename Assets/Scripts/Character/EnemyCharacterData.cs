@@ -2,11 +2,11 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptableObjects
+namespace Assets.Scripts
 {
     [Serializable]
-    [CreateAssetMenu(fileName = "NewAllyCharacter", menuName = "Ally Character")]
-    public class AllyCharacterData:ScriptableObject
+    [CreateAssetMenu(fileName = "NewEnemyCharacter", menuName = "Enemy Character")]
+    public class EnemyCharacterData : ScriptableObject
     {
         [SerializeField]
         private string id;
@@ -25,7 +25,7 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField]
         private int passiveDamage;
 
-        public AllyCharacterData()
+        public EnemyCharacterData()
         {
             id = Guid.NewGuid().ToString();
         }
