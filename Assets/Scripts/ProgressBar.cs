@@ -23,6 +23,11 @@ namespace Assets.Scripts.UI
             UpdateView();
         }
 
+        public void SetValue(CharacterStat stat)
+        {
+            SetValue(stat.Progress);
+        }
+
         public void SetValue(float value, bool instant = false)
         {
             _currentValue = Mathf.Clamp01(value);

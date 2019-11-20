@@ -16,7 +16,7 @@ namespace Assets.Scripts.TeamControllers
         {
             CurrentUnit = unit;
         }
-    }
 
-    // TODO: разделить на 2 класса для реализации сетевого режима
+        public abstract void Clear();
+    }
 }

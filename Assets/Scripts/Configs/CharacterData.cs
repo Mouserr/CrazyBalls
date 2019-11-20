@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Units;
 using UnityEngine;
 
 namespace Assets.Scripts.Configs
@@ -31,6 +32,8 @@ namespace Assets.Scripts.Configs
         [SerializeField]
         [Tooltip("Manually casting")]
         private ActiveAbilityConfig activeAbility;
+        [SerializeField]
+        private UnitType unitType;
 
         public CharacterData()
         {
@@ -49,5 +52,6 @@ namespace Assets.Scripts.Configs
 
         public AbilityConfig PassiveAbility => passiveAbility;
         public ActiveAbilityConfig ActiveAbility => activeAbility;
+        public UnitType UnitType => unitType;
     }
 }

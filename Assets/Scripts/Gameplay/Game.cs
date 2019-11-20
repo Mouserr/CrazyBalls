@@ -5,6 +5,7 @@ using Assets.Scripts.Core;
 using Assets.Scripts.Core.Pools;
 using Assets.Scripts.TeamControllers;
 using Assets.Scripts.UI;
+using Assets.Scripts.Units;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -15,106 +16,88 @@ namespace Assets.Scripts
     {
         private static Game _instance;
         private Player _player;
-        private List<EnemyController> _enemies = new List<EnemyController>();
-        private GameObjectPool<EnemyController> _enemiesPool;
-        private GameObjectPool<ProgressBar> _enemiesHPPool;
-        
-        [SerializeField]
-        private GameObject _container;
-        [SerializeField]
-        private EnemyController _enemyPrefab;
-        [SerializeField]
-        private ProgressBar _enemyHPPrefab;
 
-        private Dictionary<int, TeamController> _controllers = new Dictionary<int, TeamController>();
+        private TeamController _firstController;
+        private TeamController _secondController;
+
+        private Dictionary<int, int> _previousUnitIndexes = new Dictionary<int, int>(2);
+
+        private TeamController _currentController;
 
         public static Game Instance
         {
             get { return _instance ?? (_instance = Object.FindObjectOfType<Game>()); }
         }
 
-        private void Awake()
-        {
-            _enemiesPool = new GameObjectPool<EnemyController>(_container, _enemyPrefab, 5);
-            _enemiesHPPool = new GameObjectPool<ProgressBar>(_container, _enemyHPPrefab, 5);
-        }
+        public UnitController CurrentUnit { get; private set; }
 
         public void PrepareGame(TeamController firstController, TeamController secondController)
         {
-            _controllers[firstController.PlayerId] = firstController;
-            _controllers[secondController.PlayerId] = secondController;
+            _firstController = firstController;
+            _secondController = secondController;
+            _previousUnitIndexes[_firstController.PlayerId] = -1;
+            _previousUnitIndexes[_secondController.PlayerId] = -1;
+            _currentController = _secondController;
         }
 
-        public void SetupUpTeam(List<ICharacter> characters, int playerId)
+        public void SetupUpTeam(List<Character> characters, int playerId)
         {
-
-        }
-
-        private void SpawnBall()
-        {
-            var gokiObj = GameObject.Find("Ball");
-
-            var data = GameDictionary.AllyCharactersDictionary.FirstOrDefault();
-            if (data == null)
+            foreach (var character in characters)
             {
-                throw new ArgumentNullException("data cannot be null");
-            }
-            var model = new AllyCharacter(data);
-            gokiObj.GetComponent<UnitController>().SetCharacter(model);
-        }
-
-        private void SpawnEnemies()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                var enemy = _enemiesPool.GetObject();
-                enemy.transform.SetParent(transform);
-                enemy.transform.position = new Vector3(Random.Range(-2f,2f), Random.Range(-2f, 3f));
-
-                var data = GameDictionary.EnemyCharactersDictionary.FirstOrDefault();
-                if (data == null)
-                {
-                    throw new ArgumentNullException("data cannot be null");
-                }
-                var model = new EnemyCharacter(data);
-
-                enemy.SetCharacter(model);
-                enemy.gameObject.SetActive(true);
-                _enemies.Add(enemy);
-                var hpBar = _enemiesHPPool.GetObject();
-                hpBar.transform.SetParent(DragController.Instance.Canvas.transform);
-                hpBar.transform.localScale = Vector3.one;
-                hpBar.transform.position = DragController.Instance.GetCanvasPosition(enemy.transform.position + new Vector3(0, enemy.HPBarOffset));
-                hpBar.gameObject.SetActive(true);
-                hpBar.SetValue(1, true);
-
-                void OnHealthOnChanged(CharacterStat s) => hpBar.SetValue(s.Progress);
-
-                enemy.Health.Changed += OnHealthOnChanged;
-
-                void OnEnemyOnDeath()
-                {
-                    enemy.Health.Changed -= OnHealthOnChanged;
-                    enemy.Death -= OnEnemyOnDeath;
-                    _enemiesHPPool.ReleaseObject(hpBar);
-                }
-
-                enemy.Death += OnEnemyOnDeath;
+                UnitsPool.Instance.AddUnitToMap(character, playerId);
             }
         }
 
-        public void Destroy(UnitController unit)
+        public void StartGame()
         {
-            unit.Die();
-            _enemiesPool.ReleaseObject(unit);
+            MapController.Instance.AllUnitsStopped += NextTurn;
+            MapController.Instance.NoMoreUnitsAtMap += OnAllUnitsDead;
+            NextTurn();
+        }
+
+        public void NextTurn()
+        {
+            if (_currentController == null)
+            {
+                return;
+            }
+
+            if (_currentController.PlayerId == _firstController.PlayerId)
+            {
+                _currentController = _secondController;
+            }
+            else
+            {
+                _currentController = _firstController;
+            }
+
+            var units = MapController.Instance.GetUnits(_currentController.PlayerId);
+            var currentIndex = _previousUnitIndexes[_currentController.PlayerId] + 1;
+            if (units.Count <= currentIndex)
+            {
+                currentIndex = 0;
+            }
+
+            CurrentUnit = units[currentIndex];
+            _previousUnitIndexes[_currentController.PlayerId] = currentIndex;
+
+            _currentController.StartTurn(CurrentUnit);
+        }
+
+        public void OnAllUnitsDead(int player)
+        {
+            Clear();
         }
 
         public void Clear()
         {
-            foreach (var enemy in _enemies)
-            {
-                Destroy(enemy);
-            }
+            MapController.Instance.NoMoreUnitsAtMap -= OnAllUnitsDead;
+            MapController.Instance.AllUnitsStopped -= NextTurn;
+            MapController.Instance.Clear();
+            _previousUnitIndexes.Clear();
+            _currentController = null;
+            _firstController.Clear();
+            _secondController.Clear();
         }
     }
 }

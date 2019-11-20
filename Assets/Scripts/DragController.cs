@@ -15,6 +15,7 @@ namespace Assets.Scripts
         private Vector3 _casterPosition;
         private bool _isActive;
 
+        public float MinDelta;
         public Camera Camera;
         public Canvas Canvas;
         public Image Arrow;
@@ -30,6 +31,12 @@ namespace Assets.Scripts
         {
             _casterPosition = position;
             _isActive = true;
+        }
+
+        public void Deactivate()
+        {
+            _isActive = false;
+            _isPressed = false;
         }
 
         void Update()
@@ -52,7 +59,9 @@ namespace Assets.Scripts
 
             if (_isPressed)
             {
-                if (Input.GetMouseButtonUp(0))
+                _prevPosition = Input.mousePosition;
+                var delta = _mouseInitialPosition - _prevPosition;
+                if (Input.GetMouseButtonUp(0) && delta.sqrMagnitude > MinDelta)
                 {
                     _isPressed = false;
                     ProceedDrag();
@@ -60,8 +69,7 @@ namespace Assets.Scripts
                     return;
                 }
 
-                _prevPosition = Input.mousePosition;
-                var delta = _mouseInitialPosition - _prevPosition;
+               
                 float scaleFactor = Canvas.scaleFactor;
 
                 Arrow.fillAmount = delta.magnitude / scaleFactor / Arrow.GetComponent<RectTransform>().sizeDelta.y;

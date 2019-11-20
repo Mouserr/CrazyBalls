@@ -15,12 +15,16 @@ namespace Assets.Scripts
             activeAbilityConfig = config;
         }
 
-        public override void Apply(CastContext castContext)
+        public override ISyncScenarioItem Apply(CastContext castContext)
         {
-            if (!CouldCast || !activeAbilityConfig.CouldApply(castContext, Level, caster)) return;
-            base.Apply(castContext);
+            if (!CouldCast || !activeAbilityConfig.CouldApply(castContext, Level, caster))
+            {
+                return null;
+            }
+            var scenarioItem = base.Apply(castContext);
             CurrentCooldown = activeAbilityConfig.Cooldown.GetValue(Level);
             cooldownScenario = new IterateActionScenarioItem((leftTime) => { CurrentCooldown = leftTime; }, CurrentCooldown).PlayAndReturnSelf();
+            return scenarioItem;
         }
     }
 }

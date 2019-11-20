@@ -30,18 +30,6 @@ namespace Assets.Scripts.Screens
             gameObject.SetActive(true);
         }
 
-        [ContextMenu("Set Show Start")]
-        public void SetShowStart()
-        {
-            ShowStartPosition = transform.localPosition;
-        }
-        
-        [ContextMenu("Set Hide End")]
-        public void SetHideEnd()
-        {
-            HideEndPosition = transform.localPosition;
-        }
-
         public virtual void Focus()
         {
         }

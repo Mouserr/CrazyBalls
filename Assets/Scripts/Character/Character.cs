@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.Configs;
+using Assets.Scripts.Units;
 
 namespace Assets.Scripts
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts
         public string Id { get; protected set; }
         public string Name { get; protected set; }
         public string Description { get; protected set; }
+        public UnitType UnitType { get; protected set; }
         public string Icon { get; protected set; }
         public int Level { get; set; }
 
@@ -46,7 +48,11 @@ namespace Assets.Scripts
             this.RegisterStat(maxSpeed);
 
             ActiveAbility = new CharacterActiveAbility(characterData.ActiveAbility, this);
-            PassiveAbility = new CharacterAbility(characterData.PassiveAbility, this);
+            if (characterData.PassiveAbility)
+            {
+                PassiveAbility = new CharacterAbility(characterData.PassiveAbility, this);
+            }
+            UnitType = characterData.UnitType;
         }
     }
 }

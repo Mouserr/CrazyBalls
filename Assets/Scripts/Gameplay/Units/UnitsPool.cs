@@ -9,17 +9,17 @@ namespace Assets.Scripts.Units
 {
     public class UnitsPool : Singleton<UnitsPool>
     {
-        private readonly Dictionary<string, GameObjectPool<UnitController>> pools = new Dictionary<string, GameObjectPool<UnitController>>();
+        private readonly Dictionary<UnitType, GameObjectPool<UnitController>> pools = new Dictionary<UnitType, GameObjectPool<UnitController>>();
 
-        public void Register(string unitType, UnitController prefab, int startCount)
+        public void Register(UnitType unitType, UnitController prefab, int startCount)
         {
-            if (!pools.ContainsKey(unitType))
+            if (!pools.ContainsKey(unitType) && prefab != null)
             {
-                pools[unitType] = new GameObjectPool<UnitController>(gameObject.AddChild(unitType), prefab, startCount);
+                pools[unitType] = new GameObjectPool<UnitController>(gameObject.AddChild(unitType.ToString()), prefab, startCount);
             }
         }
 
-        public UnitController GetUnitPrefab(string unitType)
+        public UnitController GetUnitPrefab(UnitType unitType)
         {
             GameObjectPool<UnitController> unitPool;
             if (!pools.TryGetValue(unitType, out unitPool))
@@ -31,9 +31,9 @@ namespace Assets.Scripts.Units
             return unitPool.GetObject();
         }
 
-        public UnitController AddUnitToMap(ICharacter character, int playerId)
+        public UnitController AddUnitToMap(Character character, int playerId)
         {
-            UnitController unitController = GetUnitPrefab(unitType);
+            UnitController unitController = GetUnitPrefab(character.UnitType);
             unitController.SetCharacter(character, playerId);
             MapController.Instance.AddUnit(unitController);
 
@@ -44,18 +44,18 @@ namespace Assets.Scripts.Units
         public void ReleaseUnit(UnitController unitController)
         {
             GameObjectPool<UnitController> unitPool;
-            if (!pools.TryGetValue(unitController.Unit.UnitType, out unitPool))
+            if (!pools.TryGetValue(unitController.Character.UnitType, out unitPool))
             {
-                Debug.LogError(string.Format("Can't find pool for {0}", unitController.Unit.UnitType));
+                Debug.LogError(string.Format("Can't find pool for {0}", unitController.Character.UnitType));
                 return;
             }
-            unitController.Unit.Clear();
+            unitController.Clear();
             unitPool.ReleaseObject(unitController);
         }
 
         public void Clear()
         {
-            foreach (KeyValuePair<string, GameObjectPool<UnitController>> gameObjectPool in pools)
+            foreach (KeyValuePair<UnitType, GameObjectPool<UnitController>> gameObjectPool in pools)
             {
                 gameObjectPool.Value.ClearPull();
             }

@@ -13,32 +13,20 @@ namespace Assets.Scripts.Core
  
     public static class GameDictionary
     {
-        public static List<ActiveCharacterData> AllyCharactersDictionary = new List<ActiveCharacterData>();
-        public static List<CharacterData>EnemyCharactersDictionary = new List<CharacterData>();
+        public static List<CharacterData> CharactersDictionary = new List<CharacterData>();
         public static void Load()
         {
-            LoadAllies();
             LoadEnemies();
         }
 
 
-        private  static void LoadAllies()
-        {
-            AllyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<ActiveCharacterData>().ToList();
-            //foreach (var characterData in charactersData)
-            //{
-            //    var character = new AllyCharacter(characterData);
-            //    AllyCharactersDictionary.Add(character);
-            //}
-        }
-
         private static void LoadEnemies()
         {
-            EnemyCharactersDictionary = ScriptableObjectsLoader.GetAllInstances<CharacterData>().ToList();
+            CharactersDictionary = ScriptableObjectsLoader.GetAllInstances<CharacterData>().ToList();
             //foreach (var characterData in charactersData)
             //{
             //    var character = new EnemyCharacter(characterData);
-            //    EnemyCharactersDictionary.Add(character);
+            //    CharactersDictionary.Add(character);
             //}
         }
     }

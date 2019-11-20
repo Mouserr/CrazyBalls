@@ -1,7 +1,13 @@
-﻿namespace Assets.Scripts.TeamControllers
+﻿using Assets.Scripts.Core.SyncCodes;
+using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
+
+namespace Assets.Scripts.TeamControllers
 {
     public class AITeamController : TeamController
     {
+        private ISyncScenarioItem _turnScenarioItem;
+
         public AITeamController(int playerId) : base(playerId)
         {
         }
@@ -10,7 +16,17 @@
         {
             base.StartTurn(unit);
 
-            CurrentUnit.CastAbility(new CastContext { CasterPoint = unit.Position });
+            _turnScenarioItem = new SyncScenario(
+                new CompleteScenarioItemConditionWaiter(
+                    CurrentUnit.CastAbility(new CastContext {CasterPoint = unit.Position, CasterPlayerId = PlayerId}),
+                    true),
+                new ActionScenarioItem(() => Game.Instance.NextTurn())
+            ).PlayAndReturnSelf();
+        }
+
+        public override void Clear()
+        {
+            _turnScenarioItem?.Stop();
         }
     }
 }

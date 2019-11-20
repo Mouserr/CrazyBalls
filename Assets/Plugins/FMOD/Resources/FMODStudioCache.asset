@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/MainTheme
   guid: 6403e1b788914c4ba55d109428bfa5b4
   Banks:
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/WallHit
   guid: fa6d50050ee82c478622de18d1bedbfb
   Banks:
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -99,8 +99,26 @@ MonoBehaviour:
   lastModified: 637095207794463750
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4099772754522616600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637095034546741744
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2750263059239673422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/gokiBalls/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637095207794473756
+  lastModified: 637095034546821690
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -153,7 +171,7 @@ MonoBehaviour:
   Path: event:/Damage
   guid: 4db682ba0e203949929c014417ab5dd9
   Banks:
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -175,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1896881393270577208}
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   EditorEvents:
   - {fileID: -8725871191511057830}
   - {fileID: -7231056026818667387}
@@ -183,10 +201,10 @@ MonoBehaviour:
   - {fileID: 2969697803853383976}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   StringsBanks:
   - {fileID: -1896881393270577208}
-  stringsBankWriteTime: 637095207794473756
+  stringsBankWriteTime: 637095034546821690
   cacheVersion: 3
 --- !u!114 &2969697803853383976
 MonoBehaviour:
@@ -203,7 +221,7 @@ MonoBehaviour:
   Path: event:/Death
   guid: 53e25b95047e4846a4cf542fbff851e1
   Banks:
-  - {fileID: -5736000190471587472}
+  - {fileID: -2750263059239673422}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

@@ -10,6 +10,12 @@ namespace Assets.Scripts.Models
         
     }
 
+    [Serializable]
+    public class IntAbilityParameter : AbilityParameter<int>
+    {
+        
+    }
+
     
     public abstract class AbilityParameter<T> : IAbilityParameter
     {

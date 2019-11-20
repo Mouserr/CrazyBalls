@@ -9,14 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9f55c6952f4c247b8009314403df68, type: 3}
+  m_Script: {fileID: 11500000, guid: c52c5bc1bc3336e40a3affbc5662240c, type: 3}
   m_Name: Tipsy
   m_EditorClassIdentifier: 
-  id: f81a0605-3ced-497c-af83-8231c2ff3728
-  name: Tipsy
+  id: 90cab55d-9446-442d-9fc4-1498486edcf0
+  displayName: Tipsy
   description: Just a little bit Tipsy
   icon: 
   image: 
   health: 100
   energy: 100
-  passiveDamage: 10
+  passiveDamage: 30
+  maxSpeed: 3
+  passiveAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
+  activeAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
+  unitType: 0
