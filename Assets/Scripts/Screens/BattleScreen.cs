@@ -24,7 +24,24 @@ namespace Assets.Scripts.Screens
 
         [SerializeField]
         private Game _game;
-        
+
+        private void Awake()
+        {
+            _game.GameOver += OnGameOver;
+        }
+
+        private void OnGameOver(int loser)
+        {
+            if (loser == 0)
+            {
+                Lose();
+            }
+            else
+            {
+                Win();
+            }
+        }
+
         public override void Focus()
         {
             _game.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
@@ -74,12 +91,12 @@ namespace Assets.Scripts.Screens
 
         public void Win()
         {
-            
+            Debug.Log("Win");
         }
 
-        public void Loose()
+        public void Lose()
         {
-            
+            Debug.Log("Lose");
         }
 
         public void ActivateSkill()

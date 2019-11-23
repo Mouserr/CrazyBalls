@@ -23,6 +23,8 @@ namespace Assets.Scripts
 
         private TeamController _currentController;
 
+        public event Action<int> GameOver;
+
         public static Game Instance
         {
             get { return _instance ?? (_instance = Object.FindObjectOfType<Game>()); }
@@ -96,6 +98,7 @@ namespace Assets.Scripts
         
         public void OnAllUnitsDead(int player)
         {
+            GameOver?.Invoke(player);
             Clear();
         }
 
