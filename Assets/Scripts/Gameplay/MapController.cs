@@ -148,6 +148,12 @@ namespace Assets.Scripts
             return unitsInArea;
         }
 
+        public List<UnitController> GetEnemiesInArea(Vector2 position, Vector3 size, float angle, int playerId)
+        {
+            return null;
+            //Physics2D.BoxCast(position, size, angle,)
+        }
+
         public void ResolveCollision(UnitController defender, Collision2D collision)
         {
             if (defender == Game.Instance.CurrentUnit)
