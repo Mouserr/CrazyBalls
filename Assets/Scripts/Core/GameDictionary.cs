@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Core
 {
- 
+
     public static class GameDictionary
     {
         public static List<CharacterData> CharactersDictionary = new List<CharacterData>();
