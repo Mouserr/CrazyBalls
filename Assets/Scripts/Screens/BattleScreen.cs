@@ -70,5 +70,10 @@ namespace Assets.Scripts.Screens
             _game.Clear();
             ScreensManager.Instance.OpenScreen(ScreenType.MainMenu);
         }
+
+        public void ActivateSkill()
+        {
+            Game.Instance.ActivateAbility();
+        }
     }
 }

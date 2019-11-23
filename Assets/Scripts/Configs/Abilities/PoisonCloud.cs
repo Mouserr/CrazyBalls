@@ -31,7 +31,7 @@ namespace Assets.Scripts.Configs.Abilities
             effect.transform.localScale = Vector3.zero;
 
             var radius = _radius.GetValue(abilityLevel);
-            var targets = MapController.Instance.GetEnemiesInArea(castContext.TargetPoint,
+            var targets = MapController.Instance.GetEnemiesInArea(castContext.Caster.Position,
                 radius, castContext.Caster.PlayerId);
 
             for (int i = 0; i < targets.Count; i++)
@@ -40,11 +40,12 @@ namespace Assets.Scripts.Configs.Abilities
                 targets[i].AddEffect(new CharacterEffect(EffectOnTouch, abilityLevel));
             }
 
-            return new SyncScenario(
+            return new SyncScenario(new List<ISyncScenarioItem>{
                 new AlphaTween(effect, 1),
                 new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
-                new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut),
-                new ActionScenarioItem(() => Object.Destroy(effect.gameObject))
+                new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut)
+                    }, 
+                (s, interrupted) => Object.Destroy(effect.gameObject)
             ).PlayAndReturnSelf();
         }
 
