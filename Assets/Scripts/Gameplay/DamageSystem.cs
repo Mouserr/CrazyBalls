@@ -2,12 +2,12 @@
 {
     public static class DamageSystem
     {
-        public static bool ApplyPassiveDamage(ICharacter attacker, UnitController defender)
+        public static bool ApplyPassiveDamage(UnitController attacker, UnitController defender)
         {
-            return ApplyDamage(attacker, attacker.Stats[CharacterStatType.PassiveDamage].CurrentValue, defender);
+            return ApplyDamage(attacker, attacker.Character.Stats[CharacterStatType.PassiveDamage].CurrentValue, defender);
         }
 
-        public static bool ApplyDamage(ICharacter attacker, int damageValue, UnitController defender)
+        public static bool ApplyDamage(UnitController attacker, int damageValue, UnitController defender)
         {
             defender.Character.Stats[CharacterStatType.Health].AddValue( - damageValue);
             if (defender.Character.Stats[CharacterStatType.Health].CurrentValue <= 0)

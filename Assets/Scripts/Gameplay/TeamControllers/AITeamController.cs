@@ -17,8 +17,9 @@ namespace Assets.Scripts.TeamControllers
             base.StartTurn(unit);
 
             _turnScenarioItem = new SyncScenario(
+                new TimeWaiterScenarioItem(0.5f),
                 new CompleteScenarioItemConditionWaiter(
-                    CurrentUnit.CastAbility(new CastContext {CasterPoint = unit.Position, CasterPlayerId = PlayerId}),
+                    CurrentUnit.CastAbility(new CastContext {Caster = unit}),
                     true),
                 new ActionScenarioItem(() => Game.Instance.NextTurn())
             ).PlayAndReturnSelf();

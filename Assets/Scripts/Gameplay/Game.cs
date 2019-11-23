@@ -31,6 +31,8 @@ namespace Assets.Scripts
 
         public UnitController CurrentUnit { get; private set; }
 
+        public event Action<UnitController> TurnStarted;
+
         public void PrepareGame(TeamController firstController, TeamController secondController)
         {
             _firstController = firstController;
@@ -82,8 +84,17 @@ namespace Assets.Scripts
             _previousUnitIndexes[_currentController.PlayerId] = currentIndex;
 
             _currentController.StartTurn(CurrentUnit);
+            TurnStarted?.Invoke(CurrentUnit);
         }
 
+        public void ActivateAbility()
+        {
+            _currentController?.CurrentUnit.Character.ActiveAbility.Apply(new CastContext
+            {
+                Caster = CurrentUnit
+            });
+        }
+        
         public void OnAllUnitsDead(int player)
         {
             Clear();

@@ -11,7 +11,7 @@ namespace Assets.Scripts.Configs
         public TargetType TargetType;
         public Sprite Icon;
 
-        public abstract ISyncScenarioItem Apply(CastContext castContext, int abilityLevel, ICharacter caster);
+        public abstract ISyncScenarioItem Apply(CastContext castContext, int abilityLevel);
         protected abstract List<IAbilityParameter> GetParameters();
 
         private int _maxLevel;
@@ -38,7 +38,7 @@ namespace Assets.Scripts.Configs
     {
         public FloatAbilityParameter Cooldown;
 
-        public abstract bool CouldApply(CastContext castContext, int abilityLevel, ICharacter caster);
+        public abstract bool CouldApply(CastContext castContext, int abilityLevel);
     }
     
     public interface ICastingAreaProvider

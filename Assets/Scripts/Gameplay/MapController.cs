@@ -76,22 +76,6 @@ namespace Assets.Scripts
             unit.MovementStateChanged += OnUnitMovementStateChanged;
         }
 
-        private void OnUnitMovementStateChanged(UnitController unitController, bool isMoving)
-        {
-            if (isMoving)
-            {
-                _movingUnitsCount++;
-            }
-            else
-            {
-                _movingUnitsCount--;
-                if (_movingUnitsCount == 0)
-                {
-                    AllUnitsStopped?.Invoke();
-                }
-            }
-        }
-
         public void RemoveUnit(UnitController unit)
         {
             List<UnitController> playerUnits;
@@ -184,7 +168,7 @@ namespace Assets.Scripts
                         new ActionScenarioItem(() =>
                         {
                             FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
-                            if (DamageSystem.ApplyPassiveDamage(attacker.Character, defender))
+                            if (DamageSystem.ApplyPassiveDamage(attacker, defender))
                             {
                                 defender.IsActive = false;
                             }
@@ -207,7 +191,12 @@ namespace Assets.Scripts
             }
             else
             {
-                defender.CastPassiveAbility(new CastContext { CasterPoint = defender.Position });
+                defender.CastPassiveAbility(
+                    new CastContext
+                    {
+                        Caster = defender,
+                        Target = attacker
+                    });
             }
         }
 
@@ -223,6 +212,22 @@ namespace Assets.Scripts
             }
             unitsByPlayer.Clear();
             _movingUnitsCount = 0;
+        }
+
+        private void OnUnitMovementStateChanged(UnitController unitController, bool isMoving)
+        {
+            if (isMoving)
+            {
+                _movingUnitsCount++;
+            }
+            else
+            {
+                _movingUnitsCount--;
+                if (_movingUnitsCount == 0)
+                {
+                    AllUnitsStopped?.Invoke();
+                }
+            }
         }
     }
 }

@@ -15,11 +15,12 @@ namespace Assets.Scripts
         
         private Rigidbody2D _rigidbody;
         private bool _isMoving;
+        private ProgressBar _healthBar;
+        private List<UnitAura> _activeAuras = new List<UnitAura>();
 
         public float HPBarOffset = -0.35f;
         public event Action<UnitController> Death;
         public DamageEffect DamageEffect;
-        private ProgressBar _healthBar;
 
         public Character Character => _character;
 
@@ -73,13 +74,14 @@ namespace Assets.Scripts
         {
             IsActive = true;
             _healthBar = MapController.Instance.HealthBarPool.GetObject();
-            _healthBar.transform.SetParent(DragController.Instance.Canvas.transform);
+            _healthBar.transform.SetParent(UIDragController.Instance.Canvas.transform);
             _healthBar.transform.localScale = Vector3.one;
             UpdatePosition();
             _healthBar.gameObject.SetActive(true);
             _healthBar.SetValue(1, true);
 
             Health.Changed += _healthBar.SetValue;
+            Game.Instance.TurnStarted += OnTurnStarted;
         }
 
         public void Die()
@@ -91,6 +93,11 @@ namespace Assets.Scripts
         {
             _rigidbody.velocity = direction * (MaxSpeed.CurrentValue * speedCoef);
             IsMoving = true;
+        }
+
+        public void AttachAura(UnitAura aura)
+        {
+            _activeAuras.Add(aura);
         }
 
         public ISyncScenarioItem CastAbility(CastContext castContext)
@@ -105,14 +112,32 @@ namespace Assets.Scripts
 
         public void Clear()
         {
+            Game.Instance.TurnStarted -= OnTurnStarted;
             Health.Changed -= _healthBar.SetValue;
             MapController.Instance.HealthBarPool.ReleaseObject(_healthBar);
             _character = null;
         }
 
+        private void OnTurnStarted(UnitController currentUnit)
+        {
+            _character.OnTurnStart(new CastContext{ Target = this, Caster = this });
+            for (int i = 0; i < _activeAuras.Count;)
+            {
+                var activeAura = _activeAuras[i];
+                if (activeAura.ShouldEnd(currentUnit))
+                {
+                    _activeAuras.RemoveAt(i);
+                    Destroy(activeAura.gameObject);
+                    continue;
+                }
+
+                i++;
+            }
+        }
+
         private void UpdatePosition()
         {
-            _healthBar.transform.position = DragController.Instance.GetCanvasPosition(transform.position + new Vector3(0, HPBarOffset));
+            _healthBar.transform.position = UIDragController.Instance.GetCanvasPosition(transform.position + new Vector3(0, HPBarOffset));
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

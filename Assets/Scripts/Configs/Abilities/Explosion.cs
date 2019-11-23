@@ -31,24 +31,24 @@ namespace Assets.Scripts.Configs.Abilities
         {
         }
 
-        public override bool CouldApply(CastContext castContext, int abilityLevel, ICharacter caster)
+        public override bool CouldApply(CastContext castContext, int abilityLevel)
         {
             return true;
         }
 
-        public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel, ICharacter caster)
+        public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel)
         {
             var effect = PrefabHelper.Intantiate(_explosionEffectPrefab, Game.Instance.gameObject);
-            effect.transform.position = castContext.CasterPoint;
+            effect.transform.position = castContext.Caster.Position;
             effect.transform.localScale = Vector3.zero;
 
             var radius = _radius.GetValue(abilityLevel);
             var targets = MapController.Instance.GetEnemiesInArea(castContext.TargetPoint,
-                radius, castContext.CasterPlayerId);
+                radius, castContext.Caster.PlayerId);
 
             for (int i = 0; i < targets.Count; i++)
             {
-                DamageSystem.ApplyDamage(caster, _damage.GetValue(abilityLevel), targets[i]);
+                DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel), targets[i]);
             }
 
             return new SyncScenario(

@@ -12,20 +12,20 @@ namespace Assets.Scripts.TeamControllers
         public override void StartTurn(UnitController unit)
         {
             base.StartTurn(unit);
-            DragController.Instance.Activate(unit.Position);
-            DragController.Instance.Swipe += OnSwipe;
+            UIDragController.Instance.Activate(unit.Position);
+            UIDragController.Instance.Swipe += OnSwipe;
         }
 
         public override void Clear()
         {
-            DragController.Instance.Swipe -= OnSwipe;
-            DragController.Instance.Deactivate();
+            UIDragController.Instance.Swipe -= OnSwipe;
+            UIDragController.Instance.Deactivate();
         }
 
         private void OnSwipe(Vector2 direction, float speedCoef)
         {
             CurrentUnit.Move(direction, speedCoef);
-            DragController.Instance.Swipe -= OnSwipe;
+            UIDragController.Instance.Swipe -= OnSwipe;
         }
     }
 }

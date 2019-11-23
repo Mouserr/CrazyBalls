@@ -32,7 +32,10 @@ namespace Assets.Scripts
 
         public void AddEffect(CharacterEffect effectConfig)
         {
-            ActiveEffects.Add(effectConfig);
+            if (ActiveEffects.Find(x => x.Config.EffectType == effectConfig.Config.EffectType) == null)
+            {
+                ActiveEffects.Add(effectConfig);
+            }
         }
 
         public void OnTurnStart(CastContext castContext)
@@ -42,6 +45,8 @@ namespace Assets.Scripts
                 effect.Apply(castContext);
                 effect.LeftTurns--;
             }
+
+            RemoveEndedEffects();
         }
 
         public Character(CharacterData characterData)
@@ -49,6 +54,7 @@ namespace Assets.Scripts
             _model = characterData;
             Stats = new Dictionary<CharacterStatType, CharacterStat>();
             Abilities = new List<CharacterAbility>();
+            ActiveEffects = new List<CharacterEffect>();
             Id = _model.Id;
             Name = _model.Name;
             Description = _model.Description;
@@ -67,6 +73,20 @@ namespace Assets.Scripts
         {
             Level = level;
             ResetStats();
+        }
+
+        private void RemoveEndedEffects()
+        {
+            for (int i = 0; i < ActiveEffects.Count;)
+            {
+                if (ActiveEffects[i].LeftTurns <= 0)
+                {
+                    ActiveEffects.RemoveAt(i);
+                    continue;
+                }
+
+                i++;
+            }
         }
 
         private void ResetStats()

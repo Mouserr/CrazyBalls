@@ -17,7 +17,7 @@ namespace Assets.Scripts
 
         public override ISyncScenarioItem Apply(CastContext castContext)
         {
-            if (!CouldCast || !activeAbilityConfig.CouldApply(castContext, Level, caster))
+            if (!CouldCast || !activeAbilityConfig.CouldApply(castContext, Level))
             {
                 return null;
             }

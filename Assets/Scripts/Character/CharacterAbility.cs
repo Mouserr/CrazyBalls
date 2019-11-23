@@ -28,7 +28,7 @@ namespace Assets.Scripts
         public virtual ISyncScenarioItem Apply(CastContext castContext)
         {
             castScenario?.Stop();
-            castScenario = Config.Apply(castContext, Level, caster);
+            castScenario = Config.Apply(castContext, Level);
             return castScenario;
         }
     }

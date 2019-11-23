@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52c5bc1bc3336e40a3affbc5662240c, type: 3}
+  m_Name: Drunky
+  m_EditorClassIdentifier: 
+  id: fe984c32-629a-420d-9193-f3015067eaf5
+  displayName: 
+  description: 
+  icon: 
+  image: 
+  health:
+    Levels: 64000000
+  energy:
+    Levels: 
+  passiveDamage:
+    Levels: 14000000
+  maxSpeed:
+    Levels: 03000000
+  passiveAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
+  activeAbility: {fileID: 11400000, guid: f83712e2f7f9b5d42b77412ec4e58d3e, type: 2}
+  unitType: 0
