@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Configs;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,9 +14,9 @@ namespace Assets.Scripts
     public class CharacterBonusData : BonusData
     {
         [SerializeField]
-        private AllyCharacterData allyCharacter;
+        private CharacterData allyCharacter;
 
-        public AllyCharacterData AllyCharacter => allyCharacter;
+        public CharacterData AllyCharacter => allyCharacter;
     }
 
     [Serializable]

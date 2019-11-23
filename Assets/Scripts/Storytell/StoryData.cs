@@ -9,17 +9,7 @@ namespace Assets.Scripts
     public class StoryData : ScriptableObject
     {
         [SerializeField]
-        private string name;
-        [SerializeField]
-        private string description;
-        [SerializeField]
-        private string image;
-        [SerializeField]
-        private ChapterData[] chapters;
-
-        public string Name => name;
-        public string Description => description;
-        public string Image => image;
-        private IEnumerable<ChapterData> Chapters => chapters;
+        private EpisodeData[] episodes;
+        public EpisodeData[] Episodes => episodes;
     }
 }
