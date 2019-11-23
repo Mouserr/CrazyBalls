@@ -1,6 +1,7 @@
 ﻿namespace Assets.Scripts
 {
-    public class Player
+    public enum CurrencyType
     {
+        Food
     }
 }

@@ -15,8 +15,7 @@ namespace Assets.Scripts
     public class Game : MonoBehaviour
     {
         private static Game _instance;
-        private Player _player;
-
+        
         private TeamController _firstController;
         private TeamController _secondController;
 

@@ -6,7 +6,7 @@ namespace Assets.Scripts.Screens
     {
         public void StartBattle()
         {
-            ScreensManager.Instance.OpenScreen(ScreenType.Battle);
+            ScreensManager.Instance.OpenScreen(ScreenType.StoryTell);
         }
 
         public void OpenSettings()
