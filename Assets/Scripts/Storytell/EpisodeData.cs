@@ -13,8 +13,6 @@ namespace Assets.Scripts
         [SerializeField]
         private string description;
         [SerializeField]
-        private string mapImage;
-        [SerializeField]
         private string battlefieldImage;
         [SerializeField]
         private CharacterData[] enemies;
@@ -29,7 +27,7 @@ namespace Assets.Scripts
         public string Description => description;
         public CharacterData[] Enemies => enemies;
         public int[] EnemyLevels => enemyLevels;
-        public string MapImage => mapImage;
+       
         public string BattlefieldImage => battlefieldImage;
     }
 }

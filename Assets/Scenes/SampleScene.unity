@@ -615,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 11400000, guid: 088e20a390ecd3044afd3024ecba46a4, type: 2}
+  CurrentEpisode: {fileID: 0}
 --- !u!4 &652560908
 Transform:
   m_ObjectHideFlags: 0
@@ -1785,6 +1786,11 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 182619836}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 652560907}
     - target: {fileID: 3107631668444969455, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1941,6 +1947,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1781261335750797131, guid: 7e0589e2b3f7efc4a9a840a7aaed97a4,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 652560907}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e0589e2b3f7efc4a9a840a7aaed97a4, type: 3}
 --- !u!224 &3396094938880750878 stripped

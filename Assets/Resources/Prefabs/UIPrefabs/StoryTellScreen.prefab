@@ -950,6 +950,7 @@ MonoBehaviour:
   ShowStartPosition: {x: 1081, y: 0, z: 0}
   ScreenType: 2
   IsPopup: 0
+  Player: {fileID: 0}
   StoryPoints:
   - {fileID: 3396094939960456921}
   - {fileID: 849403034042619231}
@@ -1230,6 +1231,12 @@ PrefabInstance:
       propertyPath: enemies.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2659645878594995375, guid: be1806b1bab5f8548ba3d8cea7b74a3c,
+        type: 3}
+      propertyPath: Episode
+      value: 
+      objectReference: {fileID: 11400000, guid: 723bcff49c5ad0044ab9ccfdd9446df4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1806b1bab5f8548ba3d8cea7b74a3c, type: 3}
 --- !u!224 &3396094939960456926 stripped
@@ -1367,6 +1374,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2659645878594995375, guid: be1806b1bab5f8548ba3d8cea7b74a3c,
+        type: 3}
+      propertyPath: Episode
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a53e0fb95c5bb346858c59144e35f7c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be1806b1bab5f8548ba3d8cea7b74a3c, type: 3}
 --- !u!114 &849403034042619231 stripped

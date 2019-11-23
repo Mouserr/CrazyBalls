@@ -6,12 +6,8 @@ using UnityEngine;
 
 public class StoryPointController : MonoBehaviour
 {
-    public string Name;
-    public string Description;
-    public string BattlefieldImage;
-    public CharacterData[] enemies;
-    public BonusData[] BonusesWin;
-    public BonusData[] BonusesLoose;
+    public EpisodeData Episode;
+
     public bool IsActive;
     
    
