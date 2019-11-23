@@ -1,23 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts;
 using Assets.Scripts.Screens;
 using UnityEngine;
 
 public class StoryTellScreen : AbstractScreen
 {
-    private int _storypointIndex = 0;
+   
+    public PlayerController Player;
     
     public StoryPointController[] StoryPoints;
 
-    public StoryPointController CurrentStoryPoint => StoryPoints[_storypointIndex];
+    private List<EpisodeData> _episodes;
+    
+    public StoryPointController CurrentStoryPoint;
 
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        _episodes = new List<EpisodeData>();
+        _episodes = StoryPoints.Select(c => c.Episode).ToList();
+        CurrentStoryPoint = StoryPoints.First(); 
         CurrentStoryPoint.IsActive = true;
+        Player.CurrentEpisode = CurrentStoryPoint.Episode;
     }
 
     // Update is called once per frame
@@ -29,9 +37,16 @@ public class StoryTellScreen : AbstractScreen
     public void NextStoryPoint()
     {
         CurrentStoryPoint.IsActive = false;
-        if (_storypointIndex + 1 < StoryPoints.Length) _storypointIndex++;
+        var currentIndex = StoryPoints.ToList().IndexOf(CurrentStoryPoint);
+        if (currentIndex >= StoryPoints.Length) return;
+        
+        currentIndex++;
+
+        CurrentStoryPoint = StoryPoints[currentIndex];
+        Player.CurrentEpisode = CurrentStoryPoint.Episode;
         CurrentStoryPoint.IsActive = true;
     }
+
     
     public void ToBattle()
     {

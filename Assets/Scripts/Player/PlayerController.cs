@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
-using Assets.Scripts.Configs;
-using Assets.Scripts.Core;
 using UnityEngine;
 
 
@@ -12,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public PlayerData model;
     public Wallet Wallet { get; set; }
     public List<Character> Characters { get; set; }
+
+    public EpisodeData CurrentEpisode;
     
     // Start is called before the first frame update
     void Start()

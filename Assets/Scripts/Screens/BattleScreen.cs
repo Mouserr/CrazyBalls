@@ -14,6 +14,7 @@ namespace Assets.Scripts.Screens
 {
     public class BattleScreen : AbstractScreen
     {
+        public PlayerController Player;
         // TMP
         [SerializeField]
         private List<CharacterData> _playerUnits;
@@ -68,7 +69,17 @@ namespace Assets.Scripts.Screens
         public void Surrender()
         {
             _game.Clear();
-            ScreensManager.Instance.OpenScreen(ScreenType.MainMenu);
+            ScreensManager.Instance.OpenScreen(ScreenType.StoryTell);
+        }
+
+        public void Win()
+        {
+            
+        }
+
+        public void Loose()
+        {
+            
         }
     }
 }
