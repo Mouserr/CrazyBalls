@@ -6,8 +6,11 @@ namespace Assets.Scripts
     {
         string Name { get; }
         string Description { get; }
+        int Level { get; }
         Dictionary<CharacterStatType, CharacterStat> Stats { get; }
         List<CharacterAbility> Abilities { get; }
         void RegisterStat(CharacterStat stat);
+
+        void SetLevel(int level);
     }
 }

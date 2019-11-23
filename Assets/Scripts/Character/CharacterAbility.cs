@@ -21,7 +21,7 @@ namespace Assets.Scripts
         {
             Config = config;
             this.caster = caster;
-            Level = 0;
+            Level = caster.Level;
             Config.Register();
         }
 

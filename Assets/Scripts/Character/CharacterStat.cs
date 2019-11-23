@@ -20,10 +20,10 @@ namespace Assets.Scripts
 
         public int CurrentValue => _currentValue;
 
-        public CharacterStat(CharacterStatType type, int value, int maxValue)
+        public CharacterStat(CharacterStatType type, int maxValue)
         {
             _type = type;
-            _currentValue = value;
+            _currentValue = maxValue;
             _maxValue = maxValue;
         }
 

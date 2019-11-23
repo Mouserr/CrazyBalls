@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Assets.Scripts.Configs;
 using Assets.Scripts.Units;
 
@@ -7,6 +8,7 @@ namespace Assets.Scripts
 {
     public class Character: ICharacter
     {
+        private readonly CharacterData _model;
         public string Id { get; protected set; }
         public string Name { get; protected set; }
         public string Description { get; protected set; }
@@ -28,31 +30,46 @@ namespace Assets.Scripts
 
         public Character(CharacterData characterData)
         {
+            _model = characterData;
             Stats = new Dictionary<CharacterStatType, CharacterStat>();
             Abilities = new List<CharacterAbility>();
-            Id = characterData.Id;
-            Name = characterData.Name;
-            Description = characterData.Description;
-            Icon = characterData.Icon;
+            Id = _model.Id;
+            Name = _model.Name;
+            Description = _model.Description;
+            Icon = _model.Icon;
+            Level = 1;
 
-            var health = new CharacterStat(CharacterStatType.Health, characterData.Health, characterData.Health);
-            this.RegisterStat(health);
-
-            var energy = new CharacterStat(CharacterStatType.Energy, characterData.Energy, characterData.Energy);
-            this.RegisterStat(energy);
-
-            var passiveDamage = new CharacterStat(CharacterStatType.PassiveDamage, characterData.PassiveDamage, characterData.PassiveDamage);
-            this.RegisterStat(passiveDamage);
-
-            var maxSpeed = new CharacterStat(CharacterStatType.MaxSpeed, characterData.MaxSpeed, characterData.MaxSpeed);
-            this.RegisterStat(maxSpeed);
-
-            ActiveAbility = new CharacterActiveAbility(characterData.ActiveAbility, this);
-            if (characterData.PassiveAbility)
+            ActiveAbility = new CharacterActiveAbility(_model.ActiveAbility, this);
+            if (_model.PassiveAbility)
             {
-                PassiveAbility = new CharacterAbility(characterData.PassiveAbility, this);
+                PassiveAbility = new CharacterAbility(_model.PassiveAbility, this);
             }
-            UnitType = characterData.UnitType;
+            UnitType = _model.UnitType;
+        }
+
+        public void SetLevel(int level)
+        {
+            Level = level;
+            ResetStats();
+        }
+
+        private void ResetStats()
+        {
+              var maxHealth = _model.Health.GetValue(Level - 1);
+              var health = new CharacterStat(CharacterStatType.Health, maxHealth);
+              this.RegisterStat(health);
+              
+              var maxSpeed = _model.MaxSpeed.GetValue(Level - 1);
+              var speed = new CharacterStat(CharacterStatType.MaxSpeed, maxSpeed);
+              this.RegisterStat(speed);
+              
+              var maxEnergy = _model.Energy.GetValue(Level - 1);
+              var energy = new CharacterStat(CharacterStatType.Energy, maxEnergy);
+              this.RegisterStat(energy);
+              
+              var maxPassiveDamage = _model.PassiveDamage.GetValue(Level - 1);
+              var passiveDamage = new CharacterStat(CharacterStatType.PassiveDamage, maxPassiveDamage);
+              this.RegisterStat(passiveDamage);
         }
     }
 }
