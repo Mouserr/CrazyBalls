@@ -15,8 +15,8 @@ MonoBehaviour:
   id: fe984c32-629a-420d-9193-f3015067eaf5
   displayName: 
   description: 
-  icon: 
-  image: 
+  icon: {fileID: 0}
+  image: {fileID: 0}
   health:
     Levels: 64000000
   energy:

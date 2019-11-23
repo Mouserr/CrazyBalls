@@ -4,7 +4,7 @@
     {
         MainMenu,
         Battle,
-        History,
+        StoryTell,
         Win,
         Lose,
         Surrender,

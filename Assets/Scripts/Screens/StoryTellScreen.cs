@@ -4,7 +4,7 @@ using Assets.Scripts;
 using Assets.Scripts.Screens;
 using UnityEngine;
 
-public class StoryTellController : AbstractScreen
+public class StoryTellScreen : AbstractScreen
 {
     private int _storypointIndex = 0;
     
@@ -31,5 +31,20 @@ public class StoryTellController : AbstractScreen
         CurrentStoryPoint.IsActive = false;
         if (_storypointIndex + 1 < StoryPoints.Length) _storypointIndex++;
         CurrentStoryPoint.IsActive = true;
+    }
+    
+    public void ToBattle()
+    {
+        ScreensManager.Instance.OpenScreen(ScreenType.Battle);
+    }
+    
+    public void ToMainMenu()
+    {
+        ScreensManager.Instance.OpenScreen(ScreenType.MainMenu);
+    }
+    
+    public void TeamManagement()
+    {
+        ScreensManager.Instance.OpenScreen(ScreenType.TeamManagement);
     }
 }
