@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Core.SyncCodes;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
 using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
@@ -18,6 +19,8 @@ namespace Assets.Scripts
         private bool _isMoving;
         private HealthBar _healthBar;
         private List<UnitAura> _activeAuras = new List<UnitAura>();
+        private ISyncScenarioItem _damageTakenItem;
+        private int _prevHealthValue;
         
         public List<CharacterEffect> ActiveEffects { get; } = new List<CharacterEffect>();
 
@@ -72,6 +75,7 @@ namespace Assets.Scripts
         {
             _character = _character ?? character;
             PlayerId = playerId;
+            _prevHealthValue = _character.GetStat(CharacterStatType.Health);
         }
 
         public void Init()
@@ -86,7 +90,19 @@ namespace Assets.Scripts
             _healthBar.BuffUpdated(ActiveEffects);
 
             Health.Changed += _healthBar.SetValue;
+            Health.Changed += OnHealthChanged;
             Game.Instance.TurnStarted += OnTurnStarted;
+        }
+
+        public void OnHealthChanged(CharacterStat stat)
+        {
+            if (_prevHealthValue > stat.CurrentValue)
+            {
+                _damageTakenItem?.Stop();
+                _damageTakenItem = DamageEffect.GetExplosionItem(0.3f).PlayAndReturnSelf();
+            }
+            
+            _prevHealthValue = stat.CurrentValue;
         }
 
         public void Die()
@@ -128,6 +144,7 @@ namespace Assets.Scripts
         {
             Game.Instance.TurnStarted -= OnTurnStarted;
             Health.Changed -= _healthBar.SetValue;
+            Health.Changed -= OnHealthChanged;;
             MapController.Instance.HealthBarPool.ReleaseObject(_healthBar);
             _character = null;
             ActiveEffects.Clear();

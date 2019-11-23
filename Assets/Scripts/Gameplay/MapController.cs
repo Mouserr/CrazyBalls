@@ -174,7 +174,6 @@ namespace Assets.Scripts
                                 defender.IsActive = false;
                             }
                         }),
-                        defender.DamageEffect.GetExplosionItem(0.3f),
                         new ActionScenarioItem(() =>
                         {
                             if (!defender.IsActive)

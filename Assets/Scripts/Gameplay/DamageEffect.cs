@@ -34,10 +34,12 @@ namespace Assets.Scripts
 		{
 			List<ISyncScenarioItem> items = new List<ISyncScenarioItem>();
 
-			items.Add(new MoveByCurveTween(CurveManager.GetCurve(curveVisualizer.GetCurveModel(true)), gameObject, duration, EaseType.Linear));
+			var moveCurve = CurveManager.GetCurve(curveVisualizer.GetCurveModel(true));
+			items.Add(new MoveByCurveTween(moveCurve, gameObject, duration, EaseType.Linear));
 
 			return new SyncScenario(
-				items
+				items,
+				(scenario, interrupted) => new MoveTween(gameObject, Vector3.zero, TweenSpace.Local).Play()
 			);
 		}
 	}
