@@ -58,7 +58,7 @@ namespace Assets.Scripts.Configs.Abilities
                     new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut)
                 }, 
                 (s, interrupted) => Object.Destroy(effect.gameObject)
-                ).PlayAndReturnSelf();
+                ).PlayRegisterAndReturnSelf();
         }
 
 

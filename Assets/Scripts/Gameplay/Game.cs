@@ -32,6 +32,7 @@ namespace Assets.Scripts
 
         public UnitController CurrentUnit { get; private set; }
 
+        public event Action<UnitController> TurnPrepared;
         public event Action<UnitController> TurnStarted;
 
         public void PrepareGame(TeamController firstController, TeamController secondController)
@@ -53,7 +54,7 @@ namespace Assets.Scripts
 
         public void StartGame()
         {
-            MapController.Instance.AllUnitsStopped += NextTurn;
+            MapController.Instance.AllUnitsStopped += OnAllStopped;
             MapController.Instance.NoMoreUnitsAtMap += OnAllUnitsDead;
             NextTurn();
         }
@@ -84,7 +85,12 @@ namespace Assets.Scripts
             CurrentUnit = units[currentIndex];
             _previousUnitIndexes[_currentController.PlayerId] = currentIndex;
 
-            _currentController.StartTurn(CurrentUnit);
+            TurnPrepared?.Invoke(CurrentUnit);
+        }
+
+        public void StartTurn()
+        {
+            _currentController?.StartTurn(CurrentUnit);
             TurnStarted?.Invoke(CurrentUnit);
         }
 
@@ -94,12 +100,6 @@ namespace Assets.Scripts
             {
                 Caster = CurrentUnit
             });
-        }
-        
-        public void OnAllUnitsDead(int player)
-        {
-            GameOver?.Invoke(player);
-            Clear();
         }
 
         public void Clear()
@@ -111,6 +111,17 @@ namespace Assets.Scripts
             _currentController = null;
             _firstController.Clear();
             _secondController.Clear();
+        }
+
+        private void OnAllUnitsDead(int player)
+        {
+            GameOver?.Invoke(player);
+            Clear();
+        }
+
+        private void OnAllStopped()
+        {
+            MapController.Instance.WaitForAllScenarios(() => Game.Instance.NextTurn());
         }
     }
 }

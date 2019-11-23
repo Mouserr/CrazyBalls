@@ -18,7 +18,11 @@ namespace Assets.Scripts
     public class MapController : Singleton<MapController>
     {
         private readonly Dictionary<int, List<UnitController>> unitsByPlayer = new Dictionary<int, List<UnitController>>();
+        private readonly List<ISyncScenarioItem> _allScenarios = new List<ISyncScenarioItem>();
         private int _movingUnitsCount;
+        private int _firstPlayerPositionIndex;
+        private int _secondPlayerPositionIndex;
+
 
         [SerializeField]
         private UnitController GokiController;
@@ -35,6 +39,14 @@ namespace Assets.Scripts
         [SerializeField]
         private HealthBar _enemyHPPrefab;
 
+        [SerializeField]
+        private Transform[] _firstPlayerPositions;
+
+        [SerializeField]
+        private Transform[] _secondPlayerPositions;
+
+        [SerializeField]
+        private Transform _bossPosition;
 
         public GameObjectPool<HealthBar> HealthBarPool { get; private set; }
         public event Action<int> NoMoreUnitsAtMap;
@@ -46,6 +58,7 @@ namespace Assets.Scripts
             UnitsPool.Instance.Register(UnitType.Goki, GokiController, 3);
             UnitsPool.Instance.Register(UnitType.Mob, MobController, 6);
             UnitsPool.Instance.Register(UnitType.MobBoss, BossController, 1);
+            Game.Instance.TurnPrepared += OnTurnPrepared;
         }
 
         public List<UnitController> GetUnits(int playerId)
@@ -68,7 +81,21 @@ namespace Assets.Scripts
             }
             playerUnits.Add(unit);
 
-            unit.transform.position = new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 3f));
+            if (unit.PlayerId == 0)
+            {
+                unit.transform.position = _firstPlayerPositions[_firstPlayerPositionIndex++].position;
+            }
+            else
+            {
+                if (unit.Character.UnitType != UnitType.MobBoss)
+                {
+                    unit.transform.position = _secondPlayerPositions[_secondPlayerPositionIndex++].position;
+                }
+                else
+                {
+                    unit.transform.position = _bossPosition.position;
+                }
+            }
             unit.Init();
             unit.gameObject.SetActive(true);
 
@@ -148,6 +175,29 @@ namespace Assets.Scripts
             return unitsInArea;
         }
 
+        public void AddScenario(ISyncScenarioItem scenarioItem)
+        {
+            _allScenarios.Add(scenarioItem);
+        }
+
+        public void WaitForAllScenarios(Action callBack)
+        {
+            new SyncScenario(
+                new SimpleConditionWaiter(() =>
+                {
+                    foreach (ISyncScenarioItem scenario in _allScenarios)
+                    {
+                        if (scenario == null || !scenario.IsComplete())
+                        {
+                            return false;
+                        }
+                    }
+
+                    return _movingUnitsCount == 0;
+                }),
+                new ActionScenarioItem(callBack)).Play();
+        }
+
         public List<UnitController> GetEnemiesInArea(Vector2 position, Vector3 size, float angle, int playerId)
         {
             return null;
@@ -218,6 +268,13 @@ namespace Assets.Scripts
             }
             unitsByPlayer.Clear();
             _movingUnitsCount = 0;
+            _firstPlayerPositionIndex = 0;
+            _secondPlayerPositionIndex = 0;
+        }
+
+        private void OnTurnPrepared(UnitController unitController)
+        {
+            _allScenarios.Clear();
         }
 
         private void OnUnitMovementStateChanged(UnitController unitController, bool isMoving)

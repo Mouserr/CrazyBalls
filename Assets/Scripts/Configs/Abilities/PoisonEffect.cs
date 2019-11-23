@@ -40,7 +40,7 @@ namespace Assets.Scripts.Configs.Abilities
                     Debug.Log($"Applying poison to {castContext.Target}", castContext.Target);
                     DamageSystem.ApplyDamage(null, DamagePerTurn.GetValue(abilityLevel), castContext.Target);
                 }
-            ).PlayAndReturnSelf();
+            ).PlayRegisterAndReturnSelf();
         }
     }
 }

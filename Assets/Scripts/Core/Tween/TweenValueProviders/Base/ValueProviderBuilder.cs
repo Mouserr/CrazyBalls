@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Core.Tween.TweenValueProviders.Renderers;
 using Assets.Scripts.Core.Tween.TweenValueProviders.ShortestRotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Core.Tween.TweenValueProviders.Base
 {
@@ -33,6 +34,7 @@ namespace Assets.Scripts.Core.Tween.TweenValueProviders.Base
         {
             AddProvider(TweenType.Alpha, typeof(Mesh), typeof(MeshAlphaProvider));
             AddProvider(TweenType.Alpha, typeof(Renderer), typeof(RendererAlphaProvider));
+            AddProvider(TweenType.Alpha, typeof(MaskableGraphic), typeof(GraphicAlphaProvider));
             
 
             AddProvider(TweenType.MoveRectPosition, typeof(Camera), typeof(CameraRectPositionProvider));
@@ -47,7 +49,8 @@ namespace Assets.Scripts.Core.Tween.TweenValueProviders.Base
 
             AddProvider(TweenType.Color, typeof (MeshFilter), typeof (MeshColorProvider));
             AddProvider(TweenType.Color, typeof(Renderer), typeof(RendererColorProvider));
-        
+            AddProvider(TweenType.Color, typeof(MaskableGraphic), typeof(GraphicColorProvider));
+
             AddProvider(TweenType.Rotation, typeof(Transform), typeof(TransformRotationProvider));
             AddProvider(TweenType.Rotation, typeof(Rigidbody), typeof(RigidbodyRotationProvider));
 

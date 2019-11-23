@@ -99,7 +99,7 @@ namespace Assets.Scripts
             if (_prevHealthValue > stat.CurrentValue)
             {
                 _damageTakenItem?.Stop();
-                _damageTakenItem = DamageEffect.GetExplosionItem(0.3f).PlayAndReturnSelf();
+                _damageTakenItem = DamageEffect.GetExplosionItem(0.3f).PlayRegisterAndReturnSelf();
             }
             
             _prevHealthValue = stat.CurrentValue;

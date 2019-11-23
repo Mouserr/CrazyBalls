@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Configs;
 using Assets.Scripts.Core;
+using Assets.Scripts.Core.Helpers;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
 using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using Assets.Scripts.TeamControllers;
+using TMPro;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
@@ -23,11 +26,33 @@ namespace Assets.Scripts.Screens
         private List<CharacterData> _mobs;
 
         [SerializeField]
-        private Game _game;
+        private TMP_Text _turnLabel;
 
         private void Awake()
         {
-            _game.GameOver += OnGameOver;
+            Game.Instance.GameOver += OnGameOver;
+            Game.Instance.TurnPrepared += OnTurnPrepared;
+            _turnLabel.color = ColorHelper.SetAlpha(0, _turnLabel.color);
+        }
+
+        private void OnTurnPrepared(UnitController unitController)
+        {
+            if (unitController.PlayerId == 0)
+            {
+                _turnLabel.text = "Player Turn";
+            }
+            else
+            {
+                _turnLabel.text = "Enemy Turn";
+            }
+
+            new SyncScenario(
+                    new ScaleTween(_turnLabel, Vector3.one * 0.9f),
+                    new AlphaTween(_turnLabel, 1, 0.3f, EaseType.QuadOut),
+                    new ScaleTween(_turnLabel, Vector3.one, 0.2f, EaseType.BackInOut),
+                    new AlphaTween(_turnLabel, 0, 0.3f, EaseType.QuadIn),
+                    new ActionScenarioItem(() => Game.Instance.StartTurn())
+                ).Play();
         }
 
         private void OnGameOver(int loser)
@@ -44,20 +69,20 @@ namespace Assets.Scripts.Screens
 
         public override void Focus()
         {
-            _game.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
-            _game.SetupUpTeam(_playerUnits.Select(data =>
+            Game.Instance.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
+            Game.Instance.SetupUpTeam(_playerUnits.Select(data =>
             {
                 var character = new Character(data);
                 character.SetLevel(1);
                 return character;
             }).ToList(), 0);
-            _game.SetupUpTeam(_mobs.Select(data => 
+            Game.Instance.SetupUpTeam(_mobs.Select(data => 
             {
                 var character = new Character(data);
                 character.SetLevel(1);
                 return character;
             }).ToList(), 1);
-            _game.StartGame();
+            Game.Instance.StartGame();
             base.Focus();
         }
 
@@ -65,27 +90,27 @@ namespace Assets.Scripts.Screens
         {
             return new CompositeItem(
                     base.GetShowTransition(),
-                    new MoveTween(_game, Vector3.zero, 0.3f, EaseType.Linear, TweenSpace.Local)
+                    new MoveTween(Game.Instance, Vector3.zero, 0.3f, EaseType.Linear, TweenSpace.Local)
                 );
         }
 
         protected override void PrepareToShow()
         {
             base.PrepareToShow();
-            _game.transform.localPosition = new Vector3(6, 0 ,0);
+            Game.Instance.transform.localPosition = new Vector3(6, 0 ,0);
         }
 
         public override ISyncScenarioItem GetHideTransition()
         {
             return new CompositeItem(
                     base.GetHideTransition(),
-                    new MoveTween(_game, new Vector3(-6, 0 ,0), 0.3f, EaseType.Linear, TweenSpace.Local)
+                    new MoveTween(Game.Instance, new Vector3(-6, 0 ,0), 0.3f, EaseType.Linear, TweenSpace.Local)
                 );
         }
 
         public void Surrender()
         {
-            _game.Clear();
+            Game.Instance.Clear();
             ScreensManager.Instance.OpenScreen(ScreenType.Surrender);
         }
 

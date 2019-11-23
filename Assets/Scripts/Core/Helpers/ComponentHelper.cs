@@ -16,7 +16,7 @@ namespace Assets.Scripts.Core.Helpers
         }
 
         public static TComponent GetComponent<TComponent>(object obj)
-            where TComponent : Component
+            where TComponent : class 
         {
             TComponent component = obj as TComponent;
             if (component == null)

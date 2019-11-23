@@ -35,7 +35,7 @@ namespace Assets.Scripts.Configs.Abilities
                     }
                 });
                 unitAura.SetSize(castContext.Caster.GetComponentInChildren<CircleCollider2D>().radius + 0.1f);
-            }).PlayAndReturnSelf();
+            }).PlayRegisterAndReturnSelf();
 
         }
 

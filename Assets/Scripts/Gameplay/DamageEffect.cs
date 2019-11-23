@@ -25,7 +25,7 @@ namespace Assets.Scripts
 		{
 			if (currentItem.IsNullOrComplete() && Input.GetKeyUp(KeyCode.Space))
 			{
-				 currentItem = GetExplosionItem(time).PlayAndReturnSelf();
+				 currentItem = GetExplosionItem(time).PlayRegisterAndReturnSelf();
 			}
 		}
 #endif
