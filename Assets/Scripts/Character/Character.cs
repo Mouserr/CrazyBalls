@@ -18,6 +18,8 @@ namespace Assets.Scripts
 
         public Dictionary<CharacterStatType, CharacterStat> Stats { get; }
         public List<CharacterAbility> Abilities { get; }
+        
+        public List<CharacterEffect> ActiveEffects { get; }
 
         public CharacterActiveAbility ActiveAbility { get; }
         public CharacterAbility PassiveAbility { get; }
@@ -26,6 +28,20 @@ namespace Assets.Scripts
         {
             if (Stats.ContainsKey(stat.Type)) return;
             Stats.Add(stat.Type, stat);
+        }
+
+        public void AddEffect(CharacterEffect effectConfig)
+        {
+            ActiveEffects.Add(effectConfig);
+        }
+
+        public void OnTurnStart(CastContext castContext)
+        {
+            foreach (var effect in ActiveEffects)
+            {
+                effect.Apply(castContext);
+                effect.LeftTurns--;
+            }
         }
 
         public Character(CharacterData characterData)

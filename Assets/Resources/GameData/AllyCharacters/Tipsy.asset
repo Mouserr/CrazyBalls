@@ -17,10 +17,14 @@ MonoBehaviour:
   description: Just a little bit Tipsy
   icon: 
   image: 
-  health: 100
-  energy: 100
-  passiveDamage: 30
-  maxSpeed: 3
+  health:
+    Levels: 64000000
+  energy:
+    Levels: 
+  passiveDamage:
+    Levels: 1e000000
+  maxSpeed:
+    Levels: 03000000
   passiveAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
   activeAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
   unitType: 0

@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &220121732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -279,6 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acdf2fcd48a59c47927496f274478fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HideEndPosition: {x: 0, y: 0, z: 0}
+  ShowStartPosition: {x: 0, y: 0, z: 0}
+  ScreenType: 0
+  IsPopup: 0
   StoryPoints:
   - {fileID: 1084556228}
   - {fileID: 1774085359}
@@ -1030,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1532070537
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1663,7 @@ PrefabInstance:
     - target: {fileID: 3107631669251197090, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}

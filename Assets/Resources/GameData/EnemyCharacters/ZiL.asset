@@ -17,10 +17,14 @@ MonoBehaviour:
   description: Very old soviet frige
   icon: 
   image: 
-  health: 100
-  energy: 100
-  passiveDamage: 10
-  maxSpeed: 3
+  health:
+    Levels: 64000000
+  energy:
+    Levels: 00000000
+  passiveDamage:
+    Levels: 
+  maxSpeed:
+    Levels: 
   passiveAbility: {fileID: 0}
   activeAbility: {fileID: 11400000, guid: b12c554b2bf20dd4e89424db70f24eaa, type: 2}
   unitType: 1

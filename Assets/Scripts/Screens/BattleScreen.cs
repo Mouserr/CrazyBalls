@@ -27,8 +27,18 @@ namespace Assets.Scripts.Screens
         public override void Focus()
         {
             _game.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
-            _game.SetupUpTeam(_playerUnits.Select(data => new Character(data)).ToList(), 0);
-            _game.SetupUpTeam(_mobs.Select(data => new Character(data)).ToList(), 1);
+            _game.SetupUpTeam(_playerUnits.Select(data =>
+            {
+                var character = new Character(data);
+                character.SetLevel(1);
+                return character;
+            }).ToList(), 0);
+            _game.SetupUpTeam(_mobs.Select(data => 
+            {
+                var character = new Character(data);
+                character.SetLevel(1);
+                return character;
+            }).ToList(), 1);
             _game.StartGame();
             base.Focus();
         }
