@@ -28,6 +28,8 @@ namespace Assets.Scripts
         public CharacterData[] Enemies => enemies;
         public int[] EnemyLevels => enemyLevels;
        
+        public BonusData[] BonusesWin => bonusesWin;
+        public BonusData[] BonusesLoose => bonusesLoose;
         public string BattlefieldImage => battlefieldImage;
     }
 }
