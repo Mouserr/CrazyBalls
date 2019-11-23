@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Ally2
   m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts:CharacterBonusData
-  allyCharacter: {fileID: 11400000, guid: 94228aa933fc8e84c8b512e5b3828479, type: 2}
+  allyCharacter: {fileID: 11400000, guid: 2b87f5f5797696042bd8f767c32cb2d6, type: 2}

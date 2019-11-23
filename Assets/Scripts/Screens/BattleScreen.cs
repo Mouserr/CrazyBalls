@@ -86,17 +86,17 @@ namespace Assets.Scripts.Screens
         public void Surrender()
         {
             _game.Clear();
-            ScreensManager.Instance.OpenScreen(ScreenType.StoryTell);
+            ScreensManager.Instance.OpenScreen(ScreenType.Surrender);
         }
 
         public void Win()
         {
-            Debug.Log("Win");
+            ScreensManager.Instance.OpenScreen(ScreenType.Win);
         }
 
         public void Lose()
         {
-            Debug.Log("Lose");
+            ScreensManager.Instance.OpenScreen(ScreenType.Lose);
         }
 
         public void ActivateSkill()
