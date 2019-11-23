@@ -1764,6 +1764,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1062686217}
     m_Modifications:
+    - target: {fileID: 330261502520893494, guid: ed03a8ff51ac339408dc715623026c38,
+        type: 3}
+      propertyPath: m_Name
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 330261502520893494, guid: ed03a8ff51ac339408dc715623026c38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 330261502520893493, guid: ed03a8ff51ac339408dc715623026c38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1869,16 +1879,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 330261502520893494, guid: ed03a8ff51ac339408dc715623026c38,
-        type: 3}
-      propertyPath: m_Name
-      value: MainMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 330261502520893494, guid: ed03a8ff51ac339408dc715623026c38,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 330261502359281120, guid: ed03a8ff51ac339408dc715623026c38,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1956,6 +1956,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1062686217}
     m_Modifications:
+    - target: {fileID: 869174325643628950, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
+        type: 3}
+      propertyPath: m_Name
+      value: TeamManagementScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 869174325643628950, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 869174325643628951, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2080,16 +2090,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ShowStartPosition.x
       value: 1081
-      objectReference: {fileID: 0}
-    - target: {fileID: 869174325643628950, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
-        type: 3}
-      propertyPath: m_Name
-      value: TeamManagementScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 869174325643628950, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5172138062653569050, guid: 3a1b23d40b1dc094dbdef39c17e1e3b4,
         type: 3}
@@ -2324,6 +2324,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1306670756424129557, guid: f14d7ec02b96232489b1e3213ee6ca0c,
+        type: 3}
+      propertyPath: HideEndPosition.x
+      value: -1081
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306670756424129557, guid: f14d7ec02b96232489b1e3213ee6ca0c,
+        type: 3}
+      propertyPath: ShowStartPosition.x
+      value: 1081
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f14d7ec02b96232489b1e3213ee6ca0c, type: 3}
 --- !u!114 &2944813604966527774 stripped
@@ -2345,6 +2355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1062686217}
     m_Modifications:
+    - target: {fileID: 3107631669251197090, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: m_Name
+      value: BattleScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2455,11 +2470,42 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
-    - target: {fileID: 3107631669251197090, guid: db2a55141b7d98f4cbb53a5a9597479a,
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
-      propertyPath: m_Name
-      value: BattleScreen
-      objectReference: {fileID: 0}
+      propertyPath: _mobs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _playerUnits.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 156b2c0d1a2b4a848b29e96898a9c1e2,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _playerUnits.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 40d1f577e04aad64296b9e591d49105a,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _playerUnits.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b87f5f5797696042bd8f767c32cb2d6,
+        type: 2}
     - target: {fileID: 1213565679, guid: db2a55141b7d98f4cbb53a5a9597479a, type: 3}
       propertyPath: Camera
       value: 
@@ -2628,6 +2674,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1062686217}
     m_Modifications:
+    - target: {fileID: 6281189365960396301, guid: 5d94ca64d0530654ba4fee1cdc3a78af,
+        type: 3}
+      propertyPath: m_Name
+      value: LooseScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 6281189365960396302, guid: 5d94ca64d0530654ba4fee1cdc3a78af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2738,10 +2789,15 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
-    - target: {fileID: 6281189365960396301, guid: 5d94ca64d0530654ba4fee1cdc3a78af,
+    - target: {fileID: 6281189365960396298, guid: 5d94ca64d0530654ba4fee1cdc3a78af,
         type: 3}
-      propertyPath: m_Name
-      value: LooseScreen
+      propertyPath: HideEndPosition.x
+      value: -1081
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281189365960396298, guid: 5d94ca64d0530654ba4fee1cdc3a78af,
+        type: 3}
+      propertyPath: ShowStartPosition.x
+      value: 1081
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d94ca64d0530654ba4fee1cdc3a78af, type: 3}
@@ -2752,6 +2808,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1062686217}
     m_Modifications:
+    - target: {fileID: 6571363555806356298, guid: bfbf8b4c5ae8d4649b4de69840938c0f,
+        type: 3}
+      propertyPath: m_Name
+      value: WinScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 6571363555806356297, guid: bfbf8b4c5ae8d4649b4de69840938c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2862,10 +2923,15 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
-    - target: {fileID: 6571363555806356298, guid: bfbf8b4c5ae8d4649b4de69840938c0f,
+    - target: {fileID: 6571363555806356301, guid: bfbf8b4c5ae8d4649b4de69840938c0f,
         type: 3}
-      propertyPath: m_Name
-      value: WinScreen
+      propertyPath: HideEndPosition.x
+      value: -1081
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571363555806356301, guid: bfbf8b4c5ae8d4649b4de69840938c0f,
+        type: 3}
+      propertyPath: ShowStartPosition.x
+      value: 1081
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbf8b4c5ae8d4649b4de69840938c0f, type: 3}

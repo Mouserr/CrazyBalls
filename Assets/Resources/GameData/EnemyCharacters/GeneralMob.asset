@@ -10,21 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c52c5bc1bc3336e40a3affbc5662240c, type: 3}
-  m_Name: Drunky
+  m_Name: GeneralMob
   m_EditorClassIdentifier: 
-  id: fe984c32-629a-420d-9193-f3015067eaf5
-  displayName: 
-  description: 
+  id: d283b6fd-e219-4ab3-8514-1933bde36e38
+  displayName: General mob
+  description: He just chose wrong side
   icon: {fileID: 0}
   image: {fileID: 0}
+  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
   health:
     Levels: 64000000
   energy:
-    Levels: 
+    Levels: 00000000
   passiveDamage:
-    Levels: 14000000
+    Levels: 
   maxSpeed:
-    Levels: 03000000
-  passiveAbility: {fileID: 11400000, guid: 8512c52e4a6f10a4c9ef917404fc1849, type: 2}
-  activeAbility: {fileID: 11400000, guid: f83712e2f7f9b5d42b77412ec4e58d3e, type: 2}
-  unitType: 0
+    Levels: 
+  passiveAbility: {fileID: 0}
+  activeAbility: {fileID: 11400000, guid: b12c554b2bf20dd4e89424db70f24eaa, type: 2}
+  unitType: 1

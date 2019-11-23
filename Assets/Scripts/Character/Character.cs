@@ -16,6 +16,7 @@ namespace Assets.Scripts
         public UnitType UnitType => _model.UnitType;
         public Sprite Icon => _model.Icon;
         public Sprite Image => _model.Image;
+        public Sprite InGameSprite => _model.InGameSprite;
         public int Level { get; set; }
 
         public Dictionary<CharacterStatType, CharacterStat> Stats { get; }

@@ -206,7 +206,7 @@ namespace Assets.Scripts
 
         public void ResolveCollision(UnitController defender, Collision2D collision)
         {
-            if (defender == Game.Instance.CurrentUnit)
+            if (defender == Game.Instance.CurrentUnit || !defender.IsActive)
             {
                 return;
             }

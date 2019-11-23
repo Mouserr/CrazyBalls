@@ -19,6 +19,8 @@ namespace Assets.Scripts.Configs
         private Sprite icon;
         [SerializeField]
         private Sprite image;
+        [SerializeField]
+        private Sprite inGameSprite;
         [SerializeField] 
         private IntAbilityParameter health;
         [SerializeField]
@@ -46,6 +48,7 @@ namespace Assets.Scripts.Configs
         public string Description => description;
         public Sprite Icon => icon;
         public Sprite Image => image;
+        public Sprite InGameSprite => inGameSprite;
         public IntAbilityParameter Health => health;
         public IntAbilityParameter Energy => energy;
         public IntAbilityParameter PassiveDamage => passiveDamage;

@@ -28,6 +28,7 @@ namespace Assets.Scripts
         public float HPBarOffset = -0.35f;
         public event Action<UnitController> Death;
         public DamageEffect DamageEffect;
+        public SpriteRenderer Sprite;
 
         public Character Character => _character;
 
@@ -76,6 +77,7 @@ namespace Assets.Scripts
             _character = _character ?? character;
             PlayerId = playerId;
             _prevHealthValue = _character.GetStat(CharacterStatType.Health);
+            Sprite.sprite = _character.InGameSprite;
         }
 
         public void Init()

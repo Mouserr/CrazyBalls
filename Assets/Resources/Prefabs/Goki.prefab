@@ -1,5 +1,110 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1018713083616663506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526129492082196075}
+  - component: {fileID: 7488307875614254718}
+  - component: {fileID: 8385123720529962078}
+  m_Layer: 0
+  m_Name: Bable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526129492082196075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018713083616663506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4584482913960546794}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7488307875614254718
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018713083616663506}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.91211283, g: 0.9716981, b: 0.917017, a: 0.34117648}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.2, y: 0.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &8385123720529962078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018713083616663506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deeca36d2e3c11a4c94ce7d8f3f90a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurveType: 1
+  segmentsCount: 50
+  globalSpace: 0
+  ControlPoints:
+  - {x: 0, y: 0, z: 0}
+  - {x: -0.02396524, y: -0.0033314228, z: 15.753899}
+  - {x: 0.0320338, y: 0.030855417, z: 11.607425}
+  - {x: -0.019029021, y: 0.019248724, z: 5.351557}
+  - {x: 0.013032794, y: -0.021484613, z: -4.296877}
+  - {x: 0.026177585, y: 0.0068945885, z: -1.5234394}
+  - {x: -0.0066609383, y: -0.02145791, z: 1.8906231}
+  - {x: 0, y: 0, z: 0}
 --- !u!1 &6360774585294915018
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +116,7 @@ GameObject:
   - component: {fileID: 8145545801324530839}
   - component: {fileID: 4442665443927998085}
   m_Layer: 0
-  m_Name: 1
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,11 +130,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6360774585294915018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0041, y: 0.0248, z: 0}
-  m_LocalScale: {x: 0.027, y: 0.027, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4584482913960546794}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4442665443927998085
 SpriteRenderer:
@@ -69,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e3d22782ad6d92c469c5f5e3f3617268, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32c09d1bcc8531548a0f2da2b7bdf74b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +200,7 @@ GameObject:
   - component: {fileID: 291399779}
   - component: {fileID: 291399780}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Goki
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,8 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a4f1d6a6b70bb41a31a96b037e612d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPBarOffset: -0.35
+  HPBarOffset: -0.5
   DamageEffect: {fileID: 2354243396324044111}
+  Sprite: {fileID: 4442665443927998085}
 --- !u!114 &291399780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,8 +319,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4584482913960546794}
-  - component: {fileID: 520460105701373287}
-  - component: {fileID: 6094045158733350577}
   - component: {fileID: 2354243396324044111}
   m_Layer: 0
   m_Name: View
@@ -232,85 +336,13 @@ Transform:
   m_GameObject: {fileID: 8570712509267007049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1526129492082196075}
   - {fileID: 8145545801324530839}
   m_Father: {fileID: 6692883943463304692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &520460105701373287
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8570712509267007049}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.91211283, g: 0.9716981, b: 0.917017, a: 0.34117648}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &6094045158733350577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8570712509267007049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deeca36d2e3c11a4c94ce7d8f3f90a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurveType: 1
-  segmentsCount: 50
-  globalSpace: 0
-  ControlPoints:
-  - {x: 0, y: 0, z: 0}
-  - {x: -0.02396524, y: -0.0033313276, z: 15.753899}
-  - {x: 0.0320338, y: 0.030855417, z: 11.607424}
-  - {x: -0.019029021, y: 0.019248629, z: 5.351557}
-  - {x: 0.013032794, y: -0.021484518, z: -4.296877}
-  - {x: 0.026177585, y: 0.0068945885, z: -1.5234394}
-  - {x: -0.0066609383, y: -0.021457816, z: 1.8906231}
-  - {x: 0, y: 0, z: 0}
 --- !u!114 &2354243396324044111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,5 +355,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631407f97cc08664b8b0321ec44ac318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curveVisualizer: {fileID: 6094045158733350577}
+  curveVisualizer: {fileID: 8385123720529962078}
   time: 0.3

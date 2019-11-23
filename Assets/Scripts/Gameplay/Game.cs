@@ -15,7 +15,8 @@ namespace Assets.Scripts
     public class Game : MonoBehaviour
     {
         private static Game _instance;
-        
+
+        private bool _isPlaying;
         private TeamController _firstController;
         private TeamController _secondController;
 
@@ -54,6 +55,7 @@ namespace Assets.Scripts
 
         public void StartGame()
         {
+            _isPlaying = true;
             MapController.Instance.AllUnitsStopped += OnAllStopped;
             MapController.Instance.NoMoreUnitsAtMap += OnAllUnitsDead;
             NextTurn();
@@ -104,6 +106,7 @@ namespace Assets.Scripts
 
         public void Clear()
         {
+            _isPlaying = false;
             MapController.Instance.NoMoreUnitsAtMap -= OnAllUnitsDead;
             MapController.Instance.AllUnitsStopped -= NextTurn;
             MapController.Instance.Clear();
@@ -115,12 +118,21 @@ namespace Assets.Scripts
 
         private void OnAllUnitsDead(int player)
         {
-            GameOver?.Invoke(player);
-            Clear();
+            _isPlaying = false;
+            MapController.Instance.WaitForAllScenarios(() =>
+            {
+                Clear();
+                GameOver?.Invoke(player);
+            });
         }
 
         private void OnAllStopped()
         {
+            if (!_isPlaying)
+            {
+                return;
+            }
+
             MapController.Instance.WaitForAllScenarios(() => Game.Instance.NextTurn());
         }
     }

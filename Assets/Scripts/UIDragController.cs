@@ -80,6 +80,11 @@ namespace Assets.Scripts
         
         public void OnPointerDown(PointerEventData eventData)
         {
+            if (!_isActive)
+            {
+                return;
+            }
+
             if (!_isPressed)
             {
                 _isPressed = true;
@@ -93,6 +98,11 @@ namespace Assets.Scripts
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            if (!_isActive || !_isPressed)
+            {
+                return;
+            }
+
             _prevPosition = Input.mousePosition;
             var delta = _mouseInitialPosition - _prevPosition;
             _isPressed = false;
