@@ -22,10 +22,13 @@ namespace Assets.Scripts
         private BonusData[] bonusesWin;
         [SerializeField]
         private BonusData[] bonusesLoose;
+        [SerializeField]
+        private int[] enemyLevels;
 
         public string Name => name;
         public string Description => description;
         public CharacterData[] Enemies => enemies;
+        public int[] EnemyLevels => enemyLevels;
         public string MapImage => mapImage;
         public string BattlefieldImage => battlefieldImage;
     }

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using Assets.Scripts.Screens;
 using UnityEngine;
 
-public class StoryTellController : MonoBehaviour
+public class StoryTellController : AbstractScreen
 {
     private int _storypointIndex = 0;
     
