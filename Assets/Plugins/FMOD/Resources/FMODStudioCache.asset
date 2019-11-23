@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/MainTheme
   guid: 6403e1b788914c4ba55d109428bfa5b4
   Banks:
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/WallHit
   guid: fa6d50050ee82c478622de18d1bedbfb
   Banks:
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
   lastModified: 637095034546741744
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1896881393270577208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/gokiBalls/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637095034546821690
+  lastModified: 637095864563869093
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -171,7 +171,7 @@ MonoBehaviour:
   Path: event:/Damage
   guid: 4db682ba0e203949929c014417ab5dd9
   Banks:
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1896881393270577208}
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   EditorEvents:
   - {fileID: -8725871191511057830}
   - {fileID: -7231056026818667387}
@@ -201,10 +201,10 @@ MonoBehaviour:
   - {fileID: 2969697803853383976}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   StringsBanks:
   - {fileID: -1896881393270577208}
-  stringsBankWriteTime: 637095034546821690
+  stringsBankWriteTime: 637095864563869093
   cacheVersion: 3
 --- !u!114 &2969697803853383976
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
   Path: event:/Death
   guid: 53e25b95047e4846a4cf542fbff851e1
   Banks:
-  - {fileID: -2750263059239673422}
+  - {fileID: 4783528909296139835}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -229,6 +229,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 914
+--- !u!114 &4783528909296139835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637095864563849091
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5962845112003734370
 MonoBehaviour:
   m_ObjectHideFlags: 0
