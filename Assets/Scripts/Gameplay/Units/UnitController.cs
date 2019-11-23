@@ -5,6 +5,7 @@ using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using Assets.Scripts.UI;
+using DefaultNamespace;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -15,8 +16,11 @@ namespace Assets.Scripts
         
         private Rigidbody2D _rigidbody;
         private bool _isMoving;
-        private ProgressBar _healthBar;
+        private HealthBar _healthBar;
         private List<UnitAura> _activeAuras = new List<UnitAura>();
+        
+        public List<CharacterEffect> ActiveEffects { get; } = new List<CharacterEffect>();
+
 
         public float HPBarOffset = -0.35f;
         public event Action<UnitController> Death;
@@ -79,6 +83,7 @@ namespace Assets.Scripts
             UpdatePosition();
             _healthBar.gameObject.SetActive(true);
             _healthBar.SetValue(1, true);
+            _healthBar.BuffUpdated(ActiveEffects);
 
             Health.Changed += _healthBar.SetValue;
             Game.Instance.TurnStarted += OnTurnStarted;
@@ -100,6 +105,15 @@ namespace Assets.Scripts
             _activeAuras.Add(aura);
         }
 
+        public void AddEffect(CharacterEffect effectConfig)
+        {
+            if (ActiveEffects.Find(x => x.Config.EffectType == effectConfig.Config.EffectType) == null)
+            {
+                ActiveEffects.Add(effectConfig);
+                _healthBar.BuffUpdated(ActiveEffects);
+            }
+        }
+
         public ISyncScenarioItem CastAbility(CastContext castContext)
         {
             return Character.ActiveAbility.Apply(castContext);
@@ -116,11 +130,44 @@ namespace Assets.Scripts
             Health.Changed -= _healthBar.SetValue;
             MapController.Instance.HealthBarPool.ReleaseObject(_healthBar);
             _character = null;
+            ActiveEffects.Clear();
+            foreach (var activeAura in _activeAuras)
+            {
+                Destroy(activeAura.gameObject);
+            }
+            _activeAuras.Clear();
+        }
+
+        private void RemoveEndedEffects()
+        {
+            for (int i = 0; i < ActiveEffects.Count;)
+            {
+                if (ActiveEffects[i].LeftTurns <= 0)
+                {
+                    ActiveEffects.RemoveAt(i);
+                    continue;
+                }
+
+                i++;
+            }
+            _healthBar.BuffUpdated(ActiveEffects);
         }
 
         private void OnTurnStarted(UnitController currentUnit)
         {
-            _character.OnTurnStart(new CastContext{ Target = this, Caster = this });
+            for (var i = 0; i < ActiveEffects.Count; i++)
+            {
+                var effect = ActiveEffects[i];
+                effect.Apply(new CastContext {Target = this, Caster = this});
+                if (_character == null)
+                {
+                    return;
+                }
+                effect.LeftTurns--;
+            }
+
+            RemoveEndedEffects();
+            
             for (int i = 0; i < _activeAuras.Count;)
             {
                 var activeAura = _activeAuras[i];

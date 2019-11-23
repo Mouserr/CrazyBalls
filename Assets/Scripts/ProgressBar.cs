@@ -13,7 +13,7 @@ namespace Assets.Scripts.UI
         private ISyncScenarioItem _scenario;
 
         [SerializeField]
-        private Image _foreground;
+        protected Image _foreground;
         [SerializeField]
         private Image _backgound;
 

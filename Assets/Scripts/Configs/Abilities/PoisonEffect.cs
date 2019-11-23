@@ -35,9 +35,12 @@ namespace Assets.Scripts.Configs.Abilities
 
         public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel)
         {
-            return new ActionScenarioItem(() => 
-                DamageSystem.ApplyDamage(null, DamagePerTurn.GetValue(abilityLevel), castContext.Target)
-                ).PlayAndReturnSelf();
+            return new ActionScenarioItem(() =>
+                {
+                    Debug.Log($"Applying poison to {castContext.Target}", castContext.Target);
+                    DamageSystem.ApplyDamage(null, DamagePerTurn.GetValue(abilityLevel), castContext.Target);
+                }
+            ).PlayAndReturnSelf();
         }
     }
 }

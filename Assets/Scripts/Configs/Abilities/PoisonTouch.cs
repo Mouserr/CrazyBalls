@@ -31,7 +31,7 @@ namespace Assets.Scripts.Configs.Abilities
                 {
                     if (target.PlayerId != holder.PlayerId)
                     {
-                        target.Character.AddEffect(new CharacterEffect(EffectOnTouch, abilityLevel));
+                        target.AddEffect(new CharacterEffect(EffectOnTouch, abilityLevel));
                     }
                 });
                 unitAura.SetSize(castContext.Caster.GetComponentInChildren<CircleCollider2D>().radius + 0.1f);

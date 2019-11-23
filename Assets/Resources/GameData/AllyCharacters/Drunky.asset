@@ -25,6 +25,6 @@ MonoBehaviour:
     Levels: 14000000
   maxSpeed:
     Levels: 03000000
-  passiveAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
+  passiveAbility: {fileID: 11400000, guid: 8512c52e4a6f10a4c9ef917404fc1849, type: 2}
   activeAbility: {fileID: 11400000, guid: f83712e2f7f9b5d42b77412ec4e58d3e, type: 2}
   unitType: 0

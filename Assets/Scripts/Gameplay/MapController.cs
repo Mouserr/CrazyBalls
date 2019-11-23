@@ -9,6 +9,7 @@ using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using Assets.Scripts.UI;
 using Assets.Scripts.Units;
+using DefaultNamespace;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -32,16 +33,16 @@ namespace Assets.Scripts
         private GameObject _container;
 
         [SerializeField]
-        private ProgressBar _enemyHPPrefab;
+        private HealthBar _enemyHPPrefab;
 
 
-        public GameObjectPool<ProgressBar> HealthBarPool { get; private set; }
+        public GameObjectPool<HealthBar> HealthBarPool { get; private set; }
         public event Action<int> NoMoreUnitsAtMap;
         public event Action AllUnitsStopped;
 
         private void Awake()
         {
-            HealthBarPool = new GameObjectPool<ProgressBar>(_container, _enemyHPPrefab, 5);
+            HealthBarPool = new GameObjectPool<HealthBar>(_container, _enemyHPPrefab, 5);
             UnitsPool.Instance.Register(UnitType.Goki, GokiController, 3);
             UnitsPool.Instance.Register(UnitType.Mob, MobController, 6);
             UnitsPool.Instance.Register(UnitType.MobBoss, BossController, 1);
