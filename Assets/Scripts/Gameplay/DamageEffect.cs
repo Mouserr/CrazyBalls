@@ -2,6 +2,7 @@
 using Assets.Scripts.Core.Curves;
 using Assets.Scripts.Core.SyncCodes;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Assets.Scripts
 	{
 		[SerializeField] private CurveVisualizer curveVisualizer;
 		[SerializeField] private float time;
+		[SerializeField] private CircleDamageEffect circle;
 		private ISyncScenarioItem currentItem;
 
 		[ContextMenu("toZero")]
@@ -35,12 +37,20 @@ namespace Assets.Scripts
 			List<ISyncScenarioItem> items = new List<ISyncScenarioItem>();
 
 			var moveCurve = CurveManager.GetCurve(curveVisualizer.GetCurveModel(true));
-			items.Add(new MoveByCurveTween(moveCurve, gameObject, duration, EaseType.Linear));
+		    items.Add(
+		        new CompositeItem(
+		            new MoveByCurveTween(moveCurve, gameObject, duration, EaseType.Linear),
+		            circle.GetExplosionItem(0.1f)
+		        ));
 
-			return new SyncScenario(
+
+            return new SyncScenario(
 				items,
-				(scenario, interrupted) => new MoveTween(gameObject, Vector3.zero, TweenSpace.Local).Play()
-			);
+				(scenario, interrupted) =>
+				{
+                    circle.Prepare().Play();
+                    new MoveTween(gameObject, Vector3.zero, TweenSpace.Local).Play();
+				});
 		}
 	}
 }

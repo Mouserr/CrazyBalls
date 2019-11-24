@@ -301,6 +301,8 @@ MonoBehaviour:
   _container: {fileID: 1025396230}
   _enemyHPPrefab: {fileID: -1550764297537235694, guid: 0ca4c6134d07b474d816f93e69eca193,
     type: 3}
+  _damageEffectPrefab: {fileID: -6403269057443334255, guid: e63fd3df2b5609346959436a784b335a,
+    type: 3}
   _firstPlayerPositions:
   - {fileID: 773457381}
   - {fileID: 263481722}
@@ -2498,7 +2500,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _playerUnits.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 40d1f577e04aad64296b9e591d49105a,
+      objectReference: {fileID: 11400000, guid: 44a0909519433cf4093b228310cead79,
         type: 2}
     - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}

@@ -33,9 +33,10 @@ namespace Assets.Scripts.Core.Tween.TweenValueProviders.Base
         private void init()
         {
             AddProvider(TweenType.Alpha, typeof(Mesh), typeof(MeshAlphaProvider));
-            AddProvider(TweenType.Alpha, typeof(Renderer), typeof(RendererAlphaProvider));
+            AddProvider(TweenType.Alpha, typeof(SpriteRenderer), typeof(SpriteRendererAlphaProvider));
+            //AddProvider(TweenType.Alpha, typeof(Renderer), typeof(RendererAlphaProvider));
             AddProvider(TweenType.Alpha, typeof(MaskableGraphic), typeof(GraphicAlphaProvider));
-            
+
 
             AddProvider(TweenType.MoveRectPosition, typeof(Camera), typeof(CameraRectPositionProvider));
             AddProvider(TweenType.MoveLocal, typeof(Transform), typeof(LocalPositionProvider));

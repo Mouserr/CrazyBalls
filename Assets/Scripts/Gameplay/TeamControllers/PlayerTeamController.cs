@@ -31,6 +31,7 @@ namespace Assets.Scripts.TeamControllers
         {
 
             return new SyncScenario(
+                    new ScaleTween(CurrentUnit.Selection, Vector3.one),
                     new ScaleTween(CurrentUnit.Selection, Vector3.one * 1.3f, 0.3f, EaseType.BounceInOut),
                     new ScaleTween(CurrentUnit.Selection, Vector3.one, 0.2f, EaseType.QuadIn),
                     new TimeWaiterScenarioItem(0.4f),
@@ -47,7 +48,7 @@ namespace Assets.Scripts.TeamControllers
             if (_selectionAnimation != null)
             {
                 _selectionAnimation.Stop();
-                new ScaleTween(CurrentUnit.Selection, Vector3.one).Play();
+                new ScaleTween(CurrentUnit.Selection, Vector3.one * 0.5f).Play();
             }
         }
 
