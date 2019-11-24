@@ -163,7 +163,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632638550964922690}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   HPBarOffset: -0.5
   DamageEffect: {fileID: 3881208702855707988}
   Sprite: {fileID: 4204439497451768039}
+  Selection: {fileID: 0}
 --- !u!1 &2800665651290316480
 GameObject:
   m_ObjectHideFlags: 0

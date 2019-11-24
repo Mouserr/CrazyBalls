@@ -198,12 +198,6 @@ namespace Assets.Scripts
                 new ActionScenarioItem(callBack)).Play();
         }
 
-        public List<UnitController> GetEnemiesInArea(Vector2 position, Vector3 size, float angle, int playerId)
-        {
-            return null;
-            //Physics2D.BoxCast(position, size, angle,)
-        }
-
         public void ResolveCollision(UnitController defender, Collision2D collision)
         {
             if (defender == Game.Instance.CurrentUnit || !defender.IsActive)
@@ -212,7 +206,7 @@ namespace Assets.Scripts
             }
 
             var attacker = collision.transform.GetComponent<UnitController>();
-            if (attacker == null)
+            if (attacker == null || !attacker.IsActive)
             {
                 return;
             }

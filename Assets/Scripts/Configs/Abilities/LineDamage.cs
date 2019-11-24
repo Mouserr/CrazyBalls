@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Abilities;
 using Assets.Scripts.Core.Helpers;
 using Assets.Scripts.Core.SyncCodes;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
@@ -9,39 +10,34 @@ using UnityEngine;
 
 namespace Assets.Scripts.Configs.Abilities
 {
+    [CreateAssetMenu(fileName = "LineDamage", menuName = "Configs/Ability/LineDamage")]
     public class LineDamage : ActiveAbilityConfig
     {
-        [SerializeField] 
-        private Direction _damageDirections;
-        [SerializeField] 
-        private float _lineWidth;
         [SerializeField]
         private IntAbilityParameter _damage;
         [SerializeField]
-        private Transform _line;
+        private LinesCollider _linesColliderPrefab;
         
         public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel)
         {
-            var effect = PrefabHelper.Intantiate(_line, Game.Instance.gameObject);
-            effect.transform.position = castContext.Caster.Position;
-            effect.transform.localScale = Vector3.zero;
-
-            /*var targets = MapController.Instance.GetEnemiesInArea(castContext.Caster.Position,
-                radius, castContext.Caster.PlayerId);
-*/
-
-            /*for (int i = 0; i < targets.Count; i++)
+            var linesCollider = PrefabHelper.Intantiate(_linesColliderPrefab, Game.Instance.gameObject);
+            linesCollider.transform.position = castContext.Caster.Position;
+            linesCollider.transform.localScale = Vector3.one;
+            linesCollider.OnTrigger += (unit) =>
             {
-                DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel), targets[i]);
-            }*/
-
+                if (unit.PlayerId != castContext.Caster.PlayerId)
+                {
+                    DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel), unit);
+                }
+            };
+            var renderers = linesCollider.GetComponentsInChildren<Renderer>();
             return new SyncScenario(
                 new List<ISyncScenarioItem>{
-                    new AlphaTween(effect, 1),
-                    //new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
-                    new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut)
+                    new AlphaTween(renderers, 0),
+                    new AlphaTween(renderers, 1, 0.1f, EaseType.QuadIn),
+                    new AlphaTween(renderers, 0, 0.3f, EaseType.QuadOut)
                 }, 
-                (s, interrupted) => Object.Destroy(effect.gameObject)
+                (s, interrupted) => Object.Destroy(linesCollider.gameObject)
             ).PlayRegisterAndReturnSelf();
         }
 
