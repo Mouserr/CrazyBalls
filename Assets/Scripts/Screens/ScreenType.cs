@@ -10,6 +10,7 @@
         Surrender,
         BattlePreparation,
         TeamManagement,
-        Promote
+        Promote,
+        StartScreen
     }
 }
