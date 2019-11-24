@@ -25,7 +25,7 @@ namespace Assets.Scripts.Screens
                 _screensByType[screen.ScreenType] = screen;
             }
 
-            OpenScreen(ScreenType.MainMenu, 0);
+            OpenScreen(ScreenType.StartScreen, 0);
         }
 
         public ISyncScenarioItem OpenScreen(ScreenType screenTypeType, float duration = 0.3f)
