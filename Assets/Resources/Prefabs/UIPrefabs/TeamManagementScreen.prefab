@@ -2369,6 +2369,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 869174324914365880, guid: a92609a2163740a4386cab22034ff02e,
+        type: 3}
+      propertyPath: Name
+      value: DMG
+      objectReference: {fileID: 0}
     - target: {fileID: 3843315162254727402, guid: a92609a2163740a4386cab22034ff02e,
         type: 3}
       propertyPath: m_Color.r
