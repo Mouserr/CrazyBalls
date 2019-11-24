@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a833a352fc6bd0438adb54b72823a1f, type: 3}
+  m_Name: Episode9
+  m_EditorClassIdentifier: 
+  name: "\u0421\u0432\u0430\u043B\u043A\u0430"
+  description: "\u0427\u0442\u043E \u0434\u043B\u044F \u0432\u0430\u0441 \u043C\u0443\u0441\u043E\u0440,
+    \u0442\u043E \u0434\u043B\u044F \u0442\u0430\u0440\u0430\u043A\u0430\u0448\u0435\u043A
+    \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0435! \u041D\u0430 \u0421\u0432\u0430\u043B\u043A\u0435
+    \u043C\u043E\u0436\u043D\u043E \u0434\u043E\u0431\u044B\u0442\u044C \u043A\u0443\u0447\u0443
+    \u043F\u043E\u043B\u0435\u0437\u043D\u044B\u0445 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432
+    \u0438 \u0435\u0434\u044B, \u043D\u043E \u0437\u0434\u0435\u0441\u044C \u043E\u043F\u0430\u0441\u043D\u043E."
+  battlefieldImage: {fileID: 21300000, guid: 27c01e6cde5723e49bea6dfe4a92e6d8, type: 3}
+  enemies:
+  - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
+  - {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012, type: 2}
+  - {fileID: 11400000, guid: 024e55291ad6ab746b2b6efd87afab4d, type: 2}
+  - {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393, type: 2}
+  - {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393, type: 2}
+  - {fileID: 11400000, guid: 51f9722150e281346bf96fc6c25296c5, type: 2}
+  bonusesWin:
+  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
+  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
+  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
+  bonusesLoose:
+  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
+  enemyLevels: 
