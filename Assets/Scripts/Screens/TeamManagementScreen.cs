@@ -15,8 +15,6 @@ public class TeamManagementScreen : AbstractScreen
     public PlayerController Player;
     
     public GameObject CharacterButtonPrefab;
-
-    public GameObject CharacterSelectionIconPrefab;
     public Character SelectedCharacter { get; set; }
 
     private List<GameObject> _buttons = new List<GameObject>();
@@ -53,6 +51,8 @@ public class TeamManagementScreen : AbstractScreen
             GameObject.Destroy(button);
         }
      
+        _buttons.Clear();
+        
         foreach (var character in Player.Characters)
         {
             var btn = Instantiate(CharacterButtonPrefab, charactersPanel);
@@ -95,6 +95,11 @@ public class TeamManagementScreen : AbstractScreen
         
         GameObject.Find("_lvlUpBtn").GetComponent<UnityEngine.UI.Button>().enabled = CanLvlUp();
         
+        foreach (var buttonObj in _buttons)
+        {
+            var selector = buttonObj.GetComponent<CharacterButtonComponent>();
+            selector.SetSelection(Player.BattleGroup.Contains(selector.Character));
+        }
         
     }
 
@@ -134,7 +139,14 @@ public class TeamManagementScreen : AbstractScreen
     {
         if (SelectedCharacter != null)
         {
-            Player.AssingToBattle(SelectedCharacter);
+            if (Player.BattleGroup.Contains((SelectedCharacter)))
+            {
+                Player.RemoveFromBattle(SelectedCharacter);
+            }
+            else
+            {
+                Player.AssingToBattle(SelectedCharacter);    
+            }
 
             foreach (var buttonObj in _buttons)
             {
