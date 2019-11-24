@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 0}
   image: {fileID: 0}
-  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
+  inGameSprite: {fileID: 21300000, guid: afcf0794c8966ae42aa751e0fa194cfc, type: 3}
   health:
     Levels: 2c010000
   energy:

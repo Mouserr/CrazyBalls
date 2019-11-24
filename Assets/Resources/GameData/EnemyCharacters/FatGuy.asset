@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Don't joke with him
   icon: {fileID: 0}
   image: {fileID: 0}
-  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
+  inGameSprite: {fileID: 21300000, guid: eaaedd7980344064c8956b8cb8a632c0, type: 3}
   health:
     Levels: 90010000
   energy:

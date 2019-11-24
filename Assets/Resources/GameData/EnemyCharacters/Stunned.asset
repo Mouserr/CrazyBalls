@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Stunned
   m_EditorClassIdentifier: 
   id: d283b6fd-e219-4ab3-8514-1933bde36e38
-  displayName: "\u0423\u0434\u0438\u0432\u043B\u0435\u043D\u043D\u044B\u0439"
+  displayName: Stunned
   description: 
   icon: {fileID: 0}
   image: {fileID: 0}
-  inGameSprite: {fileID: 0}
+  inGameSprite: {fileID: 21300000, guid: fb3476af0b871854498f994ca8557cf4, type: 3}
   health:
     Levels: c8000000
   energy:

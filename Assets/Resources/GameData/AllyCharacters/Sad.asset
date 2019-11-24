@@ -17,7 +17,7 @@ MonoBehaviour:
   description: In a deep depression
   icon: {fileID: 21300000, guid: 5189c6b8a5dce7044b9e99f3850f12ad, type: 3}
   image: {fileID: 21300000, guid: 5189c6b8a5dce7044b9e99f3850f12ad, type: 3}
-  inGameSprite: {fileID: 21300000, guid: cd7c34b39470e584aac48b63d1bbfb86, type: 3}
+  inGameSprite: {fileID: 21300000, guid: 46234901440ead7449a2bf2e32c4731b, type: 3}
   health:
     Levels: 7800000096000000b4000000c8000000fa0000002c0100009001000026020000a8020000b6030000
   energy:

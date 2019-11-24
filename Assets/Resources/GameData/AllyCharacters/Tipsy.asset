@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Just a little bit Tipsy
   icon: {fileID: 21300000, guid: 5189c6b8a5dce7044b9e99f3850f12ad, type: 3}
   image: {fileID: 21300000, guid: 5189c6b8a5dce7044b9e99f3850f12ad, type: 3}
-  inGameSprite: {fileID: 21300000, guid: 63af78e562112b04ca711eea906c723d, type: 3}
+  inGameSprite: {fileID: 21300000, guid: 9890314c2e8382f40b09d5224f6cbf7f, type: 3}
   health:
     Levels: 7800000096000000b4000000c8000000fa0000002c0100009001000026020000a8020000b6030000
   energy:

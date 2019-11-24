@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c52c5bc1bc3336e40a3affbc5662240c, type: 3}
-  m_Name: GeneralMob
+  m_Name: RaidBoss
   m_EditorClassIdentifier: 
   id: d283b6fd-e219-4ab3-8514-1933bde36e38
-  displayName: General mob
-  description: He just chose wrong side
+  displayName: RaidBoss
+  description: You'd better go
   icon: {fileID: 0}
   image: {fileID: 0}
-  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
+  inGameSprite: {fileID: 21300000, guid: eb2f3d471bb6ad140b72853b3a1d1bfa, type: 3}
   health:
-    Levels: 64000000
+    Levels: dc050000
   energy:
     Levels: 00000000
   passiveDamage:
@@ -27,5 +27,5 @@ MonoBehaviour:
   maxSpeed:
     Levels: 
   passiveAbility: {fileID: 0}
-  activeAbility: {fileID: 11400000, guid: b12c554b2bf20dd4e89424db70f24eaa, type: 2}
-  unitType: 1
+  activeAbility: {fileID: 11400000, guid: bacd2f4e6413b1e44b50bcccaa277cb0, type: 2}
+  unitType: 2

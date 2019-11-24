@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Spiderman furious enemy
   icon: {fileID: 0}
   image: {fileID: 0}
-  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
+  inGameSprite: {fileID: 21300000, guid: e232c32bd91b01643af193576d75e1f9, type: 3}
   health:
     Levels: e8030000
   energy:

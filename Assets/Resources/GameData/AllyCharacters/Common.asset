@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Just common man with common thoughts
   icon: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
   image: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
-  inGameSprite: {fileID: 21300000, guid: 9345008766ef59f43a81c2ad9f466966, type: 3}
+  inGameSprite: {fileID: 21300000, guid: aa3aa6f61897e1942bf267accc37beb4, type: 3}
   health:
     Levels: 7800000096000000b4000000c8000000fa0000002c0100009001000026020000a8020000b6030000
   energy:

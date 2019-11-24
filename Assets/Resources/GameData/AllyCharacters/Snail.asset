@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c52c5bc1bc3336e40a3affbc5662240c, type: 3}
-  m_Name: Pirate
+  m_Name: Snail
   m_EditorClassIdentifier: 
   id: 90cab55d-9446-442d-9fc4-1498486edcf0
-  displayName: Pirate
-  description: Arrrh!
+  displayName: Snail
+  description: Fastest one
   icon: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
   image: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
-  inGameSprite: {fileID: 21300000, guid: b4ce648f35be45948b55d9134c30b0b5, type: 3}
+  inGameSprite: {fileID: 21300000, guid: e232c32bd91b01643af193576d75e1f9, type: 3}
   health:
     Levels: 7800000096000000b4000000c8000000fa0000002c0100009001000026020000a8020000b6030000
   energy:
@@ -26,6 +26,6 @@ MonoBehaviour:
     Levels: 1e0000003c0000005a0000007800000096000000b4000000d2000000f00000000e0100004a010000
   maxSpeed:
     Levels: 03000000030000000400000005000000060000000700000008000000090000000a0000000b000000
-  passiveAbility: {fileID: 11400000, guid: 229681603e5acc5408eb4cb91a163d26, type: 2}
-  activeAbility: {fileID: 11400000, guid: f97465ed780465848862e054bb69f809, type: 2}
+  passiveAbility: {fileID: 11400000, guid: f97465ed780465848862e054bb69f809, type: 2}
+  activeAbility: {fileID: 11400000, guid: 66f55548ff658524897a6d3b47800cda, type: 2}
   unitType: 0
