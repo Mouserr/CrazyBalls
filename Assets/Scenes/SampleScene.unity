@@ -297,7 +297,8 @@ MonoBehaviour:
   GokiController: {fileID: 291399779, guid: 85e464462e4736c49897a496eaecf978, type: 3}
   MobController: {fileID: 3856130792733751299, guid: c0db9305a3ecbf944b3cb122880d856a,
     type: 3}
-  BossController: {fileID: 0}
+  BossController: {fileID: 3856130792733751299, guid: b62cff71c6ccb44438ce9d192f74f335,
+    type: 3}
   _container: {fileID: 1025396230}
   _enemyHPPrefab: {fileID: -1550764297537235694, guid: 0ca4c6134d07b474d816f93e69eca193,
     type: 3}
@@ -2472,6 +2473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
+      propertyPath: _mobs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
@@ -2479,7 +2485,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _mobs.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012,
+      objectReference: {fileID: 11400000, guid: c61827c165bf81d4193c41197b19bbe2,
         type: 2}
     - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
@@ -2492,6 +2498,12 @@ PrefabInstance:
       propertyPath: _mobs.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: c61827c165bf81d4193c41197b19bbe2,
         type: 2}
     - target: {fileID: 1213565679, guid: db2a55141b7d98f4cbb53a5a9597479a, type: 3}
       propertyPath: Camera

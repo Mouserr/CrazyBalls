@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6259420267448875096}
   - component: {fileID: -1550764297537235694}
   m_Layer: 5
-  m_Name: EnemyHP
+  m_Name: HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -394, y: 404}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 200, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6259420267448875097
 CanvasRenderer:
