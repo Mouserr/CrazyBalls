@@ -301,8 +301,6 @@ MonoBehaviour:
   _container: {fileID: 1025396230}
   _enemyHPPrefab: {fileID: -1550764297537235694, guid: 0ca4c6134d07b474d816f93e69eca193,
     type: 3}
-  _damageEffectPrefab: {fileID: -6403269057443334255, guid: e63fd3df2b5609346959436a784b335a,
-    type: 3}
   _firstPlayerPositions:
   - {fileID: 773457381}
   - {fileID: 263481722}
@@ -1774,7 +1772,7 @@ PrefabInstance:
     - target: {fileID: 330261502520893494, guid: ed03a8ff51ac339408dc715623026c38,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 330261502520893493, guid: ed03a8ff51ac339408dc715623026c38,
         type: 3}
@@ -2362,6 +2360,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattleScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 3107631669251197090, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2425,17 +2428,17 @@ PrefabInstance:
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -959.5
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 1919
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
@@ -2445,7 +2448,7 @@ PrefabInstance:
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
@@ -2455,7 +2458,7 @@ PrefabInstance:
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3107631669251197093, guid: db2a55141b7d98f4cbb53a5a9597479a,
         type: 3}
@@ -2472,42 +2475,6 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _mobs.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
-        type: 2}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _mobs.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
-        type: 2}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _mobs.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf,
-        type: 2}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _playerUnits.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 156b2c0d1a2b4a848b29e96898a9c1e2,
-        type: 2}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _playerUnits.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 44a0909519433cf4093b228310cead79,
-        type: 2}
-    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
-        type: 3}
-      propertyPath: _playerUnits.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 2b87f5f5797696042bd8f767c32cb2d6,
-        type: 2}
     - target: {fileID: 1213565679, guid: db2a55141b7d98f4cbb53a5a9597479a, type: 3}
       propertyPath: Camera
       value: 

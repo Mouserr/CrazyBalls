@@ -45,12 +45,15 @@ namespace Assets.Scripts
             _currentController = _secondController;
         }
 
-        public void SetupUpTeam(List<Character> characters, int playerId)
+        public List<UnitController> SetupUpTeam(List<Character> characters, int playerId)
         {
+            var units = new List<UnitController>();
             foreach (var character in characters)
             {
-                UnitsPool.Instance.AddUnitToMap(character, playerId);
+                units.Add(UnitsPool.Instance.AddUnitToMap(character, playerId));
             }
+
+            return units;
         }
 
         public void StartGame()

@@ -25,6 +25,9 @@ namespace Assets.Scripts.Screens
         private List<CharacterData> _mobs;
 
         [SerializeField]
+        private List<UICharacterAbility> _abilities;
+
+        [SerializeField]
         private TMP_Text _turnLabel;
 
         private void Awake()
@@ -69,27 +72,35 @@ namespace Assets.Scripts.Screens
         public override void Focus()
         {
             Game.Instance.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
-            Game.Instance.SetupUpTeam(_playerUnits.Select(data =>
+            var playerTeam = _playerUnits.Select(data =>
             {
                 var character = new Character(data);
                 character.SetLevel(1);
                 return character;
-            }).ToList(), 0);
-            Game.Instance.SetupUpTeam(_mobs.Select(data => 
+            }).ToList();
+            var enemies = _mobs.Select(data => 
             {
                 var character = new Character(data);
                 character.SetLevel(1);
                 return character;
-            }).ToList(), 1);
+            }).ToList();
+
+            var unitControllers = Game.Instance.SetupUpTeam(playerTeam, 0);
+            for (int i = 0; i < unitControllers.Count; i++)
+            {
+                _abilities[i].Init(unitControllers[i]);
+            }
+
+            Game.Instance.SetupUpTeam(enemies, 1);
             Game.Instance.StartGame();
             base.Focus();
         }
 
-        public override ISyncScenarioItem GetShowTransition()
+        public override ISyncScenarioItem GetShowTransition(float duration = 0.3f)
         {
             return new CompositeItem(
-                    base.GetShowTransition(),
-                    new MoveTween(Game.Instance, Vector3.zero, 0.3f, EaseType.Linear, TweenSpace.Local)
+                    base.GetShowTransition(duration),
+                    new MoveTween(Game.Instance, Vector3.zero, duration, EaseType.Linear, TweenSpace.Local)
                 );
         }
 
@@ -99,11 +110,11 @@ namespace Assets.Scripts.Screens
             Game.Instance.transform.localPosition = new Vector3(6, 0 ,0);
         }
 
-        public override ISyncScenarioItem GetHideTransition()
+        public override ISyncScenarioItem GetHideTransition(float duration = 0.3f)
         {
             return new CompositeItem(
-                    base.GetHideTransition(),
-                    new MoveTween(Game.Instance, new Vector3(-6, 0 ,0), 0.3f, EaseType.Linear, TweenSpace.Local)
+                    base.GetHideTransition(duration),
+                    new MoveTween(Game.Instance, new Vector3(-6, 0 ,0), duration, EaseType.Linear, TweenSpace.Local)
                 );
         }
 

@@ -213,6 +213,7 @@ namespace Assets.Scripts
 
             if (defender.PlayerId != attacker.PlayerId)
             {
+                attacker.HitsCount.AddValue(1);
                 defender.CollisionReaction?.Stop();
                 defender.CollisionReaction = new SyncScenario(new List<ISyncScenarioItem>
                     {
@@ -223,6 +224,7 @@ namespace Assets.Scripts
                             {
                                 defender.IsActive = false;
                             }
+                            
                         }),
                         new ActionScenarioItem(() =>
                         {

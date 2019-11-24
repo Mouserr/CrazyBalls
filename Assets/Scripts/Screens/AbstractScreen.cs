@@ -13,15 +13,15 @@ namespace Assets.Scripts.Screens
         public ScreenType ScreenType;
         public bool IsPopup;
 
-        public virtual ISyncScenarioItem GetHideTransition()
+        public virtual ISyncScenarioItem GetHideTransition(float duration = 0.3f)
         {
-            return new MoveTween(this, HideEndPosition, 0.3f, EaseType.Linear, TweenSpace.Local);
+            return new MoveTween(this, HideEndPosition, duration, EaseType.Linear, TweenSpace.Local);
         }
 
-        public virtual ISyncScenarioItem GetShowTransition()
+        public virtual ISyncScenarioItem GetShowTransition(float duration = 0.3f)
         {
             return new SyncScenario(new ActionScenarioItem(PrepareToShow),
-                new MoveTween(this, Vector3.zero, 0.3f, EaseType.Linear, TweenSpace.Local));
+                new MoveTween(this, Vector3.zero, duration, EaseType.Linear, TweenSpace.Local));
         }
 
         protected virtual void PrepareToShow()

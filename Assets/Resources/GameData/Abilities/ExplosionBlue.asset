@@ -17,6 +17,7 @@ MonoBehaviour:
   Cooldown:
     Levels:
     - 0
+  HitsToUnlock: 2
   _radius:
     Levels:
     - 1.5

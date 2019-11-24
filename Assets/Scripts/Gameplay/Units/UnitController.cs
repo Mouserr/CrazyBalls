@@ -41,6 +41,7 @@ namespace Assets.Scripts
         public int PlayerId { get; private set; }
         public bool IsActive { get; set; }
         public ISyncScenarioItem CollisionReaction { get; set; }
+        public CharacterStat HitsCount { get; private set; }
 
         public event Action<UnitController, bool> MovementStateChanged;
 
@@ -79,6 +80,7 @@ namespace Assets.Scripts
             PlayerId = playerId;
             _prevHealthValue = _character.GetStat(CharacterStatType.Health);
             Sprite.sprite = _character.InGameSprite;
+            HitsCount = new CharacterStat(CharacterStatType.Energy, 99999);
         }
 
         public void Init()
@@ -135,6 +137,7 @@ namespace Assets.Scripts
 
         public ISyncScenarioItem CastAbility(CastContext castContext)
         {
+            HitsCount.AddValue(-HitsCount.CurrentValue);
             return Character.ActiveAbility.Apply(castContext);
         }
 
@@ -145,6 +148,7 @@ namespace Assets.Scripts
 
         public void Clear()
         {
+            HitsCount = null;
             Game.Instance.TurnStarted -= OnTurnStarted;
             Health.Changed -= _healthBar.SetValue;
             Health.Changed -= OnHealthChanged;;

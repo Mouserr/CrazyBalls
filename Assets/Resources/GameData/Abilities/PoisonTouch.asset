@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Cooldown:
     Levels: []
+  HitsToUnlock: 1
   PoisonousAuraPrefab: {fileID: 6351000846759369567, guid: 15991be97cd47ef4fa0609de12e6be1e,
     type: 3}
   EffectOnTouch: {fileID: 11400000, guid: 40c87b8bb83105d4aa5988d0ac85bb38, type: 2}

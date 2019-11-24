@@ -25,10 +25,10 @@ namespace Assets.Scripts.Screens
                 _screensByType[screen.ScreenType] = screen;
             }
 
-            OpenScreen(ScreenType.MainMenu);
+            OpenScreen(ScreenType.MainMenu, 0);
         }
 
-        public ISyncScenarioItem OpenScreen(ScreenType screenTypeType)
+        public ISyncScenarioItem OpenScreen(ScreenType screenTypeType, float duration = 0.3f)
         {
             var screenToOpen = _screensByType[screenTypeType];
             _currentTransition?.Stop();
@@ -36,10 +36,10 @@ namespace Assets.Scripts.Screens
             var transitions = new List<ISyncScenarioItem>();
             if (!screenToOpen.IsPopup && TopScreen != null)
             {
-                transitions.Add(TopScreen.GetHideTransition());
+                transitions.Add(TopScreen.GetHideTransition(duration));
             }
             
-            transitions.Add(screenToOpen.GetShowTransition());
+            transitions.Add(screenToOpen.GetShowTransition(duration));
             
             _currentTransition = new SyncScenario(
                 new List<ISyncScenarioItem>()

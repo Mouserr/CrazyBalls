@@ -16,6 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Cooldown:
     Levels: []
+  HitsToUnlock: 5
   _damage:
     Levels: 32000000
   _linesColliderPrefab: {fileID: 1022090858421904902, guid: eb9df418d343bb7478e3aded184eafce,

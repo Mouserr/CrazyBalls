@@ -37,6 +37,7 @@ namespace Assets.Scripts.Configs
     public abstract class ActiveAbilityConfig : AbilityConfig
     {
         public FloatAbilityParameter Cooldown;
+        public int HitsToUnlock;
 
         public abstract bool CouldApply(CastContext castContext, int abilityLevel);
     }
