@@ -17,10 +17,7 @@ namespace Assets.Scripts.Screens
     public class BattleScreen : AbstractScreen
     {
         public PlayerController Player;
-        // TMP
-        [SerializeField]
-        private List<CharacterData> _mobs;
-
+      
         [SerializeField]
         private List<UICharacterAbility> _abilities;
 

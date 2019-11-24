@@ -18,10 +18,10 @@ MonoBehaviour:
     Levels: []
   HitsToUnlock: 0
   _direction: 68
-  _distance: 2
+  _distance: 1
   _radius:
     Levels:
-    - 1.5
+    - 0.5
   _damage:
     Levels: 28000000
   _explosionEffectPrefab: {fileID: 3928723293547965088, guid: c8402bf74cc1aaa4e9a5fa4878d260e4,

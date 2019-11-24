@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
@@ -25,6 +26,10 @@ public class PlayerController : MonoBehaviour
     {
         Characters = model.Characters.Select(c => new Character(c)).ToList();
         BattleGroup = new List<Character>();
+        for (int i = 0; i < Math.Min(3, Characters.Count) ; i++)
+        {
+            AssingToBattle(Characters[i]);
+        }
         Wallet = new Wallet();
         Wallet.AddTransaction(CurrencyType.Food, model.Food);
     }
