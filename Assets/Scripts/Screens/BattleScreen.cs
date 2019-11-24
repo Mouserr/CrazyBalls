@@ -19,6 +19,8 @@ namespace Assets.Scripts.Screens
     {
         public PlayerController Player;
 
+        [SerializeField] private SpriteRenderer _background;
+
         [SerializeField]
         private List<UICharacterAbility> _abilities;
 
@@ -98,6 +100,7 @@ namespace Assets.Scripts.Screens
 
         protected override void PrepareToShow()
         {
+            _background.sprite = Player.CurrentEpisode.BattlefieldImage;
             base.PrepareToShow();
             Game.Instance.transform.localPosition = new Vector3(6, 0 ,0);
         }
