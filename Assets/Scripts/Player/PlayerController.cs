@@ -10,13 +10,21 @@ public class PlayerController : MonoBehaviour
     public PlayerData model;
     public Wallet Wallet { get; set; }
     public List<Character> Characters { get; set; }
+    public List<Character> BattleGroup { get; set; }
 
     public EpisodeData CurrentEpisode;
-    
+
+    public void AssingToBattle(Character character)
+    {
+        BattleGroup.Add(character);
+        if (BattleGroup.Count > 3) BattleGroup.Remove(BattleGroup.First());
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Characters = model.Characters.Select(c => new Character(c)).ToList();
+        BattleGroup = new List<Character>();
         Wallet = new Wallet();
         Wallet.AddTransaction(CurrencyType.Food, model.Food);
     }
@@ -26,4 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         
     }
+    
+    
 }

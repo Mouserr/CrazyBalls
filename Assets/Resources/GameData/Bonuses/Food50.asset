@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Food50
   m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts:FoodBonusData
-  food: 0
+  food: 50

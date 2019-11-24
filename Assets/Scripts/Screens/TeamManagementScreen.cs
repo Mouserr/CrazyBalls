@@ -16,9 +16,11 @@ public class TeamManagementScreen : AbstractScreen
     
     public GameObject CharacterButtonPrefab;
 
-    
+    public GameObject CharacterSelectionIconPrefab;
     public Character SelectedCharacter { get; set; }
 
+    private List<GameObject> _buttons = new List<GameObject>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -46,15 +48,22 @@ public class TeamManagementScreen : AbstractScreen
     private void CreateButtons()
     {
         var charactersPanel = transform.Find("_charactersPanel");
+        foreach (var button in _buttons)
+        {
+            GameObject.Destroy(button);
+        }
      
         foreach (var character in Player.Characters)
         {
             var btn = Instantiate(CharacterButtonPrefab, charactersPanel);
-            btn.GetComponent<CharacterButtonComponent>().Icon = character.Icon;
-          
+            
+            btn.GetComponent<CharacterButtonComponent>().SetIcon(character.Icon);
+            btn.GetComponent<CharacterButtonComponent>().Character = character;
             btn.GetComponent<UnityEngine.UI.Button>()
                 .onClick
                 .AddListener(() => { SelectCharacter(character);});
+            
+            _buttons.Add(btn);
         }
     }
 
@@ -74,7 +83,7 @@ public class TeamManagementScreen : AbstractScreen
         
         GameObject.Find("_hpStat").GetComponent<StatUIComponent>().SetValue(SelectedCharacter.GetStat(CharacterStatType.Health).ToString());
         
-        GameObject.Find("_energyStat").GetComponent<StatUIComponent>().SetValue(SelectedCharacter.GetStat(CharacterStatType.Energy).ToString());
+       // GameObject.Find("_energyStat").GetComponent<StatUIComponent>().SetValue(SelectedCharacter.GetStat(CharacterStatType.Energy).ToString());
         
         GameObject.Find("_damageStat").GetComponent<StatUIComponent>().SetValue(SelectedCharacter.GetStat(CharacterStatType.PassiveDamage).ToString());
         
@@ -118,5 +127,18 @@ public class TeamManagementScreen : AbstractScreen
        ScreensManager.Instance.OpenScreen(ScreenType.StoryTell);
     }
 
+    public void PickForBattle()
+    {
+        if (SelectedCharacter != null)
+        {
+            Player.AssingToBattle(SelectedCharacter);
+
+            foreach (var buttonObj in _buttons)
+            {
+                var selector = buttonObj.GetComponent<CharacterButtonComponent>();
+                selector.SetSelection(Player.BattleGroup.Contains(selector.Character));
+            }
+        }
+    }
 
 }

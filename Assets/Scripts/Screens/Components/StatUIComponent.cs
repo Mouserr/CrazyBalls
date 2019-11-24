@@ -9,7 +9,7 @@ public class StatUIComponent : MonoBehaviour
 {
     public string Name;
     public string Value;
-    public Sprite Icon;
+   // public Sprite Icon;
 
     private Image _imageObj;
     private TextMeshProUGUI _nameObj;
@@ -18,9 +18,9 @@ public class StatUIComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var icon = this.transform.Find("_icon")?.gameObject;
-        _imageObj = icon.GetComponent<Image>();
-        _imageObj.sprite = Icon;
+//        var icon = this.transform.Find("_icon")?.gameObject;
+//        _imageObj = icon.GetComponent<Image>();
+//        _imageObj.sprite = Icon;
         
         var nameObj = this.transform.Find("_statName");
         _nameObj = nameObj.GetComponent<TextMeshProUGUI>();
