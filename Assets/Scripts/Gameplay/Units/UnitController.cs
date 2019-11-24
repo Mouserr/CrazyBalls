@@ -29,6 +29,7 @@ namespace Assets.Scripts
         public event Action<UnitController> Death;
         public DamageEffect DamageEffect;
         public SpriteRenderer Sprite;
+        public Transform Selection;
 
         public Character Character => _character;
 

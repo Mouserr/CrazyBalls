@@ -1,10 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Assets.Scripts.Core.SyncCodes;
+using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
+using Assets.Scripts.Core.Tween;
+using Assets.Scripts.Core.Tween.TweenObjects;
+using UnityEngine;
 
 namespace Assets.Scripts.TeamControllers
 {
     // TODO: разделить на 2 класса для реализации сетевого режима
     public class PlayerTeamController : TeamController
     {
+        private ISyncScenarioItem _selectionAnimation;
+        private bool _showSelection;
+
         public PlayerTeamController(int playerId) : base(playerId)
         {
         }
@@ -12,18 +21,46 @@ namespace Assets.Scripts.TeamControllers
         public override void StartTurn(UnitController unit)
         {
             base.StartTurn(unit);
+            _selectionAnimation = GetSelectionAnimation().PlayAndReturnSelf();
+
             UIDragController.Instance.Activate(unit.Position);
             UIDragController.Instance.Swipe += OnSwipe;
         }
 
+        private SyncScenario GetSelectionAnimation()
+        {
+
+            return new SyncScenario(
+                    new ScaleTween(CurrentUnit.Selection, Vector3.one * 1.3f, 0.3f, EaseType.BounceInOut),
+                    new ScaleTween(CurrentUnit.Selection, Vector3.one, 0.2f, EaseType.QuadIn),
+                    new TimeWaiterScenarioItem(0.4f),
+                    new ActionScenarioItem(() =>
+                    {
+                        StopSelection();
+                        _selectionAnimation = GetSelectionAnimation().PlayAndReturnSelf();
+                    })
+                );
+        }
+
+        private void StopSelection()
+        {
+            if (_selectionAnimation != null)
+            {
+                _selectionAnimation.Stop();
+                new ScaleTween(CurrentUnit.Selection, Vector3.one).Play();
+            }
+        }
+
         public override void Clear()
         {
+           StopSelection();
             UIDragController.Instance.Swipe -= OnSwipe;
             UIDragController.Instance.Deactivate();
         }
 
         private void OnSwipe(Vector2 direction, float speedCoef)
         {
+            StopSelection();
             CurrentUnit.Move(direction, speedCoef);
             UIDragController.Instance.Swipe -= OnSwipe;
         }
