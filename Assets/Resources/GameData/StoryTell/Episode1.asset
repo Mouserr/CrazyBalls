@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a833a352fc6bd0438adb54b72823a1f, type: 3}
   m_Name: Episode1
   m_EditorClassIdentifier: 
-  name: Episode1
-  description: Episode1 descr
+  name: "\u0414\u043E\u043C"
+  description: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u0437\u0430\u043D\u044F\u0442\u0438\u0435
+    \u0442\u0430\u0440\u0430\u043A\u0430\u043D\u043E\u0432 - \u0434\u043E\u0431\u044B\u0432\u0430\u0442\u044C
+    \u0435\u0434\u0443. \u0410 \u0433\u0434\u0435 \u0432\u043E\u0440\u043E\u0432\u0430\u0442\u044C
+    \u0435\u0434\u0443, \u043A\u0430\u043A \u043D\u0435 \u0432 \u0434\u043E\u043C\u0435
+    \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0445 \u0434\u0432\u0443\u043D\u043E\u0433\u0438\u0445?"
   battlefieldImage: 
   enemies:
   - {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393, type: 2}

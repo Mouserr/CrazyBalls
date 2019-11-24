@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
 using Assets.Scripts.Screens;
+using TMPro;
 using UnityEngine;
 
 public class StoryTellScreen : AbstractScreen
@@ -24,8 +25,9 @@ public class StoryTellScreen : AbstractScreen
         _episodes = new List<EpisodeData>();
         _episodes = StoryPoints.Select(c => c.Episode).ToList();
         CurrentStoryPoint = StoryPoints.First(); 
-        CurrentStoryPoint.IsActive = true;
+        CurrentStoryPoint.Activate();
         Player.CurrentEpisode = CurrentStoryPoint.Episode;
+        GameObject.Find("_description").GetComponent<TextMeshProUGUI>().text = CurrentStoryPoint.Episode.Description;
     }
 
     // Update is called once per frame
@@ -34,17 +36,25 @@ public class StoryTellScreen : AbstractScreen
         
     }
 
+    public override void Focus()
+    {
+        if (Player.WonLastBattle)
+        {
+            Player.WonLastBattle = false;
+            NextStoryPoint();
+        }
+    }
+    
     public void NextStoryPoint()
     {
-        CurrentStoryPoint.IsActive = false;
+      //  CurrentStoryPoint.IsActive = false;
         var currentIndex = StoryPoints.ToList().IndexOf(CurrentStoryPoint);
-        if (currentIndex >= StoryPoints.Length) return;
-        
         currentIndex++;
-
+        if (currentIndex >= StoryPoints.Length) return;
         CurrentStoryPoint = StoryPoints[currentIndex];
         Player.CurrentEpisode = CurrentStoryPoint.Episode;
-        CurrentStoryPoint.IsActive = true;
+        CurrentStoryPoint.Activate();
+        GameObject.Find("_description").GetComponent<TextMeshProUGUI>().text = CurrentStoryPoint.Episode.Description;
     }
 
     
