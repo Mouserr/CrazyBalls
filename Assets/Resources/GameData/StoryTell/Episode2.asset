@@ -12,16 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a833a352fc6bd0438adb54b72823a1f, type: 3}
   m_Name: Episode2
   m_EditorClassIdentifier: 
-  name: Episode2
-  description: Episode2 descr
-  battlefieldImage: 
+  name: "\u0414\u043E\u043C"
+  description: "\u041E\u0441\u043D\u043E\u0432\u043D\u043E\u0435 \u0437\u0430\u043D\u044F\u0442\u0438\u0435
+    \u0442\u0430\u0440\u0430\u043A\u0430\u043D\u043E\u0432 - \u0434\u043E\u0431\u044B\u0432\u0430\u0442\u044C
+    \u0435\u0434\u0443. \u0410 \u0433\u0434\u0435 \u0432\u043E\u0440\u043E\u0432\u0430\u0442\u044C
+    \u0435\u0434\u0443, \u043A\u0430\u043A \u043D\u0435 \u0432 \u0434\u043E\u043C\u0435
+    \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0445 \u0434\u0432\u0443\u043D\u043E\u0433\u0438\u0445?"
+  battlefieldImage: {fileID: 0}
   enemies:
-  - {fileID: 11400000, guid: 51f9722150e281346bf96fc6c25296c5, type: 2}
+  - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
+  - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
   - {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012, type: 2}
-  - {fileID: 11400000, guid: 024e55291ad6ab746b2b6efd87afab4d, type: 2}
   bonusesWin:
-  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
   - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
+  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
+  - {fileID: 11400000, guid: f5a3c92354705fe4e884785942a42039, type: 2}
   bonusesLoose:
-  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
+  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
   enemyLevels: 
