@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{50ac4b87-cb68-423b-b1a0-161335375f0e}">
+		<property name="assetPath">
+			<value>Goki_Battle_End_1-8.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.287233560090703</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d943daa5-ec0c-4680-a422-7705721f5390}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -211,6 +211,8 @@ namespace Assets.Scripts
                 return;
             }
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Punch");
+            
             if (defender.PlayerId != attacker.PlayerId)
             {
                 attacker.HitsCount.AddValue(1);
@@ -219,7 +221,6 @@ namespace Assets.Scripts
                     {
                         new ActionScenarioItem(() =>
                         {
-                            FMODUnity.RuntimeManager.PlayOneShot("event:/Damage");
                             if (DamageSystem.ApplyPassiveDamage(attacker, defender))
                             {
                                 defender.IsActive = false;

@@ -293,7 +293,7 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6692883943463304648
@@ -309,7 +309,6 @@ GameObject:
   - component: {fileID: 6692883943463304651}
   - component: {fileID: 6692883943463304695}
   - component: {fileID: 291399779}
-  - component: {fileID: 291399780}
   m_Layer: 0
   m_Name: Goki
   m_TagString: Untagged
@@ -400,29 +399,6 @@ MonoBehaviour:
   DamageEffect: {fileID: 2354243396324044111}
   Sprite: {fileID: 4442665443927998085}
   Selection: {fileID: 446621532520836476}
---- !u!114 &291399780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692883943463304648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/WallHit
-  PlayEvent: 9
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &8570712509267007049
 GameObject:
   m_ObjectHideFlags: 0

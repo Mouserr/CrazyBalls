@@ -3,6 +3,7 @@ using Assets.Scripts.Abilities;
 using Assets.Scripts.Core.Helpers;
 using Assets.Scripts.Core.SyncCodes;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
+using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using Assets.Scripts.Models;
@@ -33,6 +34,11 @@ namespace Assets.Scripts.Configs.Abilities
             var renderers = linesCollider.GetComponentsInChildren<Renderer>();
             return new SyncScenario(
                 new List<ISyncScenarioItem>{
+                    
+                    new ActionScenarioItem(() =>
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");
+                    }),
                     new AlphaTween(renderers, 0),
                     new AlphaTween(renderers, 1, 0.1f, EaseType.QuadIn),
                     new AlphaTween(renderers, 0, 0.3f, EaseType.QuadOut)

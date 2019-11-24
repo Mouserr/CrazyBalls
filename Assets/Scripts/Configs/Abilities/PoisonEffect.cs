@@ -37,7 +37,6 @@ namespace Assets.Scripts.Configs.Abilities
         {
             return new ActionScenarioItem(() =>
                 {
-                    Debug.Log($"Applying poison to {castContext.Target}", castContext.Target);
                     DamageSystem.ApplyDamage(null, DamagePerTurn.GetValue(abilityLevel), castContext.Target);
                 }
             ).PlayRegisterAndReturnSelf();

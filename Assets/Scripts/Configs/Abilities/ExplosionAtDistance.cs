@@ -62,6 +62,10 @@ namespace Assets.Scripts.Configs.Abilities
                 items.Add(new SyncScenario(
                     new List<ISyncScenarioItem>
                     {
+                        new ActionScenarioItem(() =>
+                        {
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");
+                        }),
                         new AlphaTween(effect, 1),
                         new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
                         new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut)

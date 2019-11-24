@@ -65,6 +65,11 @@ namespace Assets.Scripts.Configs.Abilities
                     {
                         new AlphaTween(effect, 1),
                         new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
+                        
+                        new ActionScenarioItem(() =>
+                        {
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/Gas");
+                        }),
                         new ActionScenarioItem(() =>
                         {
                             var targets = MapController.Instance.GetEnemiesInArea(effect.transform.position,

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{ca9527c4-a564-41f2-917c-639cb27f9b6f}">
+		<property name="assetPath">
+			<value>Goki_Death_1-6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.9895691609977324</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d943daa5-ec0c-4680-a422-7705721f5390}</destination>
+		</relationship>
+	</object>
+</objects>

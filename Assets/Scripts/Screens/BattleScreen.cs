@@ -9,6 +9,7 @@ using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
 using Assets.Scripts.Core.Tween;
 using Assets.Scripts.Core.Tween.TweenObjects;
 using Assets.Scripts.TeamControllers;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Assets.Scripts.Screens
     public class BattleScreen : AbstractScreen
     {
         public PlayerController Player;
-      
+
         [SerializeField]
         private List<UICharacterAbility> _abilities;
 
@@ -53,6 +54,7 @@ namespace Assets.Scripts.Screens
 
         private void OnGameOver(int loser)
         {
+            MusicController.Instance.ChangeTheme(false);
             if (loser == 0)
             {
                 Lose();
@@ -65,6 +67,7 @@ namespace Assets.Scripts.Screens
 
         public override void Focus()
         {
+            MusicController.Instance.ChangeTheme(true);
             Game.Instance.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
             var playerTeam = Player.BattleGroup;
             var enemies = Player.CurrentEpisode.Enemies.Select(data => 
@@ -84,7 +87,7 @@ namespace Assets.Scripts.Screens
             Game.Instance.StartGame();
             base.Focus();
         }
-
+        
         public override ISyncScenarioItem GetShowTransition(float duration = 0.3f)
         {
             return new CompositeItem(

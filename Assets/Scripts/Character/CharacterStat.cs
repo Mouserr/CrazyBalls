@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -30,6 +31,14 @@ namespace Assets.Scripts
         public void AddValue(int value)
         {
             _currentValue += value;
+            if (_currentValue > MaxValue) _currentValue = MaxValue;
+            if (_currentValue < 0) _currentValue = 0;
+            Changed?.Invoke(this);
+        }  
+        
+        public void MultiplyBy(float value)
+        {
+            _currentValue = Mathf.RoundToInt(_currentValue * value);
             if (_currentValue > MaxValue) _currentValue = MaxValue;
             if (_currentValue < 0) _currentValue = 0;
             Changed?.Invoke(this);
