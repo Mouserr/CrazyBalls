@@ -16,6 +16,7 @@ public class StoryTellScreen : AbstractScreen
     private List<EpisodeData> _episodes;
     
     public StoryPointController CurrentStoryPoint;
+    public TextMeshProUGUI Description;
 
     
 
@@ -27,7 +28,7 @@ public class StoryTellScreen : AbstractScreen
         CurrentStoryPoint = StoryPoints.First(); 
         CurrentStoryPoint.Activate();
         Player.CurrentEpisode = CurrentStoryPoint.Episode;
-        GameObject.Find("_description").GetComponent<TextMeshProUGUI>().text = CurrentStoryPoint.Episode.Description;
+        Description.text = CurrentStoryPoint.Episode.Description;
     }
 
     // Update is called once per frame
@@ -56,7 +57,7 @@ public class StoryTellScreen : AbstractScreen
         CurrentStoryPoint = StoryPoints[currentIndex];
         Player.CurrentEpisode = CurrentStoryPoint.Episode;
         CurrentStoryPoint.Activate();
-        GameObject.Find("_description").GetComponent<TextMeshProUGUI>().text = CurrentStoryPoint.Episode.Description;
+        Description.text = CurrentStoryPoint.Episode.Description;
     }
 
     

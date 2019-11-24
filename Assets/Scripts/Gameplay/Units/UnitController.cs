@@ -72,6 +72,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             _rigidbody = GetComponentInChildren<Rigidbody2D>();
+            HitsCount = new CharacterStat(CharacterStatType.Energy, 9999);
         }
 
         public void SetCharacter(Character character, int playerId)
@@ -80,7 +81,6 @@ namespace Assets.Scripts
             PlayerId = playerId;
             _prevHealthValue = _character.GetStat(CharacterStatType.Health);
             Sprite.sprite = _character.InGameSprite;
-            HitsCount = new CharacterStat(CharacterStatType.Energy, 9999);
             HitsCount.SetValue(0);
         }
 
@@ -118,7 +118,7 @@ namespace Assets.Scripts
 
         public void Move(Vector2 direction, float speedCoef)
         {
-            _rigidbody.velocity = direction * (MaxSpeed.CurrentValue * speedCoef);
+            _rigidbody.velocity = 1.5f * direction * (MaxSpeed.CurrentValue * speedCoef);
             IsMoving = true;
         }
 
@@ -149,7 +149,7 @@ namespace Assets.Scripts
 
         public void Clear()
         {
-            HitsCount = null;
+            HitsCount.SetValue(0);
             Game.Instance.TurnStarted -= OnTurnStarted;
             Health.Changed -= _healthBar.SetValue;
             Health.Changed -= OnHealthChanged;;
