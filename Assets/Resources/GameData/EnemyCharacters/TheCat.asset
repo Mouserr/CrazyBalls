@@ -27,5 +27,5 @@ MonoBehaviour:
   maxSpeed:
     Levels: 
   passiveAbility: {fileID: 0}
-  activeAbility: {fileID: 11400000, guid: bacd2f4e6413b1e44b50bcccaa277cb0, type: 2}
+  activeAbility: {fileID: 11400000, guid: c81a3d19259b18d4191f74fbff3aede1, type: 2}
   unitType: 2

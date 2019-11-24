@@ -11,20 +11,26 @@ using UnityEngine;
 
 namespace Assets.Scripts.Configs.Abilities
 {
-    [CreateAssetMenu(fileName = "SlipperManAttack", menuName = "Configs/Ability/SlipperManAttack")]
-    public class SlipperManAttack : ActiveAbilityConfig, ICastingAreaProvider
+    [CreateAssetMenu(fileName = "TheCatAttack", menuName = "Configs/Ability/TheCatAttack")]
+    public class TheCatAttack : ActiveAbilityConfig, ICastingAreaProvider
     {
         private int _index;
 
         [SerializeField]
         private Direction[] _directions;
+
+        [SerializeField]
+        private int _distance;
+
         [SerializeField]
         private FloatAbilityParameter _radius;
+
         [SerializeField]
         private IntAbilityParameter _damage;
+
         [SerializeField]
         private SpriteRenderer _explosionEffectPrefab;
-
+        
         public float GetRadius(int abilityLevel)
         {
             return _radius.GetValue(abilityLevel);
@@ -41,21 +47,19 @@ namespace Assets.Scripts.Configs.Abilities
 
         public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel)
         {
-            var direction = _directions[_index].GetDirections()[0];
+            var directions = _directions[_index].GetDirections();
             _index = _index + 1 >= _directions.Length ? 0 : _index + 1;
             var items = new List<ISyncScenarioItem>();
-            Vector2 startPoint = castContext.Caster.Position - 7 * direction;
-            for (int j = 0; j < 7; j++)
+            foreach (var direction in directions)
             {
-                var radius = _radius.GetValue(abilityLevel);
                 var effect = PrefabHelper.Intantiate(_explosionEffectPrefab, Game.Instance.gameObject);
-                effect.transform.position = startPoint + direction * j * radius;
+                effect.transform.position = castContext.Caster.Position + direction * _distance;
                 effect.transform.localScale = Vector3.zero;
-
+                var radius = _radius.GetValue(abilityLevel);
+                
                 items.Add(new SyncScenario(
                     new List<ISyncScenarioItem>
                     {
-                        new TimeWaiterScenarioItem(0.5f * j),
                         new AlphaTween(effect, 1),
                         new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
                         new ActionScenarioItem(() =>
@@ -65,7 +69,8 @@ namespace Assets.Scripts.Configs.Abilities
 
                             for (int i = 0; i < targets.Count; i++)
                             {
-                                DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel), targets[i]);
+                                DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel),
+                                    targets[i]);
                             }
                         }),
                         new AlphaTween(effect, 0, 0.3f, EaseType.QuadOut)
@@ -74,7 +79,7 @@ namespace Assets.Scripts.Configs.Abilities
                 ));
             }
 
-            return new CompositeItem(items).PlayRegisterAndReturnSelf();
+            return new SyncScenario(items).PlayRegisterAndReturnSelf();
         }
 
 

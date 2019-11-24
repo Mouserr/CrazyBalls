@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9c8baca9be49e79bcc7a29fe010893, type: 3}
+  m_Name: RaidBossAttack
+  m_EditorClassIdentifier: 
+  TargetType: 0
+  Icon: {fileID: 0}
+  Cooldown:
+    Levels: []
+  HitsToUnlock: 0
+  _directions: 55000000aa000000
+  _distance: 2
+  _radius:
+    Levels:
+    - 1
+  _damage:
+    Levels: 14000000
+  _explosionEffectPrefab: {fileID: 3928723293547965088, guid: 2645ac837976cec4798cb9990f5f3919,
+    type: 3}
+  EffectOnTouch: {fileID: 11400000, guid: 16e84a0a5d76e3b47b43e678ecedb6ae, type: 2}

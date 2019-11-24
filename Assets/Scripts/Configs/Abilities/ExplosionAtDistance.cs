@@ -51,7 +51,7 @@ namespace Assets.Scripts.Configs.Abilities
                 effect.transform.localScale = Vector3.zero;
 
                 var radius = _radius.GetValue(abilityLevel);
-                var targets = MapController.Instance.GetEnemiesInArea(castContext.Caster.Position,
+                var targets = MapController.Instance.GetEnemiesInArea(effect.transform.position,
                     radius, castContext.Caster.PlayerId);
 
                 for (int i = 0; i < targets.Count; i++)
