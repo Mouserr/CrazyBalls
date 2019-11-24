@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: Food100
-  m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts:FoodBonusData
-  food: 100
+  m_Name: CharacterA
+  m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts:CharacterBonusData
+  allyCharacter: {fileID: 11400000, guid: 44a0909519433cf4093b228310cead79, type: 2}

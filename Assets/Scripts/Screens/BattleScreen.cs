@@ -19,9 +19,6 @@ namespace Assets.Scripts.Screens
         public PlayerController Player;
         // TMP
         [SerializeField]
-        private List<CharacterData> _playerUnits;
-        // TMP
-        [SerializeField]
         private List<CharacterData> _mobs;
 
         [SerializeField]
@@ -72,13 +69,8 @@ namespace Assets.Scripts.Screens
         public override void Focus()
         {
             Game.Instance.PrepareGame(new PlayerTeamController(0), new AITeamController(1));
-            var playerTeam = _playerUnits.Select(data =>
-            {
-                var character = new Character(data);
-                character.SetLevel(1);
-                return character;
-            }).ToList();
-            var enemies = _mobs.Select(data => 
+            var playerTeam = Player.BattleGroup;
+            var enemies = Player.CurrentEpisode.Enemies.Select(data => 
             {
                 var character = new Character(data);
                 character.SetLevel(1);

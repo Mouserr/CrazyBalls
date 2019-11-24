@@ -16,10 +16,10 @@ MonoBehaviour:
   description: Episode1 descr
   battlefieldImage: 
   enemies:
-  - {fileID: 11400000, guid: 5158ea51eabe5cf48bb5987cc348b11c, type: 2}
+  - {fileID: 11400000, guid: 5ed34466d7e7075448e9fc11c87a4bcf, type: 2}
   bonusesWin:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ba6b9cae2f53ac04f97c2e588eb28451, type: 2}
+  - {fileID: 11400000, guid: e75bea87159a92347bd593f3c86de4e1, type: 2}
   bonusesLoose:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e2be5e6631aaa1c469fd919ec36b8393, type: 2}
   enemyLevels: 
