@@ -23,7 +23,7 @@ namespace Assets.Scripts.Screens
             Icon.sprite = unit.Character.Icon;
             _hitsToUnlock = unit.Character.ActiveAbility.HitsToUnlock;
             unit.HitsCount.Changed += OnHit;
-          //  HitsLeftLabel.text = _hitsToUnlock.ToString();
+            CounterUI.transform.Find("UltLabel").GetComponent<TextMeshProUGUI>().text = _hitsToUnlock.ToString();
         }
 
         private void OnHit(CharacterStat characterStat)
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Screens
 
         public void Click()
         {
-            if (Game.Instance.CurrentUnit == _unit && _unit.HitsCount.CurrentValue >= _hitsToUnlock)
+            if (Game.Instance.CurrentUnit == _unit && _unit.HitsCount.CurrentValue >= _hitsToUnlock && UIDragController.Instance.IsActive)
             {
                 _unit.CastAbility(new CastContext {Caster = _unit});
             }

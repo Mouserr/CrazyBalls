@@ -28,6 +28,16 @@ namespace Assets.Scripts
             _maxValue = maxValue;
         }
 
+        
+        
+        public void SetValue(int value)
+        {
+            _currentValue = value;
+            if (_currentValue > MaxValue) _currentValue = MaxValue;
+            if (_currentValue < 0) _currentValue = 0;
+            Changed?.Invoke(this);
+        }  
+        
         public void AddValue(int value)
         {
             _currentValue += value;

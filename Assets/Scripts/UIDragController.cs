@@ -15,7 +15,7 @@ namespace Assets.Scripts
         private Vector2 _mouseInitialPosition;
         private Vector2 _prevPosition;
         private Vector3 _casterPosition;
-        private bool _isActive;
+        public bool IsActive { get; private set; }
 
         public float MinDelta;
         public Camera Camera;
@@ -34,19 +34,19 @@ namespace Assets.Scripts
         {
             _casterPosition = position;
             Graphic.raycastTarget = true;
-            _isActive = true;
+            IsActive = true;
         }
 
         public void Deactivate()
         {
-            _isActive = false;
+            IsActive = false;
             Graphic.raycastTarget = false;
             _isPressed = false;
         }
 
         void Update()
         {
-            if (!_isActive)
+            if (!IsActive)
             {
                 return;
             }
@@ -74,13 +74,13 @@ namespace Assets.Scripts
         private void ProceedDrag()
         {
             var delta = _mouseInitialPosition - _prevPosition;
-            _isActive = false;
+            IsActive = false;
             Swipe?.Invoke(delta.normalized, Arrow.fillAmount);
         }
         
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!_isActive)
+            if (!IsActive)
             {
                 return;
             }
@@ -98,7 +98,7 @@ namespace Assets.Scripts
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (!_isActive || !_isPressed)
+            if (!IsActive || !_isPressed)
             {
                 return;
             }

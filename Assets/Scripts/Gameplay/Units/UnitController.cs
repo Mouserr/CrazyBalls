@@ -80,7 +80,8 @@ namespace Assets.Scripts
             PlayerId = playerId;
             _prevHealthValue = _character.GetStat(CharacterStatType.Health);
             Sprite.sprite = _character.InGameSprite;
-            HitsCount = new CharacterStat(CharacterStatType.Energy, 99999);
+            HitsCount = new CharacterStat(CharacterStatType.Energy, 9999);
+            HitsCount.SetValue(0);
         }
 
         public void Init()
