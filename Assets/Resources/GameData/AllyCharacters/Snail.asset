@@ -15,8 +15,8 @@ MonoBehaviour:
   id: 90cab55d-9446-442d-9fc4-1498486edcf0
   displayName: Snail
   description: Fastest one
-  icon: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
-  image: {fileID: 21300000, guid: 2df38f2dfac594e409170e857666c051, type: 3}
+  icon: {fileID: 21300000, guid: 2b2585c76edfc4c4b8b1a63b7eb3ab9d, type: 3}
+  image: {fileID: 21300000, guid: 2b2585c76edfc4c4b8b1a63b7eb3ab9d, type: 3}
   inGameSprite: {fileID: 21300000, guid: e232c32bd91b01643af193576d75e1f9, type: 3}
   health:
     Levels: 7800000096000000b4000000c8000000fa0000002c0100009001000026020000a8020000b6030000
