@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     public EpisodeData CurrentEpisode;
 
+    public bool WonLastBattle = false;
+    
     public void AssingToBattle(Character character)
     {
         BattleGroup.Add(character);

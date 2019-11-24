@@ -80,6 +80,7 @@ public class TeamManagementScreen : AbstractScreen
         GameObject.Find("_characterAvatar").GetComponent<Image>().sprite = SelectedCharacter.Image;
         GameObject.Find("_characterName").GetComponent<TextMeshProUGUI>().text = SelectedCharacter.Name;
         GameObject.Find("_characterLevel").GetComponent<TextMeshProUGUI>().text = $"LVL {SelectedCharacter.Level}";
+        GameObject.Find("_description").GetComponent<TextMeshProUGUI>().text = SelectedCharacter.Description;
         
         GameObject.Find("_hpStat").GetComponent<StatUIComponent>().SetValue(SelectedCharacter.GetStat(CharacterStatType.Health).ToString());
         
@@ -93,6 +94,8 @@ public class TeamManagementScreen : AbstractScreen
         GameObject.Find("_food").GetComponent<StatUIComponent>().SetValue(Player.Wallet.GetAmount(CurrencyType.Food).ToString());
         
         GameObject.Find("_lvlUpBtn").GetComponent<UnityEngine.UI.Button>().enabled = CanLvlUp();
+        
+        
     }
 
     private int GetLvlUpCost()

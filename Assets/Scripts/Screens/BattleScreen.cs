@@ -118,6 +118,7 @@ namespace Assets.Scripts.Screens
 
         public void Win()
         {
+            Player.WonLastBattle = true;
             ScreensManager.Instance.OpenScreen(ScreenType.Win);
         }
 
