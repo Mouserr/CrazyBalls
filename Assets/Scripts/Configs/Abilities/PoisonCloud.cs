@@ -11,10 +11,12 @@ using UnityEngine;
 namespace Assets.Scripts.Configs.Abilities
 {
     [CreateAssetMenu(fileName = "PoisonCloud", menuName = "Configs/Ability/PoisonCloud")]
-    public class PoisonCloud : AbilityConfig
+    public class PoisonCloud : ActiveAbilityConfig
     {
         [SerializeField]
         private FloatAbilityParameter _radius;
+        [SerializeField]
+        private IntAbilityParameter _damage;
         [SerializeField]
         private SpriteRenderer _explosionEffectPrefab;
 
@@ -22,6 +24,11 @@ namespace Assets.Scripts.Configs.Abilities
 
         public override void Register()
         {
+        }
+
+        public override bool CouldApply(CastContext castContext, int abilityLevel)
+        {
+            return true;
         }
 
         public override ISyncScenarioItem Apply(CastContext castContext, int abilityLevel)
@@ -36,8 +43,10 @@ namespace Assets.Scripts.Configs.Abilities
 
             for (int i = 0; i < targets.Count; i++)
             {
-                Debug.Log($"Attaching poison to {targets[i]}", targets[i]);
-                targets[i].AddEffect(new CharacterEffect(EffectOnTouch, abilityLevel));
+                if (!DamageSystem.ApplyDamage(castContext.Caster, _damage.GetValue(abilityLevel), targets[i]))
+                {
+                    targets[i].AddEffect(new CharacterEffect(EffectOnTouch, abilityLevel));
+                }
             }
 
             return new SyncScenario(new List<ISyncScenarioItem>{

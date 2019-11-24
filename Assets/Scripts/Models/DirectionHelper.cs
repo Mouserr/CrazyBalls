@@ -10,7 +10,7 @@ namespace Assets.Scripts.Models
             return (direction & value) == value;
         }
 
-        public static List<Vector2> GetDirections(Direction directions)
+        public static List<Vector2> GetDirections(this Direction directions)
         {
             var result = new List<Vector2>();
             if (directions.Has(Direction.Up))

@@ -2475,6 +2475,24 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 652560907}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393,
+        type: 2}
+    - target: {fileID: 3107631669251197092, guid: db2a55141b7d98f4cbb53a5a9597479a,
+        type: 3}
+      propertyPath: _mobs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf,
+        type: 2}
     - target: {fileID: 1213565679, guid: db2a55141b7d98f4cbb53a5a9597479a, type: 3}
       propertyPath: Camera
       value: 
