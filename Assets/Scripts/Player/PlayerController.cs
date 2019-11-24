@@ -22,6 +22,12 @@ public class PlayerController : MonoBehaviour
         BattleGroup.Add(character);
         if (BattleGroup.Count > 3) BattleGroup.Remove(BattleGroup.First());
     }
+    
+    public void RemoveFromBattle(Character character)
+    {
+        BattleGroup.Remove(character);
+    }
+    
 
     // Start is called before the first frame update
     void Start()
