@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6281189364809105483}
   - component: {fileID: 6281189364809105482}
   - component: {fileID: 6281189364809105481}
+  - component: {fileID: 1604536516}
   m_Layer: 5
   m_Name: _okButton
   m_TagString: Untagged
@@ -129,6 +130,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1604536516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281189364809107383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737409b0c39b4b6ba51b16513a89650c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6281189365042765992
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,8 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1955fc0b14544c768d27ba45f28e5099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HideEndPosition: {x: 0, y: 0, z: 0}
-  ShowStartPosition: {x: 0, y: 0, z: 0}
+  HideEndPosition: {x: -1081, y: 0, z: 0}
+  ShowStartPosition: {x: 1081, y: 0, z: 0}
   ScreenType: 4
   IsPopup: 0
   Player: {fileID: 0}

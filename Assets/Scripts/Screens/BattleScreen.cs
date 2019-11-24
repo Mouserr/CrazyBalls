@@ -112,6 +112,7 @@ namespace Assets.Scripts.Screens
 
         public void Surrender()
         {
+            MusicController.Instance.ChangeTheme(false);
             Game.Instance.Clear();
             ScreensManager.Instance.OpenScreen(ScreenType.Surrender);
         }
