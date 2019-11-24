@@ -14,21 +14,33 @@ namespace Assets.Scripts.Screens
         private Image Icon;
 
         [SerializeField]
-        private TMP_Text HitsLeftLabel;
-
+        
+        public GameObject CounterUI;
+        
         public void Init(UnitController unit)
         {
             _unit = unit;
             Icon.sprite = unit.Character.Icon;
             _hitsToUnlock = unit.Character.ActiveAbility.HitsToUnlock;
             unit.HitsCount.Changed += OnHit;
-            HitsLeftLabel.text = _hitsToUnlock.ToString();
+          //  HitsLeftLabel.text = _hitsToUnlock.ToString();
         }
 
         private void OnHit(CharacterStat characterStat)
         {
             var hitsLeft = _hitsToUnlock - _unit.HitsCount.CurrentValue;
-            HitsLeftLabel.text = hitsLeft > 0 ? hitsLeft.ToString() : "Ready";
+
+            if (hitsLeft <= 0)
+            {
+                CounterUI.SetActive(false);
+            }
+            else
+            {
+                CounterUI.SetActive(true);
+                CounterUI.transform.Find("UltLabel").GetComponent<TextMeshProUGUI>().text = hitsLeft.ToString();
+            }
+
+
         }
 
         public void Click()

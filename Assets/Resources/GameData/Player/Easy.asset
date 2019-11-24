@@ -15,5 +15,5 @@ MonoBehaviour:
   food: 500
   characters:
   - {fileID: 11400000, guid: 2b87f5f5797696042bd8f767c32cb2d6, type: 2}
-  - {fileID: 11400000, guid: 156b2c0d1a2b4a848b29e96898a9c1e2, type: 2}
   - {fileID: 11400000, guid: 44a0909519433cf4093b228310cead79, type: 2}
+  - {fileID: 11400000, guid: 40d1f577e04aad64296b9e591d49105a, type: 2}

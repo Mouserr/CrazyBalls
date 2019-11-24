@@ -13,7 +13,7 @@ namespace Assets.Scripts
         [SerializeField]
         private string description;
         [SerializeField]
-        private string battlefieldImage;
+        private Sprite battlefieldImage;
         [SerializeField]
         private CharacterData[] enemies;
         [SerializeField]
@@ -30,6 +30,6 @@ namespace Assets.Scripts
        
         public BonusData[] BonusesWin => bonusesWin;
         public BonusData[] BonusesLoose => bonusesLoose;
-        public string BattlefieldImage => battlefieldImage;
+        public Sprite BattlefieldImage => battlefieldImage;
     }
 }

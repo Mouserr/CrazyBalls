@@ -43,6 +43,8 @@ public class StoryTellScreen : AbstractScreen
             Player.WonLastBattle = false;
             NextStoryPoint();
         }
+        
+
     }
     
     public void NextStoryPoint()
