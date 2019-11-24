@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999c2edf84964d841b966cb57348e10b, type: 3}
-  m_Name: SlipperManAttack
-  m_EditorClassIdentifier: Assembly-CSharp:Assets.Scripts.Configs.Abilities:SlipperManAttack
+  m_Script: {fileID: 11500000, guid: dfac07376a4b12f4d886a5d0d33bf27c, type: 3}
+  m_Name: PirateAttack
+  m_EditorClassIdentifier: 
   TargetType: 0
   Icon: {fileID: 0}
   Cooldown:
     Levels: []
-  HitsToUnlock: 0
-  _directions: 10000000
+  HitsToUnlock: 6
+  _direction: 170
+  _distance: 1
   _radius:
     Levels:
-    - 0.8
+    - 1
   _damage:
     Levels: 28000000
-  _explosionEffectPrefab: {fileID: 3928723293547965088, guid: 7923cb73d9348b14bbe93302bdae4e1e,
+  _explosionEffectPrefab: {fileID: 3928723293547965088, guid: 6b30c68d86ee015449d009bd38970521,
     type: 3}

@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/MainTheme
   guid: 6403e1b788914c4ba55d109428bfa5b4
   Banks:
-  - {fileID: -7198152908634317516}
+  - {fileID: 3306204077189369926}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/WallHit
   guid: fa6d50050ee82c478622de18d1bedbfb
   Banks:
-  - {fileID: -7198152908634317516}
+  - {fileID: 3306204077189369926}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -118,6 +118,51 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-5349161297045088279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UIClick
+  m_EditorClassIdentifier: 
+  Path: event:/UIClick
+  guid: 649128bbfb11934f8c1ed186420521f9
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2181
+--- !u!114 &-4639168291989329376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/Explosion
+  guid: caf23114916b4147948e1240c0a86ef0
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1009
 --- !u!114 &-4099772754522616600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +181,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-2779505755483277706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Goki_Battle_End_1-8
+  m_EditorClassIdentifier: 
+  Path: event:/Goki_Battle_End_1-8
+  guid: e3f421b9d7101c40ad415309950d51ee
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 11287
 --- !u!114 &-2750263059239673422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,6 +222,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-2615409069941155426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637101952620211297
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-1896881393270577208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,12 +254,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/gokiBalls/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637095034546821690
+  lastModified: 637101952885826490
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 868
+    Value: 1052
   Exists: 1
+--- !u!114 &-1750058066920883466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637101935947147653
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-197241480086202824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +293,7 @@ MonoBehaviour:
   Path: event:/Damage
   guid: 4db682ba0e203949929c014417ab5dd9
   Banks:
-  - {fileID: -7198152908634317516}
+  - {fileID: 3306204077189369926}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -211,19 +315,131 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1896881393270577208}
-  - {fileID: -7198152908634317516}
+  - {fileID: 614773082175359063}
   EditorEvents:
   - {fileID: -8725871191511057830}
   - {fileID: -7231056026818667387}
   - {fileID: -197241480086202824}
   - {fileID: 2969697803853383976}
+  - {fileID: 23805398380475115}
+  - {fileID: 9046517368544094238}
+  - {fileID: 2923568906738575641}
+  - {fileID: -4639168291989329376}
+  - {fileID: 39003253378563795}
+  - {fileID: -2779505755483277706}
+  - {fileID: 4836593264056287082}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -7198152908634317516}
+  - {fileID: 614773082175359063}
   StringsBanks:
   - {fileID: -1896881393270577208}
-  stringsBankWriteTime: 637095034546821690
+  stringsBankWriteTime: 637101952885826490
   cacheVersion: 3
+--- !u!114 &23805398380475115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Punch
+  m_EditorClassIdentifier: 
+  Path: event:/Punch
+  guid: 4732ec5a5a4ffe4195505b5cd03ccf29
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1009
+--- !u!114 &39003253378563795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gas
+  m_EditorClassIdentifier: 
+  Path: event:/Gas
+  guid: de75a6bf1ebb5648a263df599f7aa296
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1009
+--- !u!114 &614773082175359063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637101952885796488
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &677711576658429714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637095864563849091
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2923568906738575641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Goki_Menu_Music_Loop
+  m_EditorClassIdentifier: 
+  Path: event:/Goki_Menu_Music_Loop
+  guid: c2ed50616bbde847adc0a0193ea7528d
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 109225
 --- !u!114 &2969697803853383976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,16 +453,53 @@ MonoBehaviour:
   m_Name: event:/Death
   m_EditorClassIdentifier: 
   Path: event:/Death
-  guid: 53e25b95047e4846a4cf542fbff851e1
+  guid: 80ddc9493efbce41bb4a08e96ec31815
   Banks:
-  - {fileID: -7198152908634317516}
+  - {fileID: 3306204077189369926}
+  - {fileID: 614773082175359063}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 914
+  Length: 1009
+--- !u!114 &3306204077189369926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637095864563849091
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4643094333064742079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637101951830316118
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &4783528909296139835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +518,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &4836593264056287082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BattleMusic
+  m_EditorClassIdentifier: 
+  Path: event:/BattleMusic
+  guid: fffbbd47b7b1c848a6af89e00b52d17c
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 84911
 --- !u!114 &5962845112003734370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +577,44 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &7103369153252867529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/gokiBalls/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637101952508024881
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &9046517368544094238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Goki_UI_Click
+  m_EditorClassIdentifier: 
+  Path: event:/Goki_UI_Click
+  guid: b80e9c84183b1149adb08faae889db64
+  Banks:
+  - {fileID: 614773082175359063}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2181
