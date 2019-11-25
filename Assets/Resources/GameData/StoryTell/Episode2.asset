@@ -24,8 +24,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
   - {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012, type: 2}
   bonusesWin:
-  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
-  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
+  - {fileID: 11400000, guid: 4732dc4d0b0ee54449b8a4105161496e, type: 2}
   - {fileID: 11400000, guid: f5a3c92354705fe4e884785942a42039, type: 2}
   bonusesLoose:
   - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
