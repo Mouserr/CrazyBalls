@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Assets.Scripts.Core.SyncCodes;
 using Assets.Scripts.Core.SyncCodes.SyncScenario;
 using Assets.Scripts.Core.SyncCodes.SyncScenario.Implementations;
@@ -21,6 +22,7 @@ namespace Assets.Scripts.TeamControllers
         public override void StartTurn(UnitController unit)
         {
             base.StartTurn(unit);
+            _selectionAnimation?.Stop();
             _selectionAnimation = GetSelectionAnimation().PlayAndReturnSelf();
 
             UIDragController.Instance.Activate(unit.Position);
@@ -31,16 +33,20 @@ namespace Assets.Scripts.TeamControllers
         {
 
             return new SyncScenario(
+                new List<ISyncScenarioItem> { 
                     new ScaleTween(CurrentUnit.Selection, Vector3.one),
                     new ScaleTween(CurrentUnit.Selection, Vector3.one * 1.3f, 0.3f, EaseType.BounceInOut),
                     new ScaleTween(CurrentUnit.Selection, Vector3.one, 0.2f, EaseType.QuadIn),
-                    new TimeWaiterScenarioItem(0.4f),
-                    new ActionScenarioItem(() =>
+                    new TimeWaiterScenarioItem(0.4f)
+                },
+                (s, interrupted) =>
+                {
+                    new ScaleTween(CurrentUnit.Selection, Vector3.one * 0.5f).Play();
+                    if (!interrupted)
                     {
-                        StopSelection();
                         _selectionAnimation = GetSelectionAnimation().PlayAndReturnSelf();
-                    })
-                );
+                    }
+                });
         }
 
         private void StopSelection()
@@ -48,7 +54,6 @@ namespace Assets.Scripts.TeamControllers
             if (_selectionAnimation != null)
             {
                 _selectionAnimation.Stop();
-                new ScaleTween(CurrentUnit.Selection, Vector3.one * 0.5f).Play();
             }
         }
 

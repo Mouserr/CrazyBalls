@@ -66,7 +66,7 @@ namespace Assets.Scripts
 
         public void NextTurn()
         {
-            if (_currentController == null)
+            if (_currentController == null || !_isPlaying)
             {
                 return;
             }
@@ -81,6 +81,11 @@ namespace Assets.Scripts
             }
 
             var units = MapController.Instance.GetUnits(_currentController.PlayerId);
+            if (units.Count == 0)
+            {
+                return;
+            }
+
             var currentIndex = _previousUnitIndexes[_currentController.PlayerId] + 1;
             if (units.Count <= currentIndex)
             {
@@ -111,7 +116,7 @@ namespace Assets.Scripts
         {
             _isPlaying = false;
             MapController.Instance.NoMoreUnitsAtMap -= OnAllUnitsDead;
-            MapController.Instance.AllUnitsStopped -= NextTurn;
+            MapController.Instance.AllUnitsStopped -= OnAllStopped;
             MapController.Instance.Clear();
             _previousUnitIndexes.Clear();
             _currentController = null;

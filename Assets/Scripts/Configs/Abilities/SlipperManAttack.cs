@@ -44,10 +44,11 @@ namespace Assets.Scripts.Configs.Abilities
             var direction = _directions[_index].GetDirections()[0];
             _index = _index + 1 >= _directions.Length ? 0 : _index + 1;
             var items = new List<ISyncScenarioItem>();
-            Vector2 startPoint = castContext.Caster.Position - 7 * direction;
+            var radius = _radius.GetValue(abilityLevel);
+            Vector2 startPoint = castContext.Caster.Position - 3.5f * direction * radius;
             for (int j = 0; j < 7; j++)
             {
-                var radius = _radius.GetValue(abilityLevel);
+                
                 var effect = PrefabHelper.Intantiate(_explosionEffectPrefab, Game.Instance.gameObject);
                 effect.transform.position = startPoint + direction * j * radius;
                 effect.transform.localScale = Vector3.zero;
@@ -57,7 +58,7 @@ namespace Assets.Scripts.Configs.Abilities
                     {
                         new TimeWaiterScenarioItem(0.5f * j),
                         new AlphaTween(effect, 1),
-                        new ScaleTween(effect, 10 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
+                        new ScaleTween(effect, 5 * radius * Vector3.one, 0.5f, EaseType.QuadIn),
                         new ActionScenarioItem(() =>
                         {
                             FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion");

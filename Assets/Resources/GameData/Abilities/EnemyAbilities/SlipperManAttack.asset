@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Cooldown:
     Levels: []
-  HitsToUnlock: 0
+  HitsToUnlock: 3
   _directions: 10000000
   _radius:
     Levels:

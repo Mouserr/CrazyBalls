@@ -200,7 +200,7 @@ namespace Assets.Scripts
 
         public void ResolveCollision(UnitController defender, Collision2D collision)
         {
-            if (defender == Game.Instance.CurrentUnit || !defender.IsActive)
+            if (defender == Game.Instance.CurrentUnit || !defender.IsActive || defender.Character == null)
             {
                 return;
             }
@@ -211,10 +211,14 @@ namespace Assets.Scripts
                 return;
             }
 
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Punch");
-            
             if (defender.PlayerId != attacker.PlayerId)
             {
+                if (defender.PlayerId == Game.Instance.CurrentUnit.PlayerId)
+                {
+                    return;
+                }
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Punch");
                 attacker.HitsCount.AddValue(1);
                 defender.CollisionReaction?.Stop();
                 defender.CollisionReaction = new SyncScenario(new List<ISyncScenarioItem>
@@ -229,7 +233,7 @@ namespace Assets.Scripts
                         }),
                         new ActionScenarioItem(() =>
                         {
-                            if (!defender.IsActive)
+                            if (!defender.IsActive || defender.Character == null)
                             {
                                 FMODUnity.RuntimeManager.PlayOneShot("event:/Death");
                                 defender.Die();

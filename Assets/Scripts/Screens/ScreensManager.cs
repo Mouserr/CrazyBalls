@@ -30,6 +30,11 @@ namespace Assets.Scripts.Screens
 
         public ISyncScenarioItem OpenScreen(ScreenType screenTypeType, float duration = 0.3f)
         {
+            if (TopScreen != null && TopScreen.ScreenType == screenTypeType || _currentTransition != null)
+            {
+                return null;
+            }
+
             var screenToOpen = _screensByType[screenTypeType];
             _currentTransition?.Stop();
 
@@ -55,6 +60,7 @@ namespace Assets.Scripts.Screens
                     }
                     _openScreens.Add(screenToOpen);
                     screenToOpen.Focus();
+                    _currentTransition = null;
                 });
             
             return _currentTransition.PlayAndReturnSelf();

@@ -43,6 +43,11 @@ namespace Assets.Scripts.Units
 
         public void ReleaseUnit(UnitController unitController)
         {
+            if (unitController.Character == null)
+            {
+                return;
+            }
+
             GameObjectPool<UnitController> unitPool;
             if (!pools.TryGetValue(unitController.Character.UnitType, out unitPool))
             {

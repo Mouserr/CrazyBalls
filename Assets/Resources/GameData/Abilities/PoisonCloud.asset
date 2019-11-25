@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetType: 0
   Icon: {fileID: 0}
+  Cooldown:
+    Levels: []
+  HitsToUnlock: 2
   _radius:
     Levels:
     - 1.5
+  _damage:
+    Levels: 
   _explosionEffectPrefab: {fileID: 3928723293547965088, guid: e13bc6bb6ba5a7049b27b17e65d87934,
     type: 3}
   EffectOnTouch: {fileID: 11400000, guid: 40c87b8bb83105d4aa5988d0ac85bb38, type: 2}

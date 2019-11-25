@@ -81,6 +81,7 @@ namespace Assets.Scripts
             PlayerId = playerId;
             _prevHealthValue = _character.GetStat(CharacterStatType.Health);
             Sprite.sprite = _character.InGameSprite;
+            Health.SetValue(Health.MaxValue);
             HitsCount.SetValue(0);
         }
 
