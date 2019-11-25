@@ -28,9 +28,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393, type: 2}
   - {fileID: 11400000, guid: 51f9722150e281346bf96fc6c25296c5, type: 2}
   bonusesWin:
-  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
-  - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
-  - {fileID: 11400000, guid: 18e17086ff7eb0d41ad81c4cd64ad0a8, type: 2}
+  - {fileID: 11400000, guid: 12640a0b964a9b9448089b8e518df70b, type: 2}
   bonusesLoose:
   - {fileID: 11400000, guid: 84644eaf41834374a889f6a8b5c02bcc, type: 2}
   enemyLevels: 
