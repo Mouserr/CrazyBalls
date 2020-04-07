@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Remoting;
-using Assets.Scripts;
-using Assets.Scripts.Configs;
+﻿using Assets.Scripts;
 using UnityEngine;
 
 public class StoryPointController : MonoBehaviour

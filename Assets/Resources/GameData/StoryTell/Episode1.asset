@@ -20,9 +20,11 @@ MonoBehaviour:
     \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0445 \u0434\u0432\u0443\u043D\u043E\u0433\u0438\u0445? "
   battlefieldImage: {fileID: 21300000, guid: fc23f02abb76bf4468b866e3a55106df, type: 3}
   enemies:
+  - {fileID: 11400000, guid: 024e55291ad6ab746b2b6efd87afab4d, type: 2}
   - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
-  - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
-  - {fileID: 11400000, guid: f98cfa036f9c76c46b8c3d37ca4d0abf, type: 2}
+  - {fileID: 11400000, guid: 1729ba9859eca5840a027a0b5dea8012, type: 2}
+  - {fileID: 11400000, guid: f6f82c8be7c99b24fb74f7ba655b7331, type: 2}
+  - {fileID: 11400000, guid: b870b629233bf7745a99fcd843dfb393, type: 2}
   bonusesWin:
   - {fileID: 11400000, guid: 4732dc4d0b0ee54449b8a4105161496e, type: 2}
   bonusesLoose:
